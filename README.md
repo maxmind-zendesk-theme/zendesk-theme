@@ -1,6 +1,8 @@
-# Copenhagen Theme by Zendesk
+# MaxMind ZenDesk Theme
 
-The Copenhagen theme is the default Zendesk Guide theme. It is designed to be responsive and accessible.
+The MaxMind ZenDesk theme is a fork of [the Copenhagen theme](https://github.com/zendesk/copenhagen_theme) (the default Zendesk Guide theme). The following documentation is from the Copenhagen theme.
+
+ The Copenhagen theme is designed to be responsive and accessible.
 Learn more about customizing Zendesk Guide [here](https://support.zendesk.com/hc/en-us/sections/206670747).
 
 The Copenhagen theme for Help Center consists of a [set of templates](#templates), [styles](#styles), a Javascript file used mainly for interactions and an [assets folder](#assets).
