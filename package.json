@@ -2,12 +2,10 @@
   "name": "maxmind-support-center-theme",
   "version": "1.0.0",
   "repository": "git@github.com:maxmind-zendesk-theme/zendesk-theme.git",
-  "dependencies": {
-    "node-fetch": "^2.1.2"
-  },
   "devDependencies": {
     "gulp": "^4.0.2",
-    "js-yaml": "^3.13.1"
+    "js-yaml": "^3.13.1",
+    "node-fetch": "^2.1.2"
   },
   "scripts": {
     "develop": "gulp"
