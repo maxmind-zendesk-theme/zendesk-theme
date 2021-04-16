@@ -11,7 +11,9 @@
     "andrejunges.handlebars",
     "editorconfig.editorconfig",
     "github.vscode-pull-request-github",
-    "rebornix.Ruby"
+    "rebornix.Ruby",
+    "sleistner.vscode-fileutils",
+    "syler.sass-indented"
   ],
   "postCreateCommand": "yarn install",
   "remoteUser": "vscode",
