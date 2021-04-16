@@ -10,6 +10,7 @@
   "extensions": [
     "andrejunges.handlebars",
     "editorconfig.editorconfig",
+    "github.vscode-pull-request-github",
     "rebornix.Ruby"
   ],
   "postCreateCommand": "yarn install",
