@@ -9,6 +9,7 @@
   },
   "extensions": [
     "andrejunges.handlebars",
+    "eamodio.gitlens",
     "editorconfig.editorconfig",
     "github.vscode-pull-request-github",
     "rebornix.Ruby",
