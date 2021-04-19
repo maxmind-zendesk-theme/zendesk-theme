@@ -1,6 +1,23 @@
 # MaxMind ZenDesk Theme
 
-The MaxMind ZenDesk theme is a fork of [the Copenhagen theme](https://github.com/zendesk/copenhagen_theme) (the default Zendesk Guide theme). The following documentation is from the Copenhagen theme.
+The MaxMind ZenDesk theme is a fork of [the Copenhagen theme](https://github.com/zendesk/copenhagen_theme) (the default Zendesk Guide theme).
+
+## Setting Up the Development Environment
+Dependencies and tools for previewing changes locally have been implemented. In order to use this remote development environment so that you have the proper versions of various dependencies without worrying about conflicts on your local machine, proceed with the following steps:
+
+### VS Code
+First, set up your local machine to use the remote containers that have the various dependencies.
+
+1. Ensure that you have the [remote development extension pack installed](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) in VS Code.
+2. Ensure that you have [Docker installed](https://docs.docker.com/get-docker/).
+3. Open the repository in VS Code.
+4. Click on the remote window indicator (the green `><` icon in the bottom left of the screen).
+5. Select `Remote-Containers: Reopen Locally` from the drop-down menu that appears.
+
+Once the above steps are complete, you should be able to preview your changes by using the command `yarn develop`.
+
+## ZenDesk Copenhagen Documentation
+The following documentation is from [the Copenhagen theme](https://github.com/zendesk/copenhagen_theme).
 
  The Copenhagen theme is designed to be responsive and accessible.
 Learn more about customizing Zendesk Guide [here](https://support.zendesk.com/hc/en-us/sections/206670747).
