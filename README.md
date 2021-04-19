@@ -13,6 +13,7 @@ First, set up your local machine to use the remote containers that have the vari
 3. Open the repository in VS Code.
 4. Click on the remote window indicator (the green `><` icon in the bottom left of the screen).
 5. Select `Remote-Containers: Reopen Locally` from the drop-down menu that appears.
+6. Make sure that `.zat.example` has been edited with your appropriate credentials, and renamed `.zat`.
 
 Once the above steps are complete, you should be able to preview your changes by using the command `yarn develop`.
 
