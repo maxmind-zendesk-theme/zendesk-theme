@@ -1,0 +1,5 @@
+{
+  "subdomain": "maxmind",
+  "username": "[enter Zendesk account email]/token",
+  "password": "[enter Zendesk api token]"
+}
