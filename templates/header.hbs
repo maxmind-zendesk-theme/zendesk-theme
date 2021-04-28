@@ -1,46 +1,44 @@
 <a class="skip-navigation" tabindex="1" href="#main-content">{{t 'skip_navigation' }}</a>
 
 <header class="header">
-  <div class="logo">
-    {{#link 'help_center'}}
-      <img src="{{settings.logo}}" alt="{{t 'home_page' name=help_center.name}}" />
-      {{#if settings.show_brand_name}}
-        <span aria-hidden="true">{{help_center.name}}</span>
-      {{/if}}
-    {{/link}}
-  </div>
-  <div class="nav-wrapper">
-    <button class="menu-button" aria-controls="user-nav" aria-expanded="false" aria-label="{{t 'toggle_navigation'}}">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" focusable="false" viewBox="0 0 16 16" class="icon-menu">
-        <path fill="none" stroke="currentColor" stroke-linecap="round" d="M1.5 3.5h13m-13 4h13m-13 4h13"/>
+  <div class="header-area">
+    <a aria-label="Home" class="logo" href="/">
+      <svg version="1.1" viewBox="0 0 251.2 25">
+        <g fill="#005f83">
+          <path d="M19.4 24.8v-16.2l-7 10.6h-.1l-7-10.5v16.1h-5.3v-24.8h5.9l6.6 10.5 6.5-10.5h5.9v24.8h-5.5Z"></path>
+          <path d="M61.6 25l-2.3-5.6h-10.6l-2.3 5.6h-5.6l10.6-25h5.1l10.6 25h-5.5Zm-7.6-18.5l-3.3 8.1h6.6l-3.3-8.1Z"></path>
+          <path d="M98.2 24.8l-5.6-8.5 -5.6 8.5h-6.3l8.7-12.6 -8.4-12.2h6.4l5.3 8.1 5.3-8.1h6.3l-8.4 12.1 8.7 12.7h-6.4Z"></path>
+        </g>
+        <g fill="#00AEEF">
+          <path d="M140.3 24.8v-16.2l-7 10.6h-.1l-7-10.5v16.1h-5.4v-24.8h5.9l6.6 10.5 6.6-10.5h5.9v24.8h-5.5Z"></path>
+          <path d="M164.1 24.8v-24.8h5.5v24.8h-5.5Z"></path>
+          <path d="M205.5 24.8l-12-15.8v15.8h-5.4v-24.8h5.1l11.6 15.3v-15.3h5.4v24.8h-4.7Z"></path>
+          <path d="M238 24.8h-9.7v-24.8h9.7c7.9 0 13.2 5.4 13.2 12.3v.1c.1 6.9-5.3 12.4-13.2 12.4Zm7.6-12.4c0-4.4-3-7.5-7.5-7.5h-4.3v15h4.3c4.4-.1 7.5-3.1 7.5-7.5v0Z"></path>
+        </g>
       </svg>
-    </button>
-    <nav class="user-nav" id="user-nav">
-      {{link 'community'}}
-      {{link 'new_request' class='submit-a-request'}}
-    </nav>
-    {{#if signed_in}}
-      <div class="user-info dropdown">
-        <button class="dropdown-toggle" aria-haspopup="true">
-          {{user_avatar class="user-avatar"}}
-          <span class="hide-on-mobile">
-            {{user_name}}
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" focusable="false" viewBox="0 0 12 12" class="dropdown-chevron-icon" aria-hidden="true">
-              <path fill="none" stroke="currentColor" stroke-linecap="round" d="M3 4.5l2.6 2.6c.2.2.5.2.7 0L9 4.5"/>
-            </svg>
-          </span>
-        </button>
-        <div class="dropdown-menu" role="menu">
-          {{link "my_activities" role="menuitem"}}
-          {{my_profile role="menuitem"}}
-          {{change_password role="menuitem"}}
-          {{link "sign_out" role="menuitem"}}
-        </div>
-      </div>
-    {{else}}
-      {{#link "sign_in" class="sign-in"}}
-        {{t 'sign_in'}}
-      {{/link}}
-    {{/if}}
+      <span>Help</span>
+    </a>
+    <div class="header-spacer"></div>
+    <div class="nav-wrapper">
+      <button class="menu-button" aria-label="{{t 'toggle_navigation'}}">
+        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" aria-hidden="true" class="fa-icon" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path>
+        </svg>
+      </button>
+      <ul class="user-nav" id="user-nav">
+        <li>{{link 'community'}}</li>
+        <li>{{link 'new_request' class='submit-a-request'}}</li>
+        {{#if signed_in}}
+          <li>{{link "my_activities" role="menuitem"}}</li>
+          <li>{{my_profile role="menuitem"}}</li>
+          <li>{{change_password role="menuitem"}}</li>
+          <li>{{link "sign_out" role="menuitem"}}</li>
+        {{else}}
+          <li>{{#link "sign_in" class="sign-in"}}
+            {{t 'sign_in'}}
+          {{/link}}</li>
+        {{/if}}
+      </ul>
+    </div>
   </div>
 </header>

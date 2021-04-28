@@ -1,116 +1,158 @@
 /***** Header *****/
-$header-height: 71px;
+$page-header-height: 80px;
 
 .header {
-  @include max-width-container;
-  position: relative;
-  align-items: center;
-  display: flex;
-  height: $header-height;
-  justify-content: space-between;
+  background: $background_color;
+  box-shadow: 0 1px 13px 0 rgba(0, 0, 0, .1), 0 1px 5px 0 rgba(0, 0, 0, .06);
+  height: $page-header-height;
+  padding-top: 10px;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 10;
 }
 
-.logo img {
-  max-height: 37px;
-  vertical-align: middle;
+.header-area {
+  display: -ms-grid;
+  display: grid;
+  grid-template-areas: "logo search menu";
+  -ms-grid-columns: max-content 1fr max-content;
+  grid-template-columns: max-content 1fr max-content;
+  -ms-grid-rows: auto;
+  grid-template-rows: auto;
+  height: 70px;
+  padding: 0 $spacing;
+}
+
+.header-area>* {
+  -ms-grid-row-align: center;
+  align-self: center;
+}
+
+.logo {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 8px;
+  gap: 8px;
+  grid-area: logo;
+  grid-template-areas: "svg site-name";
+  -ms-grid-columns: auot;
+  grid-template-columns: auto;
+  padding: 10px;
+  text-decoration: none;
+  transform: translateX(-10);
+}
+
+.logo svg {
+  -ms-grid-row: 1;
+  -ms-grid-colum: 1;
+  -ms-grid-row-align: center;
+  align-self: center;
+  grid-area: svg;
+  max-width: 125px;
+  width: 100%;
 }
 
 .logo span {
-  margin: 0 10px;
-  color: $brand_color;
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  -ms-grid-row-align: center;
+  align-self: center;
+  color: $text_color;
+  font-size: 10px;
+  font-style: italic;
+  font-weight: 600;
+  grid-area: site-name;
+  letter-spacing: 1px;
+  line-height: 1;
+  overflow: hidden;
+  padding-left: 9px;
+  position: relative;
+  text-transform: uppercase;
 }
 
-.logo a {
-  display: inline-block;
-}
-
-.logo a:hover, .logo a:focus, .logo a:active {
-  text-decoration: none;
-}
-
-.user-nav {
-  @include tablet { position: relative; }
-  display: inline-block;
+.logo span:before {
+  background: #ccc;
+  content: " ";
+  display: block;
+  height: 100%;
+  left: 0;
   position: absolute;
-  white-space: nowrap;
+  top: 50%;
+  transform: rotate(20deg) translateY(-50%);
+  width: 1px;
+}
 
-  &[aria-expanded="true"] {
-    background-color: #fff;
-    box-shadow: 0 0 4px 0 rgba(0, 0, 0, .15), 0 4px 10px 0 rgba(0, 0, 0, .1);
-    border: solid 1px #ddd;
-    right: 0;
-    left: 0;
-    top: $header-height;
-    z-index: 1;
-
-    > a {
-      display: block;
-      margin: 20px;
-    }
-  }
+.header-spacer {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: search;
 }
 
 .nav-wrapper {
-  a {
-    @include tablet {
-      display: inline-block;
-    }
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: menu;
+  position: relative;
+}
 
-    border: 0;
-    color: $link_color;
-    display: none;
-    font-size: 14px;
-    padding: 0 20px 0 0;
-    width: auto;
+.menu-button {
+  background: $background_color;
+  border: 1px solid $border_color;
+  border-radius: 6px;
+  color: $text_color;
+  cursor: pointer;
+  font-size: 16px;
+  height: 30px;
+  min-width: 30px;
+  width: 30px;
+  z-index: 4;
+}
 
-    [dir="rtl"] & { padding: 0 0 0 20px;}
+.user-nav {
+  background: $background_color;
+  position: absolute;
+  top: 100%;
+}
 
-    &:hover,
-    &:focus,
-    &:active {
-      background-color: transparent;
-      color: $link_color;
-      text-decoration: underline;
-    }
-
-    &.sign-in { display: inline-block; }
+@media only screen and (min-width: 576px) {
+  .logo {
+    grid-gap: 15px;
+    gap: 15px;
+    -ms-grid-columns: auto;
+    grid-template-columns: auto;
   }
 
-  .hide-on-mobile {
-    @include mobile {
-      @include visually-hidden;
-    }
-  }
-
-  .menu-button {
-    @include tablet { display: none; }
-    background: none;
-    border: 0;
-    color: $link_color;
-    display: inline-block;
-    margin-right: 10px;
-    padding: 0;
-    width: auto;
-
-    .icon-menu {
-      vertical-align: middle;
-      width: 13px;
-      height: 13px;
-    }
-
-    [dir="rtl"] & {
-      margin-left: 10px;
-      margin-right: 0;
-    }
-
-    &:hover,
-    &:focus,
-    &:active {
-      background-color: transparent;
-      color: $link_color;
-    }
+  .logo span {
+    padding-left: 18px;
   }
 }
+
+@media only screen and (min-width: 992px) {
+  .header-area {
+    -ms-grid-columns: 310px 1fr max-content;
+    grid-template-columns: 310px 1fr max-content;
+  }
+
+  .logo svg {
+    max-width: none;
+  }
+
+  .logo span {
+    font-family: $heading_font;
+    font-size: 12px;
+  }
+}
+
+  @media only screen and (min-width: 420px) {
+    .menu-button {
+      height: 50px;
+      min-width: 50px;
+      width: 50px;
+    }
+  }
 
 .skip-navigation {
   align-items: center;
