@@ -32,17 +32,23 @@ $page-header-height: 80px;
 .logo {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
+  color: $text_color;
   display: -ms-grid;
   display: grid;
   grid-gap: 8px;
   gap: 8px;
   grid-area: logo;
   grid-template-areas: "svg site-name";
-  -ms-grid-columns: auot;
+  -ms-grid-columns: auto;
   grid-template-columns: auto;
   padding: 10px;
-  text-decoration: none;
   transform: translateX(-10);
+
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+  }
 }
 
 .logo svg {
@@ -60,7 +66,7 @@ $page-header-height: 80px;
   -ms-grid-column: 3;
   -ms-grid-row-align: center;
   align-self: center;
-  color: $text_color;
+  font-family: $heading_font;
   font-size: 10px;
   font-style: italic;
   font-weight: 600;
@@ -98,6 +104,60 @@ $page-header-height: 80px;
   position: relative;
 }
 
+.nav-wrapper .nav-item {
+  -ms-flex-align: center;
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: $background_color;
+  display: flex;
+  font-family: $heading_font;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  margin-left: 5px;
+  max-width: 42px;
+  overflow: hidden;
+  padding: 0 10px 11px;
+  position: relative;
+  transition: max-width 0.2s ease-in-out 0.25s, color 0.2s ease-in-out 0.25s;
+  text-decoration: none;
+  white-space: nowrap;
+
+  &:active,
+  &:hover,
+  &:focus {
+    background: #f5f6f7;
+    color: $text_color;
+    max-width: 500px;
+    text-decoration: none;
+  }
+}
+
+.nav-wrapper .nav-item,
+.nav-wrapper .nav-icon,
+.nav-wrapper .nav-label  {
+  display: inline-block;
+}
+
+.nav-wrapper .nav-label {
+  padding: 10px 0 0 5px;
+  white-space: nowrap;
+}
+
+.nav-wrapper .nav-icon {
+  height: 20px;
+  position: relative;
+  top: 5px;
+  width: 20px;
+}
+
+.nav-wrapper .nav-icon path {
+  fill: $text_color;
+}
+
+/*
+I may need this button depending on how I render the site navigation.
 .menu-button {
   background: $background_color;
   border: 1px solid $border_color;
@@ -109,13 +169,7 @@ $page-header-height: 80px;
   min-width: 30px;
   width: 30px;
   z-index: 4;
-}
-
-.user-nav {
-  background: $background_color;
-  position: absolute;
-  top: 100%;
-}
+}*/
 
 @media only screen and (min-width: 576px) {
   .logo {
@@ -146,13 +200,13 @@ $page-header-height: 80px;
   }
 }
 
-  @media only screen and (min-width: 420px) {
+  /*@media only screen and (min-width: 420px) {
     .menu-button {
       height: 50px;
       min-width: 50px;
       width: 50px;
     }
-  }
+  }*/
 
 .skip-navigation {
   align-items: center;

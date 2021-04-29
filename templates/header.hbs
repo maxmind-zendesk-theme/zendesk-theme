@@ -2,7 +2,7 @@
 
 <header class="header">
   <div class="header-area">
-    <a aria-label="Home" class="logo" href="/">
+    <a aria-label="Home" class="logo" href="{{page_path 'help_center'}}">
       <svg version="1.1" viewBox="0 0 251.2 25">
         <g fill="#005f83">
           <path d="M19.4 24.8v-16.2l-7 10.6h-.1l-7-10.5v16.1h-5.3v-24.8h5.9l6.6 10.5 6.5-10.5h5.9v24.8h-5.5Z"></path>
@@ -20,25 +20,41 @@
     </a>
     <div class="header-spacer"></div>
     <div class="nav-wrapper">
-      <button class="menu-button" aria-label="{{t 'toggle_navigation'}}">
+      <!-- we may need the following button depending on how I design the site navigation -->
+      <!--<button class="menu-button" aria-label="{{t 'toggle_navigation'}}">
         <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" aria-hidden="true" class="fa-icon" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
           <path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path>
         </svg>
-      </button>
-      <ul class="user-nav" id="user-nav">
-        <li>{{link 'community'}}</li>
-        <li>{{link 'new_request' class='submit-a-request'}}</li>
-        {{#if signed_in}}
-          <li>{{link "my_activities" role="menuitem"}}</li>
-          <li>{{my_profile role="menuitem"}}</li>
-          <li>{{change_password role="menuitem"}}</li>
-          <li>{{link "sign_out" role="menuitem"}}</li>
-        {{else}}
-          <li>{{#link "sign_in" class="sign-in"}}
-            {{t 'sign_in'}}
-          {{/link}}</li>
-        {{/if}}
-      </ul>
+      </button>-->
+      <a class="nav-item" href="{{page_path 'new_request'}}">
+       <span class="nav-icon" role="img">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) -->
+            <path d="M256 504c136.967 0 248-111.033 248-248S392.967 8 256 8 8 119.033 8 256s111.033 248 248 248zm-103.398-76.72l53.411-53.411c31.806 13.506 68.128 13.522 99.974 0l53.411 53.411c-63.217 38.319-143.579 38.319-206.796 0zM336 256c0 44.112-35.888 80-80 80s-80-35.888-80-80 35.888-80 80-80 80 35.888 80 80zm91.28 103.398l-53.411-53.411c13.505-31.806 13.522-68.128 0-99.974l53.411-53.411c38.319 63.217 38.319 143.579 0 206.796zM359.397 84.72l-53.411 53.411c-31.806-13.505-68.128-13.522-99.973 0L152.602 84.72c63.217-38.319 143.579-38.319 206.795 0zM84.72 152.602l53.411 53.411c-13.506 31.806-13.522 68.128 0 99.974L84.72 359.398c-38.319-63.217-38.319-143.579 0-206.796z"></path>
+          </svg>
+        </span>
+        <span class="nav-label">Submit Help Request</span>
+      </a>
+      {{#if signed_in}}
+      <a class="nav-item" href="{{page_path 'requests'}}">
+       <span class="nav-icon" role="img">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) -->
+            <path d="M464 0H144c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h320c26.51 0 48-21.49 48-48v-48h48c26.51 0 48-21.49 48-48V48c0-26.51-21.49-48-48-48zM362 464H54a6 6 0 0 1-6-6V150a6 6 0 0 1 6-6h42v224c0 26.51 21.49 48 48 48h224v42a6 6 0 0 1-6 6zm96-96H150a6 6 0 0 1-6-6V54a6 6 0 0 1 6-6h308a6 6 0 0 1 6 6v308a6 6 0 0 1-6 6z"></path>
+          </svg>
+        </span>
+        <span class="nav-label">View Help Requests</span>
+      </a>
+      {{else}}
+      <a class="nav-item" href="{{page_path 'sign_in'}}">
+        <span class="nav-icon" role="img">
+          <svg version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <path d="M22.947 19.22c-.734-1.47-3.241-2.391-6.71-3.667 -.66-.241-1.076-.341-1.262-.878l3.09397e-08 7.56665e-08c-.213764-.522784-.155764-1.11738.155-1.589 1.375-1.486 2.05-3.712 2.05-6.586 0-3.8-2.6-5.5-5.18-5.5 -2.58 0-5.18 1.7-5.18 5.5 0 2.874.675 5.1 2.05 6.586l2.09353e-08 3.17717e-08c.310764.471619.368764 1.06622.155 1.589 -.186.537-.6.637-1.262.878 -3.469 1.276-5.976 2.2-6.71 3.667l1.09682e-07-2.26322e-07c-.647861 1.33682-1.00666 2.79519-1.053 4.28l7.10543e-15 7.54979e-08c4.16963e-08.276142.223858.5.5.5h23 -2.18557e-08c.276142 1.20706e-08.5-.223858.5-.5l3.15157e-07 1.00985e-05c-.0463379-1.48481-.405136-2.94318-1.053-4.28Z" fill="#000"></path>
+          </svg>
+        </span>
+        <span class="nav-label">Sign In to Help Center</span>
+      </a>
+      {{/if}}
     </div>
   </div>
 </header>
