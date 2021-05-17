@@ -116,11 +116,9 @@ $page-header-height: 80px;
   font-weight: 500;
   line-height: 20px;
   margin-left: 5px;
-  max-width: 42px;
-  overflow: hidden;
   padding: 0 10px 11px;
   position: relative;
-  transition: max-width 0.2s ease-in-out 0.25s, color 0.2s ease-in-out 0.25s;
+  transition: color 0.2s ease-in-out 0.25s;
   text-decoration: none;
   white-space: nowrap;
 
@@ -129,7 +127,6 @@ $page-header-height: 80px;
   &:focus {
     background: #f5f6f7;
     color: $text_color;
-    max-width: 500px;
     text-decoration: none;
   }
 }
@@ -191,7 +188,7 @@ I may need this button depending on how I render the site navigation.
   }
 
   .logo svg {
-    max-width: none;
+    max-width: 162px;
   }
 
   .logo span {
