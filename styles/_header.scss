@@ -109,7 +109,7 @@ $page-header-height: 80px;
   align-items: center;
   border: 1px solid transparent;
   border-radius: 6px;
-  color: $background_color;
+  color: $text_color;
   display: flex;
   font-family: $heading_font;
   font-size: 14px;
@@ -118,7 +118,6 @@ $page-header-height: 80px;
   margin-left: 5px;
   padding: 0 10px 11px;
   position: relative;
-  transition: color 0.2s ease-in-out 0.25s;
   text-decoration: none;
   white-space: nowrap;
 
@@ -126,7 +125,6 @@ $page-header-height: 80px;
   &:hover,
   &:focus {
     background: #f5f6f7;
-    color: $text_color;
     text-decoration: none;
   }
 }
@@ -183,8 +181,8 @@ I may need this button depending on how I render the site navigation.
 
 @media only screen and (min-width: 992px) {
   .header-area {
-    -ms-grid-columns: 310px 1fr max-content;
-    grid-template-columns: 310px 1fr max-content;
+    /*-ms-grid-columns: 310px 1fr max-content;
+    grid-template-columns: 310px 1fr max-content;*/
   }
 
   .logo svg {
