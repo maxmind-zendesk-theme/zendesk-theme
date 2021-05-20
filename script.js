@@ -232,7 +232,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Dropdowns
-  
+
   function Dropdown(toggle, menu) {
     this.toggle = toggle;
     this.menu = menu;
@@ -399,3 +399,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
+function toggleHeaderMenu() {
+  var checkBox = document.getElementById('header-checkbox');
+  checkBox.classList.toggle('closed');
+  checkBox.classList.toggle('open');
+}
