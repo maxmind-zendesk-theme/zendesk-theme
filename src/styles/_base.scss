@@ -18,6 +18,34 @@ body {
   }
 }
 
+main::before,
+main::after {
+  content: ' ';
+  height: 10px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 11;
+}
+
+main::before {
+  background-color: $brand-color-secondary;
+  background-image: url($hero-background-image);
+  background-position: 50%;
+  background-size: 80px 140px;
+  z-index: 11;
+}
+
+main::after {
+  background: linear-gradient(90deg, rgba(0, 119, 194, 0.5), rgba(0, 55, 76, 0.5));
+}
+
+#preview-bar-container ~ main::before,
+#preview-bar-container ~ main::after {
+  top: 50px;
+}
+
 @media only screen and (min-width: 992px) {
   main {
     margin-left: 350px;

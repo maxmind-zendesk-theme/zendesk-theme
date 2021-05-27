@@ -30,11 +30,11 @@
 }
 
 .search-icon {
-  @include vertical-align;
   color: #777;
   height: 18px;
   left: 15px;
-  position: absolute;
+  position: relative;
+  top: 33px;
   width: 18px;
   z-index: 1;
 

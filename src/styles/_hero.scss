@@ -1,17 +1,36 @@
 /***** Hero component *****/
 .hero {
-  /* stylelint-disable-next-line function-url-quotes */
-  background-image: url(unquote("$homepage_background_image"));
-  background-position: center;
-  background-size: cover;
-  height: 300px;
-  padding: 0 20px;
-  text-align: center;
+  background-color: $brand-color-secondary;
+  background-image: url('/settings/bg-pattern.svg');
+  background-position: 50%;
+  background-size: 80px 140px;
+  padding: 20px 20px 40px;
+  position: relative;
   width: 100%;
 
   &-inner {
-    @include vertical-align;
     margin: 0 auto;
     max-width: 610px;
+    position: relative;
   }
+}
+
+.hero::before {
+  background: linear-gradient(90deg, rgba(0, 119, 194, 0.5), rgba(0, 55, 76, 0.5));
+  content: ' ';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: translateZ(0);
+  width: 100%;
+  will-change: transform;
+}
+
+.hero-inner h2 {
+  color: $brand_text_color;
+  font-family: $heading_font;
+  font-size: 30px;
+  margin-bottom: 0;
+  text-shadow: $overview-heading-text-shadow;
 }
