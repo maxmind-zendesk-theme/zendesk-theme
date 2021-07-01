@@ -3,19 +3,25 @@
 The MaxMind ZenDesk theme is a fork of [the Copenhagen theme](https://github.com/zendesk/copenhagen_theme) (the default Zendesk Guide theme).
 
 ## Setting Up the Development Environment
-Dependencies and tools for previewing changes locally have been implemented. In order to use this development environment so that you have the proper versions of various dependencies without worrying about conflicts on your local machine, proceed with the following steps:
+This project requires both Ruby and NodeJS packages for local development and
+building.
 
-### VS Code
-First, set up your local machine to use the containers that have the various dependencies.
+Make sure that `.zat.example` has been edited with your appropriate credentials,
+and renamed `.zat`.
 
-1. Ensure that you have the [remote development extension pack installed](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) in VS Code.
-2. Ensure that you have [Docker installed](https://docs.docker.com/get-docker/).
-3. Open the repository in VS Code.
-4. Click on the remote window indicator (the green `><` icon in the bottom left of the screen).
-5. Select `Remote-Containers: Reopen Locally` from the drop-down menu that appears.
-6. Make sure that `.zat.example` has been edited with your appropriate credentials, and renamed `.zat`.
+## Quickstart
+```shell
+bundle install
+npm install
+npm run develop
+```
 
-Once the above steps are complete, you should be able to preview your changes by using the command `npm run develop`.
+### Troubleshooting
+If your local machine does not have the correct version of Ruby installed, look
+into installing [Ruby version manager](https://rvm.io/).
+
+If your machine does not have the correct version of NodeJS installed, look into
+installing [Node version manager](https://github.com/nvm-sh/nvm).
 
 ## ZenDesk Copenhagen Documentation
 The following documentation is from [the Copenhagen theme](https://github.com/zendesk/copenhagen_theme).

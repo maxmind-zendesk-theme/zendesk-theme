@@ -3,15 +3,15 @@ const spawn = require('child_process').spawn;
 
 gulp.task('compile', (cb) => {
   const task = spawn('./bin/compile.rb', [], {})
-    
+
   task.stdout.on('data', (data) => {
     console.log(`stdout: ${data}`);
   });
-    
+
   task.stderr.on('data', (data) => {
     console.error(`stderr: ${data}`);
   });
-    
+
   task.on('close', code => code ? cb(new Error(code)) : cb());
 });
 
@@ -19,11 +19,11 @@ gulp.task('compile', (cb) => {
 let previewTask;
 
 gulp.task('preview:start', (cb) => {
-  previewTask = spawn('/usr/local/bundle/bin/zat', [
+  previewTask = spawn('zat', [
     'theme',
     'preview',
   ], {})
-  
+
   previewTask.stdout.on('data', (data) => {
     console.log(`stdout: ${data}`);
   });
@@ -31,7 +31,7 @@ gulp.task('preview:start', (cb) => {
   previewTask.stderr.on('data', (data) => {
     console.error(`stderr: ${data}`);
   })
-  
+
   previewTask.on('close', code => code ? cb(new Error(code)) : cb());
 });
 
