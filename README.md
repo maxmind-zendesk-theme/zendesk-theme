@@ -15,7 +15,7 @@ First, set up your local machine to use the containers that have the various dep
 5. Select `Remote-Containers: Reopen Locally` from the drop-down menu that appears.
 6. Make sure that `.zat.example` has been edited with your appropriate credentials, and renamed `.zat`.
 
-Once the above steps are complete, you should be able to preview your changes by using the command `yarn develop`.
+Once the above steps are complete, you should be able to preview your changes by using the command `npm run develop`.
 
 ## ZenDesk Copenhagen Documentation
 The following documentation is from [the Copenhagen theme](https://github.com/zendesk/copenhagen_theme).
@@ -148,7 +148,7 @@ We use [conventional commits](https://conventionalcommits.org/) to improve reada
 - body: (optional) additional contextual information about the change
 - footer: (optional) adds external links, issue references and other meta-information
 
-i.e.: 
+i.e.:
 
 ```
 chore: automate release

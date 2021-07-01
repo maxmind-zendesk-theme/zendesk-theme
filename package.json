@@ -4,7 +4,6 @@
   "repository": "git@github.com:maxmind-zendesk-theme/zendesk-theme.git",
   "devDependencies": {
     "gulp": "^4.0.2",
-    "js-yaml": "^3.13.1",
     "node-fetch": "^2.1.2"
   },
   "scripts": {
