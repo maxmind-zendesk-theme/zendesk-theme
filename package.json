@@ -1,12 +1,20 @@
 {
-  "name": "maxmind-support-center-theme",
-  "version": "1.0.0",
-  "repository": "git@github.com:maxmind-zendesk-theme/zendesk-theme.git",
   "devDependencies": {
     "gulp": "^4.0.2",
     "node-fetch": "^2.1.2"
   },
+  "engines": {
+    "node": "^14.0.0"
+  },
+  "name": "maxmind-support-center-theme",
+  "repository": "git@github.com:maxmind-zendesk-theme/zendesk-theme.git",
+  "resolutions": {
+    "glob-parent": "^6.0.0",
+    "yargs-parser": "^20.2.9"
+  },
   "scripts": {
-    "develop": "gulp"
-  }
+    "develop": "gulp",
+    "preinstall": "npx npm-force-resolutions"
+  },
+  "version": "1.0.0"
 }
