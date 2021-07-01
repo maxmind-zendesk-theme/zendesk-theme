@@ -95,7 +95,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  sassc (~> 1.12)
   thin (~> 1.7)
   zendesk_apps_tools (~> 3.8)
 

@@ -32,7 +32,7 @@
       text-decoration: underline;
     }
 
-    &:visited { color: $visited_link_color; }
+    &:visited { color: unquote("$visited_link_color"); }
   }
 
   .meta-group {
