@@ -2,12 +2,14 @@ const autoprefixer = require('autoprefixer');
 const spawn = require('child_process').spawn;
 const del = require('del');
 const gulp = require('gulp');
+const babel = require('gulp-babel');
 const concat = require('gulp-concat');
 const sass = require('gulp-dart-sass');
 const postcss = require('gulp-postcss');
 const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
 const zip = require('gulp-zip');
+const merge = require('merge2')
 const path = require('path');
 
 gulp.task('clean', async() => {
@@ -29,10 +31,19 @@ gulp.task('styles', function () {
 });
 
 gulp.task('scripts', () => {
-  return gulp.src('src/scripts/**/*.js')
+  return merge(
+    gulp.src('src/scripts/lib/**/*.js'),
+    gulp.src([
+      'src/scripts/**/*.js',
+      '!src/scripts/lib/**/*.js'
+    ])
+  )
+    .pipe(sourcemaps.init())
+    .pipe(babel({
+      presets: ['@babel/env']
+    }))
     .pipe(concat('script.js'))
     .pipe(uglify())
-    .pipe(sourcemaps.init())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('dist'));
 });
