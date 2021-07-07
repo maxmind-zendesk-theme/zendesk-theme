@@ -1,20 +1,20 @@
+/* stylelint-disable no-descending-specificity */
+
 /***** Search results *****/
 .search-results {
-  @include desktop {
-    flex-direction: row;
-  }
-
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
+  @include desktop {
+    flex-direction: row;
+  }
 
   &-column {
+    flex: 1;
     @include desktop {
       flex: 0 0 75%;
     }
-
-    flex: 1;
   }
 
   &-sidebar {
@@ -45,7 +45,7 @@
     .collapsible-sidebar {
       margin-bottom: 30px;
 
-      &[aria-expanded="false"] {
+      &[aria-expanded='false'] {
         .multibrand-filter-list {
           display: none;
           @include desktop { display: block; }
@@ -63,13 +63,12 @@
 
     .see-all-filters {
       background: none;
-      border: none;
+      color: $link-color;
       cursor: pointer;
       display: block;
       padding: 10px;
-      color: $link_color;
 
-      &[aria-hidden="true"] {
+      &[aria-hidden='true'] {
         display: none;
       }
 
@@ -91,8 +90,10 @@
 
   &-list {
     margin-bottom: 25px;
+
     > li {
       padding: 20px 0;
+
       &:first-child {
         border-top: 1px solid $border-color;
       }
@@ -104,15 +105,15 @@
   }
 
   .meta-group {
-    display: block;
-    @include desktop { display: flex; }
     align-items: center;
     clear: both;
     color: #666;
+    display: block;
+    @include desktop { display: flex; }
 
     > li {
       display: block;
-      @include desktop { display: inline }
+      @include desktop { display: inline; }
     }
 
     li:first-child {
@@ -123,11 +124,11 @@
       color: inherit;
 
       &:not(:last-child) {
-        [dir="ltr"] & {
+        [dir='ltr'] & {
           margin-right: 20px;
         }
 
-        [dir="rtl"] & {
+        [dir='rtl'] & {
           margin-left: 20px;
         }
       }
@@ -145,18 +146,17 @@
 }
 
 .search-result {
-
   &-title {
-    font-size: $font-size-bigger;
     display: inline-block;
+    font-size: $font-size-bigger;
   }
 
   &-icons {
-    [dir="ltr"] & {
+    [dir='ltr'] & {
       float: right;
     }
 
-    [dir="rtl"] & {
+    [dir='rtl'] & {
       float: left;
     }
   }
@@ -170,21 +170,23 @@
     position: relative;
 
     &-icon {
-      color: $brand_color;
+      color: $brand-color;
+      height: 13px;
       vertical-align: middle;
       width: 13px;
-      height: 13px;
     }
 
-    [dir="ltr"] & {
+    [dir='ltr'] & {
       margin-left: 5px;
+
       &::before {
         margin-right: 3px;
       }
     }
 
-    [dir="rtl"] & {
+    [dir='rtl'] & {
       margin-right: 5px;
+
       &::before {
         margin-left: 3px;
       }
@@ -196,14 +198,16 @@
   }
 
   &-breadcrumbs {
-    @include desktop { display: table-row; }
     margin: 0;
+    @include desktop { display: table-row; }
 
     li {
       @include desktop { display: table-cell; }
     }
 
-    li, li a, li a:visited {
+    li,
+    li a,
+    li a:visited {
       color: inherit;
     }
   }
@@ -216,9 +220,9 @@
 }
 
 /* Add a yellow background for Chinese */
-html[lang|="zh"] {
+html[lang|='zh'] {
   .search-results-description em {
+    background: #ff0;
     font-style: normal;
-    background: yellow;
   }
 }

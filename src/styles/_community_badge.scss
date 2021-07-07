@@ -4,14 +4,14 @@
   background-color: #04444d;
   border-radius: 4px;
   color: #fff;
+  display: inline-flex;
   font-size: 12px;
   font-weight: $font-weight-semibold;
+  line-height: 20px;
+  margin: 0 2px;
   padding: 2px 8px;
   vertical-align: middle;
   white-space: nowrap;
-  display: inline-flex;
-  line-height: 20px;
-  margin: 0 2px;
 }
 
 .community-badge-container-achievements {
@@ -23,21 +23,21 @@
   margin: 0 3px 0 0;
 }
 
-[dir="rtl"] .community-badge-achievements {
+[dir='rtl'] .community-badge-achievements {
   margin: 0 0 0 3px;
 }
 
 .community-badge-achievements img {
-  width: 22px;
   height: 22px;
+  width: 22px;
 }
 
 .community-badge-titles img {
-  width: 20px;
   height: 20px;
+  width: 20px;
 }
 
 .profile-info .community-badge-achievements img {
-  width: 40px;
   height: 40px;
+  width: 40px;
 }

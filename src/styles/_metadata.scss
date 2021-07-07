@@ -7,7 +7,7 @@
   float: right;
 }
 
-[dir="rtl"] .meta-group-opposite {
+[dir='rtl'] .meta-group-opposite {
   float: left;
 }
 
@@ -20,7 +20,7 @@
   font-size: $font-size-small;
 
   &:not(:last-child)::after {
-    content: "\00B7";
+    content: '\00B7';
     margin: 0 5px;
   }
 }

@@ -3,28 +3,28 @@
   display: inline-block;
 
   .dropdown-toggle::after {
-    @include tablet { display: inline-block;}
     display: none;
+    @include tablet { display: inline-block;}
   }
 
   > button {
     border: 0;
-    color: $link_color;
+    color: $link-color;
     min-width: 0;
     padding: 0;
     white-space: nowrap;
 
     &:hover,
     &:focus {
-      color: $link_color;
       background-color: transparent;
+      color: $link-color;
     }
 
     &::after {
-      color: $link_color;
+      color: $link-color;
       padding-right: 15px;
 
-      [dir="rtl"] & {
+      [dir='rtl'] & {
         padding-left: 15px;
         padding-right: 0;
       }
@@ -33,21 +33,23 @@
 }
 
 // Selector is this strong to override the styles set with ids
+/* stylelint-disable selector-max-id */
 #user #user-name {
-  @include tablet { display: inline-block; }
   display: none;
   font-size: 14px;
+  @include tablet { display: inline-block; }
 
   &:hover { text-decoration: underline; }
 }
+/* stylelint-enable selector-max-id */
 
 /***** User avatar *****/
 .user-avatar {
-  height: 25px;
-  width: 25px;
   border-radius: 50%;
   display: inline-block;
+  height: 25px;
   vertical-align: middle;
+  width: 25px;
 }
 
 .avatar {
@@ -60,11 +62,11 @@
   }
 
   .icon-agent {
-    color: $brand_color;
+    background-color: $brand-text-color;
     border: 2px solid #fff;
     border-radius: 50%;
     bottom: -4px;
-    background-color: $brand_text_color;
+    color: $brand-color;
     font-size: 17px;
     height: 17px;
     line-height: 17px;

@@ -1,11 +1,10 @@
 /***** Breadcrumbs *****/
 .breadcrumbs {
+  margin: 0 0 15px;
+  padding: 0;
   @include tablet {
     margin: 0;
   }
-
-  margin: 0 0 15px 0;
-  padding: 0;
 
   li {
     color: $secondary-text-color;
@@ -16,11 +15,12 @@
     text-overflow: ellipsis;
 
     + li::before {
-      content: ">";
+      content: '>';
       margin: 0 4px;
     }
+
     a:visited {
-      color: $link_color;
+      color: $link-color;
     }
   }
 }

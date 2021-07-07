@@ -2,39 +2,37 @@
 /* Used in Homepage#categories and Community#topics */
 .blocks {
   &-list {
-    @include tablet {
-      margin: 0 -15px;
-    }
-
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
     list-style: none;
     padding: 0;
+    @include tablet {
+      margin: 0 -15px;
+    }
   }
 
   &-item {
-    @include tablet {
-      margin: 0 15px 30px;
-    }
-
-    border: 1px solid $brand_color;
+    border: 1px solid $brand-color;
     border-radius: 4px;
     box-sizing: border-box;
-    color: $brand_color;
+    color: $brand-color;
     display: flex;
     flex: 1 0 340px;
     margin: 0 0 30px;
     max-width: 100%;
     text-align: center;
+    @include tablet {
+      margin: 0 15px 30px;
+    }
 
     &:hover,
     &:focus,
     &:active {
-      background-color: $brand_color;
+      background-color: $brand-color;
 
       * {
-        color: $brand_text_color;
+        color: $brand-text-color;
         text-decoration: none;
       }
     }
@@ -44,30 +42,30 @@
       border: 1px solid $border-color;
 
       .icon-lock {
-        height: 15px;
-        width: 15px;
         bottom: 5px;
+        height: 15px;
         position: relative;
+        width: 15px;
       }
 
-      a { color: $text_color; }
+      a { color: $text-color; }
     }
   }
 
   &-item-link {
-    color: $brand_color;
-    padding: 20px 30px;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    justify-content: center;
     border-radius: inherit;
+    color: $brand-color;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 30px;
 
     &:hover,
     &:active {
       text-decoration: none;
     }
-    
+
     &:focus {
       @include focus-ring;
       text-decoration: none;
@@ -75,8 +73,8 @@
   }
 
   &-item-title {
-    margin-bottom: 0;
     font-size: 16px;
+    margin-bottom: 0;
   }
 
   &-item-description {

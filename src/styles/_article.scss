@@ -1,5 +1,8 @@
+/* stylelint-disable scss/at-extend-no-missing-placeholder */
+
 /***** Article *****/
 .article {
+  flex: 1 0 auto; //Explicit values needed whith flex-direction: column for IE11
   /*
   * The article grid is defined this way to optimize readability:
   * Sidebar | Content | Free space
@@ -12,23 +15,15 @@
     padding: 0 30px;
   }
 
-  flex: 1 0 auto; //Explicit values needed whith flex-direction: column for IE11
-
   &-container {
+    display: flex;
+    flex-direction: column;
     @include desktop {
       flex-direction: row;
     }
-
-    display: flex;
-    flex-direction: column;
   }
 
   &-header {
-    @include tablet {
-      flex-direction: row;
-      margin-top: 0;
-    }
-
     align-items: flex-start;
     display: flex;
     flex-direction: column;
@@ -36,6 +31,10 @@
     justify-content: space-between;
     margin-bottom: 40px;
     margin-top: 20px;
+    @include tablet {
+      flex-direction: row;
+      margin-top: 0;
+    }
   }
 
   &-avatar {
@@ -52,16 +51,16 @@
     }
 
     .icon-lock {
-      position: relative;
       left: -5px;
+      position: relative;
       vertical-align: baseline;
     }
   }
 
-  [role="button"] {
-    @include tablet { width: auto; }
+  [role='button'] {
     flex-shrink: 0; /*Avoid collapsing elements in Safari (https://github.com/philipwalton/flexbugs#1-minimum-content-sizing-of-flex-items-not-honored)*/
     width: 100%;
+    @include tablet { width: auto; }
   }
 
   &-info {
@@ -99,46 +98,46 @@
     }
 
     &-icon {
-      vertical-align: middle;
-      color: $brand_color;
-      width: 18px;
+      color: $brand-color;
       height: 18px;
+      vertical-align: middle;
+      width: 18px;
     }
   }
 
   &-sidebar {
-    @include desktop {
-      border: 0;
-      flex: 0 0 17%;
-      height: auto;
-    }
-
     border-bottom: 1px solid $border-color;
     border-top: 1px solid $border-color;
     flex: 1 0 auto; //Explicit values needed whith flex-direction: column for IE11
     margin-bottom: 20px;
     padding: 0;
+    @include desktop {
+      border: 0;
+      flex: 0 0 17%;
+      height: auto;
+    }
   }
 
   &-relatives {
-    @include tablet {
-      flex-direction: row;
-    }
-
     border-top: 1px solid $border-color;
     display: flex;
     flex-direction: column;
     padding: 20px 0;
+    @include tablet {
+      flex-direction: row;
+    }
 
     > * {
-      flex: 1 0 50%; //Explicit values needed whith flex-direction: column for IE11
-      min-width: 50%;
-      overflow-wrap: break-word;
+      flex: 1 0 50%; // Explicit values needed whith flex-direction: column for IE11
       margin-right: 0;
-
-      &:last-child { padding: 0; }
+      min-width: 50%;
+      /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+      overflow-wrap: break-word;
+      word-wrap: break-word;
 
       @include tablet { padding-right: 20px; }
+
+      &:last-child { padding: 0; }
     }
   }
 
@@ -161,12 +160,11 @@
   }
 
   &-return-to-top {
+    border-top: 1px solid $border-color;
     @include desktop { display: none; }
 
-    border-top: 1px solid $border-color;
-
     a {
-      color: $text_color;
+      color: $text-color;
       display: block;
       padding: 20px 0;
 
@@ -183,7 +181,8 @@
 
   &-subscribe button {
     @extend .button;
-    &[data-selected="true"] {
+
+    &[data-selected='true'] {
       @extend .button-primary;
     }
   }
@@ -192,21 +191,21 @@
 .sidenav {
   &-title {
     font-size: $font-size-base;
-    position: relative;
     font-weight: 600;
+    position: relative;
   }
 
   &-item {
     border-radius: 4px;
-    color: $text_color;
+    color: $text-color;
     display: block;
     margin-bottom: 10px;
     padding: 10px;
 
     &.current-article,
     &:hover {
-      background-color: $brand_color;
-      color: $brand_text_color;
+      background-color: $brand-color;
+      color: $brand-text-color;
       text-decoration: none;
     }
   }
@@ -215,7 +214,7 @@
 .recent-articles,
 .related-articles {
   &-title {
-    @extend .comment-heading
+    @extend .comment-heading;
   }
 
   li {

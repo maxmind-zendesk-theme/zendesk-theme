@@ -1,54 +1,54 @@
+/* stylelint-disable scss/at-extend-no-missing-placeholder */
+
 /***** Split button *****/
 .split-button {
   display: flex;
 }
 
-.split-button button:hover {
-  @extend .button-primary, :hover
-}
-
 .split-button button {
   @extend .button;
-  background-color: $brand_color;
+  background-color: $brand-color;
   border: 0;
-  color: $brand_text_color;
+  color: $brand-text-color;
   height: 32px;
   line-height: 16px;
-  outline-color: $brand_color;
+  outline-color: $brand-color;
+}
+
+.split-button button:hover {
+  @extend .button-primary, :hover;
 }
 
 .split-button button:not(:only-child) {
-  &:first-child {
-    [dir="rtl"] & {
-      border-left: 1px solid $brand_text_color;
-      border-top-left-radius: unset;
-      border-bottom-left-radius: unset;
-    }
-
-    [dir="ltr"] & {
-      border-right: 1px solid $brand_text_color;
-      border-top-right-radius: unset;
-      border-bottom-right-radius: unset;
-    }
-  }
-
   &:last-child {
+    align-items: center;
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: 26px;
-    min-width: 26px;
     max-width: 26px;
+    min-width: 26px;
     padding: 0;
+    width: 26px;
+  }
 
-    [dir="rtl"] & {
-      border-top-right-radius: unset;
-      border-bottom-right-radius: unset;
-    }
+  [dir='rtl'] &:first-child {
+    border-bottom-left-radius: unset;
+    border-left: 1px solid $brand-text-color;
+    border-top-left-radius: unset;
+  }
 
-    [dir="ltr"] & {
-      border-top-left-radius: unset;
-      border-bottom-left-radius: unset;
-    }
+  [dir='ltr'] &:first-child {
+    border-bottom-right-radius: unset;
+    border-right: 1px solid $brand-text-color;
+    border-top-right-radius: unset;
+  }
+
+  [dir='rtl'] &:last-child {
+    border-bottom-right-radius: unset;
+    border-top-right-radius: unset;
+  }
+
+  [dir='ltr'] &:last-child {
+    border-bottom-left-radius: unset;
+    border-top-left-radius: unset;
   }
 }

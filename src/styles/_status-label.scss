@@ -4,13 +4,13 @@
   background-color: #038153;
   border-radius: 4px;
   color: #fff;
+  display: inline-block;
   font-size: 12px;
   font-weight: $font-weight-semibold;
   margin-right: 2px;
   padding: 3px 10px;
   vertical-align: middle;
   white-space: nowrap;
-  display: inline-block;
 
   &:hover,
   &:active,
@@ -21,7 +21,7 @@
   &-pinned,
   &-featured,
   &-official {
-    background-color: $brand_color;
+    background-color: $brand-color;
   }
 
   &-official {
@@ -39,7 +39,7 @@
       width: auto;
     }
 
-    [dir="rtl"] & {
+    [dir='rtl'] & {
       left: 30px;
       right: auto;
     }
