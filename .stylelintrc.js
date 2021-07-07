@@ -175,6 +175,13 @@ module.exports = {
            * https://caniuse.com/viewport-units
            */
           'viewport-units',
+
+          /**
+           * Not supported - IE11
+           *
+           * https://caniuse.com/will-change
+           */
+          'will-change',
         ],
       },
     ],
@@ -184,15 +191,15 @@ module.exports = {
         resolveNestedSelectors: true,
       },
     ],
-    'selector-max-id': 1,
     'selector-max-compound-selectors': 5,
+    'selector-max-id': 1,
     'selector-no-qualifying-type': [
       true,
       {
         ignore: [
           'attribute',
-        ]
-      }
+        ],
+      },
     ],
     'selector-pseudo-class-no-unknown': [
       true,
@@ -202,5 +209,5 @@ module.exports = {
         ],
       },
     ],
-  }
-}
+  },
+};

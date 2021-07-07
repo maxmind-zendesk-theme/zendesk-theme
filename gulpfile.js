@@ -1,4 +1,5 @@
 const autoprefixer = require('autoprefixer');
+// eslint-disable-next-line security/detect-child-process
 const spawn = require('child_process').spawn;
 const del = require('del');
 const gulp = require('gulp');
@@ -10,12 +11,12 @@ const posthtml = require('gulp-posthtml');
 const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
 const zip = require('gulp-zip');
-const merge = require('merge2')
+const merge = require('merge2');
 const path = require('path');
 const exp = require('posthtml-expressions');
 const include = require('posthtml-include');
 
-gulp.task('clean', async() => {
+gulp.task('clean', async () => {
   return del([
     'dist/**/*',
   ]);
@@ -38,12 +39,12 @@ gulp.task('scripts', () => {
     gulp.src('src/scripts/lib/**/*.js'),
     gulp.src([
       'src/scripts/**/*.js',
-      '!src/scripts/lib'
-    ])
+      '!src/scripts/lib',
+    ]),
   )
     .pipe(sourcemaps.init())
     .pipe(babel({
-      presets: ['@babel/env']
+      presets: ['@babel/env'],
     }))
     .pipe(concat('script.js'))
     .pipe(uglify())
@@ -55,15 +56,15 @@ gulp.task('templates', () => {
   return gulp
     .src([
       'src/templates/*.hbs',
-      '!src/templates/partials'
+      '!src/templates/partials',
     ])
     .pipe(
       posthtml(
         [
           exp({
             delimiters: ['{{%', '%}}'],
-            unescapedDelimiters: ['{{{%', '%}}}'],
             locals: {},
+            unescapedDelimiters: ['{{{%', '%}}}'],
           }),
           include({
             root: 'src/templates/partials',
@@ -71,10 +72,10 @@ gulp.task('templates', () => {
         ],
         {
           template: false,
-        }
-      )
+        },
+      ),
     )
-    .pipe(gulp.dest('./dist/templates'))
+    .pipe(gulp.dest('./dist/templates'));
 });
 
 gulp.task('copy-files', () => {
@@ -90,7 +91,7 @@ gulp.task('update-build', gulp.parallel(
   'styles',
   'scripts',
   'templates',
-  'copy-files')
+  'copy-files'),
 );
 
 gulp.task('build', gulp.series('clean', 'update-build'));
@@ -111,7 +112,7 @@ gulp.task('preview:start', (cb) => {
 
   previewTask.stderr.on('data', (data) => {
     console.error(`stderr: ${data}`);
-  })
+  });
 
   previewTask.on('close', code => code ? cb(new Error(code)) : cb());
 });
@@ -124,11 +125,12 @@ gulp.task('preview:stop', (cb) => {
 });
 
 gulp.task('watch', () => {
+  // eslint-disable-next-line security/detect-non-literal-fs-filename
   gulp.watch(
     [
       'src/**/*',
     ],
-    gulp.series('preview:stop', 'update-build', gulp.parallel('preview:start', 'watch'))
+    gulp.series('preview:stop', 'update-build', gulp.parallel('preview:start', 'watch')),
   );
 });
 
@@ -136,7 +138,7 @@ gulp.task('zip', () => {
   return gulp
     .src('dist/**')
     .pipe(zip('theme.zip'))
-    .pipe(gulp.dest('.'))
+    .pipe(gulp.dest('.'));
 });
 
 gulp.task('package', gulp.series('build', 'zip'));
@@ -147,7 +149,7 @@ gulp.task(
     'build',
     gulp.parallel(
       'preview:start',
-      'watch'
-    )
-  )
+      'watch',
+    ),
+  ),
 );

@@ -5,14 +5,14 @@ const path = require('path');
 const fs = require('fs');
 const yaml = require('js-yaml');
 
-const LOCALE_ENDPOINT = `https://support.zendesk.com/api/v2/locales`;
+const LOCALE_ENDPOINT = 'https://support.zendesk.com/api/v2/locales';
 
 const translationDefinitions = yaml.safeLoad(fs.readFileSync('translations.yml', 'utf8')).parts;
 const obsoleteKeys = translationDefinitions
   .filter(part => part.translation.obsolete)
   .reduce((acc, part) => acc.concat(part.translation.key), []);
 
-(async function() {
+(async function () {
   const resp = await fetch(`${LOCALE_ENDPOINT}/default`);
   const locales = await resp.json();
   const localeIds = locales.locales.map(locale => locale.locale);
@@ -30,6 +30,18 @@ const obsoleteKeys = translationDefinitions
       return accumulator;
     }, {});
 
-    fs.writeFileSync(path.join('translations', `${localeId}.json`), JSON.stringify(formattedTranslations, null, 2) + '\n', 'utf8');
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
+    fs.writeFileSync(
+      path.join(
+        'translations',
+        `${localeId}.json`,
+      ),
+      JSON.stringify(
+        formattedTranslations,
+        null,
+        2,
+      ) + '\n',
+      'utf8',
+    );
   }
 })();
