@@ -1,135 +1,192 @@
-/***** Homepage *****/
+@use './mixins';
 
-.section {
-  margin-bottom: 40px;
-  @include tablet {
-    margin-bottom: 60px;
-  }
-}
+/***** Homepage *****/
 
 .home-section h2 {
   margin-bottom: 10px;
   text-align: center;
 }
 
-/***** Categories *****/
-.knowledge-base .categories.blocks .blocks-list {
-  display: grid;
-  gap: 40px;
-  grid-auto-rows: max-content;
-  grid-template-columns: repeat(6, 1fr);
+.categories-toggle {
+  display: flex;
+  justify-content: center;
+  margin: var(--mm-spacing);
 }
 
-.knowledge-base .categories.blocks .blocks-item {
-  background-color: #f0f8ff;
-  border: 0;
-  border-radius: 6px;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  grid-column-end: span 2;
-  margin: 0;
-  width: 100%;
-
-  &:hover {
-    background-color: #f0f8ff;
-  }
-
-  &:nth-of-type(1) {
-    grid-column: 1 / span 3;
-    grid-row: 1;
-  }
-
-  &:nth-of-type(2) {
-    grid-column: 4 / span 3;
-    grid-row: 1;
-  }
+.categories-toggle__form {
+  @include mixins.pattern;
+  border: 1px solid var(--mm-color-border);
+  border-radius: var(--mm-border-radius);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: calc(var(--mm-spacing) / 4);
 }
 
-.knowledge-base .categories.blocks .blocks-item-link {
-  justify-content: space-between;
-  padding: 0;
+.categories-toggle .categories-toggle__radio {
+  display: none;
+}
+
+.categories-toggle__label {
+  color: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 8px;
   position: relative;
-  transition: all 0.2s ease-in-out;
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+.categories-toggle .categories-toggle__radio:checked + .categories-toggle__label {
+  background: var(--mm-color-sidebar);
+  border: 1px solid var(--mm-color-border);
+  border-radius: var(--mm-border-radius);
+  color: inherit;
+}
+
+.categories-section {
+  margin: var(--mm-spacing);
+}
+
+.categories-section:not(.active) {
+  display: none;
+}
+
+/***** Categories *****/
+.blocks__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+
+.blocks__item {
+  background-color: var(--mm-background-color);
+  border: 0;
+  border-radius: var(--mm-border-radius);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  flex: 0 0 1;
+  margin: 0;
+  max-width: 360px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.blocks__item[data-name='minFraud Services'] {
+  --page-type-color: rgba(255, 0, 136, 0.5);
+}
+
+.blocks__item[data-name='GeoIP and GeoLite'] {
+  --page-type-color: rgba(0, 255, 102, 0.5);
+}
+
+.blocks__item-header {
+  @include mixins.pattern;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: calc(var(--mm-spacing) / 2);
+}
+
+.blocks__item-lockup {
+  align-items: center;
+  display: grid;
+  gap: calc(var(--mm-spacing) / 4);
+  grid-template-columns: max-content 1fr;
+}
+
+.blocks__item-icon {
+  --mm-overview-heading-drop-shadow: 1px 3px 0 rgba(0, 0, 0, 0.25);
+  --mm-product-icon-stroke-width: 6px;
+  align-items: center;
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(var(--page-type-color), #0077c2);
+  border-radius: calc(var(--mm-border-radius) * 3);
+  border-radius: 18px;
+  box-shadow: var(--mm-overview-heading-drop-shadow),
+    inset 0 0 0 var(--mm-product-icon-stroke-width) rgba(255, 255, 255, 0.35);
+  display: grid;
+  justify-items: center;
+  position: relative;
+  transform-style: preserve-3d;
+  width: 90px;
+  z-index: 1;
+}
+
+.blocks__item-icon::before {
+  background: #00a7e5;
+  border-radius: calc(var(--mm-border-radius) * 3);
+  content: ' ';
+  display: block;
+  height: 100%;
+  position: absolute;
+  transform: translateZ(-1px);
+  width: 100%;
+}
+
+.blocks__item-icon svg {
+  fill: #fff;
+  filter: drop-shadow(1px 2px 5px #0077c2);
+  max-height: 70%;
+  max-width: 70%;
+  width: 100%;
+}
+
+.blocks__item-heading {
+  color: #fff;
+  margin: 0;
+  position: relative;
+  text-shadow: 1px 2px 0 rgb(0 0 0 / 25%);
+  z-index: 1;
+}
+
+.blocks__item-content {
+  background: var(--mm-color-background);
+  padding: calc(var(--mm-spacing) / 2);
+}
+
+.blocks__item-links {
+  background: var(--mm-color-sidebar);
+  border-top: 1px solid var(--mm-color-border);
+  padding: calc(var(--mm-spacing) / 2);
+  text-align: center;
+}
+
+.blocks__item-link {
+  @include mixins.pattern-border;
+  align-items: center;
+  background: var(--mm-color-background);
+  border-radius: 4px;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
+  color: var(--mm-color-primary-text);
+  display: inline-grid;
+  font-family: var(--mm-font-stack-display);
+  font-size: 14px;
+  font-weight: 400;
+  gap: 5px;
+  grid-template-columns: max-content max-content;
+  margin: 0 5px;
+  overflow: hidden;
+  padding: 12px 10px 8px;
+  position: relative;
+  text-decoration: none;
+  top: 0;
+  transition: all 0.1s ease-in-out;
+
+  &::before,
+  &::after {
+    height: 4px !important;
+  }
 
   &:hover {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    text-decoration: none;
     top: -2px;
   }
 }
 
-.blocks-item-icon {
-  background-color: #00a7e5;
-  border-radius: 30px;
-  display: block;
-  filter: grayscale(35%);
-  margin: 20px auto auto;
-  position: relative;
-  transition: filter 0.2s ease-in-out;
-  vertical-align: middle;
-  width: 200px;
-}
-
-.blocks-item-link:hover .blocks-item-icon {
-  filter: grayscale(0%);
-}
-
-.blocks-item-icon::before {
-  background: linear-gradient(180deg, rgba(0, 119, 194, 0.5), rgba(0, 55, 76, 0.5));
-  border-radius: 30px;
-  box-shadow: inset 0 0 0 10px rgba(255, 255, 255, 0.5);
-  content: ' ';
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-
-.blocks-item[data-category-name='minFraud Services'] .blocks-item-icon::before {
-  background: linear-gradient(180deg, rgba(0, 119, 194, 0.5), rgba(255, 0, 136, 0.5));
-}
-
-.blocks-item[data-category-name='GeoIP and GeoLite'] .blocks-item-icon::before {
-  background: linear-gradient(180deg, rgba(0, 119, 194, 0.5), rgba(0, 255, 102, 0.5));
-}
-
-.blocks-item-icon::after {
-  content: ' ';
-  display: block;
-  padding-bottom: 100%;
-}
-
-.blocks-item-icon svg {
-  bottom: 40px;
-  fill: #fff;
-  left: 40px;
-  margin: auto 0;
-  position: absolute;
-  right: 40px;
-  top: 40px;
-}
-
-.knowledge-base .categories.blocks .blocks-item .blocks-item-title {
-  background-color: #fff;
-  border-top: 1px solid $border_color;
-  color: $brand_color;
-  font-size: 17.6px;
-  font-weight: 700;
-  margin: 20px 0 0;
-  padding: 10px 30px;
-  text-align: center;
-}
-
-.knowledge-base .categories.blocks .blocks-item .blocks-item-description {
-  background-color: #fff;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-  color: $text_color;
-  font-size: 14px;
-  font-weight: 400;
-  margin: 0 0 -2px;
-  min-height: 105px;
-  padding: 0 30px 20px;
-  text-align: left;
+.blocks__item-link svg {
+  color: var(--mm-color-active-blue);
+  width: 14px;
 }
 
 /***** Promoted articles *****/
