@@ -12,7 +12,12 @@
     "gulp-zip": "^5.1.0",
     "js-yaml": "^4.1.0",
     "node-fetch": "^2.1.2",
-    "sass": "^1.35.1"
+    "sass": "^1.35.1",
+    "stylelint": "^13.13.1",
+    "stylelint-config-recommended": "^5.0.0",
+    "stylelint-config-sass-guidelines": "^8.0.0",
+    "stylelint-no-unsupported-browser-features": "^5.0.1",
+    "stylelint-order": "^4.1.0"
   },
   "engines": {
     "node": "^14.8.0"
@@ -26,6 +31,7 @@
   "scripts": {
     "build": "gulp build",
     "develop": "gulp develop",
+    "lint:styles": "stylelint 'src/styles/**/*.scss'",
     "package": "gulp package",
     "preinstall": "npx npm-force-resolutions"
   },
