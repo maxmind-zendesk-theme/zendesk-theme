@@ -1,15 +1,14 @@
 /***** Request *****/
 .request {
   &-container {
-    @include desktop {
-      align-items: flex-start;
-      flex-direction: row;
-    }
-
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
+    @include desktop {
+      align-items: flex-start;
+      flex-direction: row;
+    }
 
     .comment-container {
       min-width: 0;
@@ -17,26 +16,27 @@
   }
 
   &-breadcrumbs {
-    @include desktop { margin-bottom: 60px; }
     margin-bottom: 40px;
+    @include desktop { margin-bottom: 60px; }
   }
 
   &-main {
     flex: 1 0 auto;
     order: 1;
 
-    .comment-fields, .request-submit-comment {
+    @include desktop {
+      flex: 0 0 66%; // 4% spacing
+      min-width: 0; // Tricky detail to show truncated text https://css-tricks.com/flexbox-truncated-text/
+      order: 0;
+    }
+
+    .comment-fields,
+    .request-submit-comment {
       display: none;
     }
 
     .comment-fields.shown { display: block; }
     .request-submit-comment.shown { display: inline; }
-
-    @include desktop {
-      flex: 0 0 66%; // 4% spacing
-      order: 0;
-      min-width: 0; // Tricky detail to show truncated text https://css-tricks.com/flexbox-truncated-text/
-    }
 
     .comment-form-controls {
       display: block;
@@ -44,11 +44,11 @@
     .comment-ccs { display: block; }
 
     .comment-show-container {
-      border-radius: 2px;
       border: 1px solid $border-color;
+      border-radius: 2px;
       color: $secondary-text-color;
-      text-align: inherit;
       padding: 8px 25px;
+      text-align: inherit;
       width: 100%;
 
       &.hidden {
@@ -57,20 +57,20 @@
     }
 
     .form-field.comment-ccs {
-      & > ul {
+      > ul {
+        border-bottom: 0;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
-        border-bottom: 0;
 
-        &[data-hc-focus="true"] {
-          border: 1px solid $brand_color;
+        &[data-hc-focus='true'] {
+          border: 1px solid $brand-color;
         }
       }
 
-      & > input[type="text"] {
+      > input[type='text'] {
+        border-bottom: 0;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
-        border-bottom: 0;
       }
     }
 
@@ -80,47 +80,44 @@
       margin-top: 0;
 
       &:focus {
-        border-top: 1px solid $brand_color;
+        border-top: 1px solid $brand-color;
       }
     }
 
-    input#mark_as_solved { display: none; }
+    #mark_as_solved { display: none; }
   }
 
   &-title {
+    width: 100%;
     @include desktop {
       border-bottom: 1px solid $border-color;
       margin-bottom: 0;
       max-width: 66%; //Same as main container
       padding-bottom: 20px;
     }
-
-    width: 100%;
   }
 
   &-sidebar {
-    @include desktop {
-      background-color: $primary-shade;
-      border: 0;
-      font-size: $font-size-small;
-      flex: 0 0 auto;
-      padding: 0 20px;
-      width: 30%; //IE11 fix
-    }
-
     border-bottom: 1px solid $border-color;
     border-top: 1px solid $border-color;
     flex: 1 0 auto;
     order: 0; //Bring to top
+    @include desktop {
+      background-color: $primary-shade;
+      border: 0;
+      flex: 0 0 auto;
+      font-size: $font-size-small;
+      padding: 0 20px;
+      width: 30%; //IE11 fix
+    }
 
     h2 {
-      @include desktop {
-        display: none;
-      }
-
       font-size: $font-size-base;
       font-weight: $font-weight-semibold;
       position: relative;
+      @include desktop {
+        display: none;
+      }
     }
   }
 
@@ -132,11 +129,12 @@
 
     &:last-child { border: 0; }
 
-    dt, dd {
+    dt,
+    dd {
       display: inline-block;
-      vertical-align: top;
       font-size: $font-size-small;
-      margin: 20px 0 0 0;
+      margin: 20px 0 0;
+      vertical-align: top;
     }
 
     dd {
@@ -144,7 +142,7 @@
       width: 60%;
 
       &::after {
-        content: "\A";
+        content: '\A';
         white-space: pre;
       }
     }
@@ -160,15 +158,17 @@
   }
 
   &-attachments {
-    dt, dd {
+    dt,
+    dd {
       width: 100%;
     }
 
     dd {
-      margin: 10px 0 0 0;
+      margin: 10px 0 0;
     }
   }
 
+  /* stylelint-disable-next-line no-descending-specificity */
   &-form textarea {
     min-height: 120px;
   }

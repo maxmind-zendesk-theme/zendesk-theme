@@ -1,23 +1,30 @@
+/* stylelint-disable scss/at-extend-no-missing-placeholder */
+
 /***** Pagination *****/
 
 .pagination {
   margin: 20px 0;
   text-align: center;
 
-  &-next, &-prev, &-first, &-last {
+  &-next,
+  &-prev,
+  &-first,
+  &-last {
     display: inline-block;
+
     &-link {
       @extend .button;
     }
   }
 
-  &-first, &-last {
+  &-first,
+  &-last {
     &-link {
       padding: 0 10px;
     }
 
     &-text {
-     @include visually-hidden;
+      @include visually-hidden;
     }
   }
 
@@ -25,13 +32,16 @@
     &-link {
       padding-right: 10px;
     }
+
     &-text {
       margin-right: 10px;
     }
-    [dir="rtl"] & {
+
+    [dir='rtl'] & {
       &-link {
         padding-left: 10px;
       }
+
       &-text {
         margin-left: 10px;
       }
@@ -42,13 +52,16 @@
     &-link {
       padding-left: 10px;
     }
+
     &-text {
       margin-left: 10px;
     }
-    [dir="rtl"] & {
+
+    [dir='rtl'] & {
       &-link {
         padding-right: 10px;
       }
+
       &-text {
         margin-right: 10px;
       }

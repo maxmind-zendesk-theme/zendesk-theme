@@ -2,7 +2,12 @@
 .search {
   position: relative;
 
-  input[type="search"] {
+  &-full input[type='search'] {
+    border: 1px solid #fff;
+  }
+
+  input[type='search'] {
+    appearance: none;
     border: 1px solid $border-color;
     border-radius: 30px;
     box-sizing: border-box;
@@ -10,37 +15,32 @@
     height: 40px;
     padding-left: 40px;
     padding-right: 20px;
-    -webkit-appearance: none;
     width: 100%;
 
-    [dir="rtl"] & {
-      padding-right: 40px;
+    [dir='rtl'] & {
       padding-left: 20px;
+      padding-right: 40px;
     }
 
     &:focus {
-      border: 1px solid $brand_color;
+      border: 1px solid $brand-color;
       color: $field-text-focus-color;
     }
-  }
-
-  &-full input[type="search"] {
-    border: 1px solid #fff;
   }
 }
 
 .search-icon {
   @include vertical-align;
-  position: absolute;
-  left: 15px;
-  z-index: 1;
-  width: 18px;
-  height: 18px;
   color: #777;
+  height: 18px;
+  left: 15px;
+  position: absolute;
+  width: 18px;
+  z-index: 1;
 
-  [dir="rtl"] & {
-    right: 15px;
+  [dir='rtl'] & {
     left: auto;
+    right: 15px;
   }
 }
 

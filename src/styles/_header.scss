@@ -2,8 +2,8 @@
 $page-header-height: 80px;
 
 .header {
-  background: $background_color;
-  box-shadow: 0 1px 13px 0 rgba(0, 0, 0, .1), 0 1px 5px 0 rgba(0, 0, 0, .06);
+  background: $background-color;
+  box-shadow: 0 1px 13px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.06);
   height: $page-header-height;
   padding-top: 10px;
   position: sticky;
@@ -13,33 +13,27 @@ $page-header-height: 80px;
 }
 
 .header-area {
-  display: -ms-grid;
   display: grid;
-  grid-template-areas: "logo search menu";
-  -ms-grid-columns: max-content 1fr max-content;
+  grid-template-areas: 'logo search menu';
   grid-template-columns: max-content 1fr max-content;
-  -ms-grid-rows: auto;
   grid-template-rows: auto;
   height: 70px;
   padding: 0 $spacing;
 }
 
 .header-area>* {
-  -ms-grid-row-align: center;
   align-self: center;
 }
 
 .logo {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  color: $text_color;
-  display: -ms-grid;
+  color: $text-color;
   display: grid;
-  grid-gap: 8px;
   gap: 8px;
   grid-area: logo;
-  grid-template-areas: "svg site-name";
-  -ms-grid-columns: auto;
+  grid-column: 1;
+  grid-gap: 8px;
+  grid-row: 1;
+  grid-template-areas: 'svg site-name';
   grid-template-columns: auto;
   padding: 10px;
   transform: translateX(-10);
@@ -52,25 +46,25 @@ $page-header-height: 80px;
 }
 
 .logo svg {
-  -ms-grid-row: 1;
-  -ms-grid-colum: 1;
-  -ms-grid-row-align: center;
   align-self: center;
   grid-area: svg;
+  grid-column: 1;
+  grid-row: 1;
+  justify-content: center;
   max-width: 125px;
   width: 100%;
 }
 
 .logo span {
-  -ms-grid-row: 1;
-  -ms-grid-column: 3;
-  -ms-grid-row-align: center;
   align-self: center;
-  font-family: $heading_font;
+  font-family: $heading-font;
   font-size: 10px;
   font-style: italic;
   font-weight: 600;
   grid-area: site-name;
+  grid-column: 3;
+  grid-row: 1;
+  justify-content: center;
   letter-spacing: 1px;
   line-height: 1;
   overflow: hidden;
@@ -79,9 +73,9 @@ $page-header-height: 80px;
   text-transform: uppercase;
 }
 
-.logo span:before {
+.logo span::before {
   background: #ccc;
-  content: " ";
+  content: ' ';
   display: block;
   height: 100%;
   left: 0;
@@ -92,21 +86,21 @@ $page-header-height: 80px;
 }
 
 .header-spacer {
-  -ms-grid-row: 1;
-  -ms-grid-column: 2;
   grid-area: search;
+  grid-column: 2;
+  grid-row: 1;
 }
 
 .nav-wrapper {
-  -ms-grid-row: 1;
-  -ms-grid-column: 3;
   grid-area: menu;
+  grid-column: 3;
+  grid-row: 1;
 }
 
-.nav-wrapper .nav-item, {
+.nav-wrapper .nav-item {
+  color: $text-color;
   display: block;
-  color: $text_color;
-  font-family: $heading_font;
+  font-family: $heading-font;
   font-size: 16px;
   font-weight: 500;
   line-height: 20px;
@@ -119,37 +113,37 @@ $page-header-height: 80px;
   &:active,
   &:hover,
   &:focus {
-    color: $link_color;
+    color: $link-color;
     text-decoration: none;
   }
 }
 
 #header-menu .sub-nav {
   display: block;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 .nav-wrapper .nav-item.nav-header {
-  color: $link_color;
+  color: $link-color;
   font-size: 18px;
   font-weight: 700;
   padding-bottom: 10px;
   padding-top: 20px;
 }
 
-.nav-wrapper .nav-item.nav-header .nav-label {
-  padding-left: 0px;
-}
-
 .nav-wrapper .nav-icon,
-.nav-wrapper .nav-label  {
+.nav-wrapper .nav-label {
   display: inline-block;
 }
 
 .nav-wrapper .nav-label {
   padding: 10px 0 0 5px;
   white-space: nowrap;
+}
+
+.nav-wrapper .nav-item.nav-header .nav-label {
+  padding-left: 0;
 }
 
 .nav-wrapper .nav-icon {
@@ -160,15 +154,15 @@ $page-header-height: 80px;
 }
 
 .nav-wrapper .nav-icon path {
-  fill: $text_color;
+  fill: $text-color;
 }
 
 .header-module-toggle {
   align-items: center;
-  border: 1px solid $border_color;
+  border: 1px solid $border-color;
   border-radius: 6px;
   box-sizing: border-box;
-  color: $text_color;
+  color: $text-color;
   cursor: pointer;
   display: flex;
   font-size: 12px;
@@ -179,21 +173,21 @@ $page-header-height: 80px;
   width: 30px;
 }
 
-.header-module-toggle svg.menu-open,
-.header-module-toggle svg.menu-close {
+.header-module-toggle .menu-open,
+.header-module-toggle .menu-close {
   text-align: center;
   vertical-align: middle;
 }
 
-.header-module-toggle svg.menu-close {
+.header-module-toggle .menu-close {
   display: none;
 }
 
 #header-menu {
-  background-color: $background_color;
-  border-left: 1px solid $border_color;
+  background-color: $background-color;
+  border-left: 1px solid $border-color;
   border-top: 1px solid transparent;
-  box-shadow: inset 0 3px 5px -3px rgba(0,0,0,0.6);
+  box-shadow: inset 0 3px 5px -3px rgba(0, 0, 0, 0.6);
   height: 100vh;
   max-width: 0%;
   padding: 0;
@@ -203,11 +197,11 @@ $page-header-height: 80px;
   transition: max-width 0.15s ease-out;
 }
 
-#header-menu:before {
+#header-menu::before {
   backdrop-filter: blur(10px);
-  box-shadow: inset 0 3px 5px -3px rgba(0,0,0,0.6);
   bottom: 0;
-  content: "";
+  box-shadow: inset 0 3px 5px -3px rgba(0, 0, 0, 0.6);
+  content: '';
   opacity: 0;
   position: absolute;
   right: 100%;
@@ -222,27 +216,26 @@ $page-header-height: 80px;
 
 .header-module-toggle.open ~ #header-menu {
   max-width: 100%;
-  padding: 5px 0px 5px 10px;
+  padding: 5px 0 5px 10px;
 }
 
-.header-module-toggle.open ~ #header-menu:before {
+.header-module-toggle.open ~ #header-menu::before {
   opacity: 1;
   width: 100vw;
 }
 
-.header-module-toggle.open > svg.menu-open {
+.header-module-toggle.open > .menu-open {
   display: none;
 }
 
-.header-module-toggle.open > svg.menu-close {
+.header-module-toggle.open > .menu-close {
   display: block;
 }
 
 @media only screen and (min-width: 576px) {
   .logo {
-    grid-gap: 15px;
     gap: 15px;
-    -ms-grid-columns: auto;
+    grid-gap: 15px;
     grid-template-columns: auto;
   }
 
@@ -252,26 +245,24 @@ $page-header-height: 80px;
 }
 
 @media only screen and (min-width: 992px) {
-
   .logo svg {
     max-width: 162px;
   }
 
   .logo span {
-    font-family: $heading_font;
+    font-family: $heading-font;
     font-size: 12px;
   }
 
-  label.header-module-toggle {
+  .header-module-toggle {
     display: none;
   }
 
-  .nav-wrapper .nav-item  {
-    -ms-flex-align: center;
+  .nav-wrapper .nav-item {
     align-items: center;
     border: 1px solid transparent;
     border-radius: 6px;
-    color: $text_color;
+    color: $text-color;
     display: inline-block;
     font-size: 14px;
     padding-bottom: 10px;
@@ -280,25 +271,21 @@ $page-header-height: 80px;
     &:hover,
     &:focus {
       background: #f5f6f7;
-      color: $text_color;
+      color: $text-color;
     }
   }
 
   #header-menu {
-    border-left: none;
-    border-top: none;
+    border-left: 0;
+    border-top: 0;
     box-shadow: none;
-    max-width: 900px;
     height: auto;
-    padding-top: 0px;
+    max-width: 900px;
+    padding-top: 0;
     position: static;
     right: 0;
     top: 0;
     transition: none;
-  }
-
-  .header-module-toggle {
-    display: none;
   }
 
   .nav-wrapper .nav-item.nav-header {
@@ -306,7 +293,7 @@ $page-header-height: 80px;
   }
 
   .header-sidebar {
-    background-color: $background_color;
+    background-color: $background-color;
     left: 0;
     margin-top: 40px;
     padding: 20px 0;
@@ -315,9 +302,9 @@ $page-header-height: 80px;
     width: 350px;
   }
 
-  .header-sidebar:after {
+  .header-sidebar::after {
     background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1));
-    content: "";
+    content: '';
     height: 100vh;
     position: absolute;
     right: 0;
@@ -325,6 +312,7 @@ $page-header-height: 80px;
     width: 5px;
   }
 
+  /* stylelint-disable no-descending-specificity */
   .header-sidebar .nav-item {
     background-color: transparent;
     font-size: 16px;
@@ -334,9 +322,10 @@ $page-header-height: 80px;
     &:hover,
     &:focus {
       background-color: transparent;
-      color: $link_color;
+      color: $link-color;
     }
   }
+  /* stylelint-enable no-descending-specificity */
 
   .header-sidebar .nav-icon {
     color: #444;
@@ -348,21 +337,21 @@ $page-header-height: 80px;
 
 .skip-navigation {
   align-items: center;
-  background-color: black;
-  color: white;
+  background-color: #000;
+  color: #fff;
   display: flex;
   font-size: 14px;
   justify-content: center;
   left: -999px;
   margin: 20px;
-  padding: 20px;
   overflow: hidden;
+  padding: 20px;
   position: absolute;
   top: auto;
   z-index: -999;
 
 
-  [dir="rtl"] & {
+  [dir='rtl'] & {
     left: initial;
     right: -999px;
   }
@@ -377,9 +366,9 @@ $page-header-height: 80px;
     z-index: 999;
 
 
-  [dir="rtl"] & {
-    left: initial;
-    right: auto;
-  }
+    [dir='rtl'] & {
+      left: initial;
+      right: auto;
+    }
   }
 }

@@ -22,9 +22,9 @@
     padding: 0;
     width: 90%;
   }
+  margin: 0 auto;
 
   max-width: $max-width-container;
-  margin: 0 auto;
   padding: 0 5%;
 }
 
@@ -35,16 +35,14 @@
 }
 
 @mixin text-overflow {
-  -moz-hyphens: auto;
-  -ms-hyphens: auto;
-  -webkit-hyphens: auto;
+  hyphens: auto;
   word-break: break-word;
-  word-wrap: break-word; //IE/Edge compatibility
+  word-wrap: break-word; // IE/Edge compatibility
 }
 
 @mixin focus-ring {
+  box-shadow: 0 0 0 3px $brand-color;
   outline: 0;
-  box-shadow: 0 0 0 3px $brand_color;
 }
 
 @mixin content-body {
@@ -53,44 +51,51 @@
     max-width: 100%;
   }
 
-  ul, ol {
-    padding-left: 20px;
-    list-style-position: outside;
-    margin: 20px 0 20px 20px;
-
-    [dir="rtl"] & {
-      padding-right: 20px;
-      padding-left: 0;
-      margin-left: 0;
-      margin-right: 20px;
-    }
-  }
-
-  // Sub level list
-  ul > ul, ol > ol, ol > ul, ul > ol, li > ul, li > ol {
-    margin: 0;
-  }
-
   ul {
     list-style-type: disc;
   }
 
-  a:visited { color: unquote("$visited_link_color"); }
+  ul,
+  ol {
+    list-style-position: outside;
+    margin: 20px 0 20px 20px;
+    padding-left: 20px;
+  }
+
+  // Sub level list
+  ul > ul,
+  ol > ol,
+  ol > ul,
+  ul > ol,
+  li > ul,
+  li > ol {
+    margin: 0;
+  }
+
+  ul [dir='rtl'],
+  ol [dir='rtl'] {
+    margin-left: 0;
+    margin-right: 20px;
+    padding-left: 0;
+    padding-right: 20px;
+  }
+
+  a:visited { color: unquote('$visited_link_color'); }
 
   code {
     background: $primary-shade;
     border: 1px solid $border-color;
     border-radius: 3px;
-    padding: 0 5px;
     margin: 0 2px;
+    padding: 0 5px;
   }
 
   pre {
     background: $primary-shade;
     border: 1px solid $border-color;
     border-radius: 3px;
-    padding: 10px 15px;
     overflow: auto;
+    padding: 10px 15px;
     white-space: pre;
   }
 
@@ -105,13 +110,12 @@
 @mixin visually-hidden {
   border: 0;
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
   clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
   padding: 0;
   position: absolute;
-  width: 1px;
   white-space: nowrap;
+  width: 1px;
 }

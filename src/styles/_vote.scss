@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   text-align: center;
+
   a {
     &:active,
     &:hover,
@@ -18,7 +19,7 @@
   display: block;
   margin: 3px 0;
 
-  [dir="rtl"] & {
+  [dir='rtl'] & {
     direction: ltr;
     unicode-bidi: bidi-override;
   }
@@ -28,28 +29,29 @@
   transform: scale(1, -1);
 }
 
-.vote-up:hover,
-.vote-down:hover {
-  color: $brand_color;
-}
 
-.vote-up, .vote-down {
-  -webkit-appearance: none;
-  -moz-appearance: none;
+
+.vote-up,
+.vote-down {
+  align-items: center;
   appearance: none;
   background-color: transparent;
-  border: none;
+  border: 0;
   color: $secondary-text-color;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
   min-height: 35px;
   min-width: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+}
+
+.vote-up:hover,
+.vote-down:hover {
+  color: $brand-color;
 }
 
 .vote-voted {
-  color: $brand_color;
+  color: $brand-color;
 }
 
 .vote-voted:hover {

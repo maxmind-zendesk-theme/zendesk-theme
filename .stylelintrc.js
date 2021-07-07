@@ -9,6 +9,7 @@ module.exports = {
     'stylelint-order',
   ],
   rules: {
+    'max-nesting-depth': 5,
     'plugin/no-unsupported-browser-features': [
       true,
       {
@@ -30,6 +31,17 @@ module.exports = {
            * https://caniuse.com/?search=appearance
            */
           'css-appearance',
+
+          /**
+           * Not supported - IE 11
+           * Partial support - Edge 90,91, Chrome 90,91, Safari 14,14.1
+           *
+           * Partial support refers to supporting shapes and the url(#foo)
+           * syntax for inline SVG, but not shapes in external SVGs.
+           *
+           * https://caniuse.com/?search=clip-path
+           */
+          'css-clip-path',
 
           /**
            * Not supported - IE11
@@ -58,11 +70,39 @@ module.exports = {
           'css-gradients',
 
           /**
+           * Partial support - Edge
+           *
+           *   Only supported on Android & Mac platforms.
+           *
+           * https://caniuse.com/css-hyphens
+           */
+          'css-hyphens',
+
+          /**
            * Not supported - IE11
            *
            * https://caniuse.com/?search=css-initial-value
            */
           'css-initial-value',
+
+          /**
+           * Not supported - IE 11
+           * Partial support - Edge 90,91, Chrome 90,91, Safari 14,14.1
+           *
+           * Partial support in WebKit/Blink browsers refers to supporting the
+           * mask-image and mask-box-image properties, but lacking support for
+           * other parts of the spec.
+           *
+           * https://caniuse.com/?search=mask
+           */
+          'css-masks',
+
+          /**
+           * Not supported - IE11
+           *
+           * https://caniuse.com/css-resize
+           */
+          'css-resize',
 
           /**
            * Not supported - IE11
@@ -78,6 +118,13 @@ module.exports = {
            * https://caniuse.com/?search=css-sticky
            */
           'css-sticky',
+
+          /**
+           * Not supported - IE11
+           *
+           * https://caniuse.com/?search=unset-value
+           */
+          'css-unset-value',
 
           /**
            * Partial support - IE11
@@ -137,7 +184,16 @@ module.exports = {
         resolveNestedSelectors: true,
       },
     ],
+    'selector-max-id': 1,
     'selector-max-compound-selectors': 5,
+    'selector-no-qualifying-type': [
+      true,
+      {
+        ignore: [
+          'attribute',
+        ]
+      }
+    ],
     'selector-pseudo-class-no-unknown': [
       true,
       {

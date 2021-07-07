@@ -1,5 +1,6 @@
 /***** Hero component *****/
 .hero {
+  /* stylelint-disable-next-line function-url-quotes */
   background-image: url(unquote("$homepage_background_image"));
   background-position: center;
   background-size: cover;
@@ -10,7 +11,7 @@
 
   &-inner {
     @include vertical-align;
-    max-width: 610px;
     margin: 0 auto;
+    max-width: 610px;
   }
 }

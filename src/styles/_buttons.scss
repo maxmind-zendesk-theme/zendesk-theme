@@ -1,7 +1,5 @@
 /***** Buttons *****/
 .button {
-  @include tablet { width: auto; }
-
   background-color: transparent;
   border: 1px solid $button-color;
   border-radius: 4px;
@@ -13,18 +11,19 @@
   margin: 0;
   padding: 0 20px;
   text-align: center;
-  transition: background-color .12s ease-in-out, border-color .12s ease-in-out, color .15s ease-in-out;
+  -webkit-touch-callout: none;
+  transition: background-color 0.12s ease-in-out, border-color 0.12s ease-in-out, color 0.15s ease-in-out;
   user-select: none;
   white-space: nowrap;
   width: 100%;
-  -webkit-touch-callout: none;
+  @include tablet { width: auto; }
 
   &:hover,
   &:active,
   &:focus,
   &.button-primary {
-    background-color: $brand_color;
-    color: $brand_text_color;
+    background-color: $brand-color;
+    color: $brand-text-color;
     text-decoration: none;
   }
 
@@ -42,21 +41,22 @@
   }
 }
 
-.button-large, input[type="submit"] {
-  @include tablet {
-    width: auto;
-  }
-
-  cursor: pointer;
+.button-large,
+input[type='submit'] {
   background-color: $button-color;
   border: 0;
   border-radius: 4px;
-  color: $brand_text_color;
+  color: $brand-text-color;
+
+  cursor: pointer;
   font-size: 14px;
   line-height: 2.72;
   min-width: 190px;
   padding: 0 1.9286em;
   width: 100%;
+  @include tablet {
+    width: auto;
+  }
 
   &:hover,
   &:active,
@@ -71,15 +71,15 @@
 }
 
 .button-secondary {
-  color: $secondary-text-color;
-  border: 1px solid $border-color;
   background-color: transparent;
+  border: 1px solid $border-color;
+  color: $secondary-text-color;
 
   &:hover,
   &:focus,
   &:active {
-    color: $text_color;
-    border: 1px solid $border-color;
     background-color: $primary-shade;
+    border: 1px solid $border-color;
+    color: $text-color;
   }
 }

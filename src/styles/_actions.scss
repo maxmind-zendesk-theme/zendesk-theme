@@ -1,20 +1,18 @@
 /***** Actions *****/
 /* Styles admin and en user actions(edit, delete, change status) in comments and posts */
 .actions {
-  text-align: center;
   flex-shrink: 0; /*Avoid collapsing elements in Safari*/
+  text-align: center;
 
-  & button {
-    -webkit-appearance: none;
-    -moz-appearance: none;
+  button {
+    align-items: center;
     appearance: none;
     background-color: transparent;
-    border: none;
+    border: 0;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
     min-height: 35px;
     min-width: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 }
