@@ -6,11 +6,14 @@ const babel = require('gulp-babel');
 const concat = require('gulp-concat');
 const sass = require('gulp-dart-sass');
 const postcss = require('gulp-postcss');
+const posthtml = require('gulp-posthtml');
 const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
 const zip = require('gulp-zip');
 const merge = require('merge2')
 const path = require('path');
+const exp = require('posthtml-expressions');
+const include = require('posthtml-include');
 
 gulp.task('clean', async() => {
   return del([
@@ -20,7 +23,7 @@ gulp.task('clean', async() => {
 
 gulp.task('styles', function () {
   return gulp.src('./src/**/*.scss')
-    .pipe(sass({ outputStyle: 'compressed' }).on("error", sass.logError))
+    .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
     .pipe(postcss([
       autoprefixer(),
     ]))
@@ -35,7 +38,7 @@ gulp.task('scripts', () => {
     gulp.src('src/scripts/lib/**/*.js'),
     gulp.src([
       'src/scripts/**/*.js',
-      '!src/scripts/lib/**/*.js'
+      '!src/scripts/lib'
     ])
   )
     .pipe(sourcemaps.init())
@@ -48,16 +51,47 @@ gulp.task('scripts', () => {
     .pipe(gulp.dest('dist'));
 });
 
+gulp.task('templates', () => {
+  return gulp
+    .src([
+      'src/templates/*.hbs',
+      '!src/templates/partials'
+    ])
+    .pipe(
+      posthtml(
+        [
+          exp({
+            delimiters: ['{{%', '%}}'],
+            unescapedDelimiters: ['{{{%', '%}}}'],
+            locals: {},
+          }),
+          include({
+            root: 'src/templates/partials',
+          }),
+        ],
+        {
+          template: false,
+        }
+      )
+    )
+    .pipe(gulp.dest('./dist/templates'))
+});
+
 gulp.task('copy-files', () => {
   return gulp.src([
-    'src/{assets,settings,templates,translations}/**/*',
+    'src/{assets,settings,translations}/**/*',
     'src/manifest.json',
     '.zat',
   ])
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('update-build', gulp.parallel('styles', 'scripts', 'copy-files'));
+gulp.task('update-build', gulp.parallel(
+  'styles',
+  'scripts',
+  'templates',
+  'copy-files')
+);
 
 gulp.task('build', gulp.series('clean', 'update-build'));
 
