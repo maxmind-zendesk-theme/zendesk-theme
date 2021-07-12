@@ -18,8 +18,10 @@
   border: 1px solid var(--mm-color-border);
   border-radius: var(--mm-border-radius);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-auto-flow: column;
   overflow: hidden;
-  padding: calc(var(--mm-spacing) / 4);
+  padding: 4px;
 }
 
 .categories-toggle .categories-toggle__radio {
@@ -27,12 +29,15 @@
 }
 
 .categories-toggle__label {
+  align-content: center;
   color: #fff;
   cursor: pointer;
+  display: grid;
   font-size: 12px;
   font-weight: bold;
   padding: 4px 8px;
   position: relative;
+  text-shadow: 1px 2px 0 rgb(0 0 0 / 25%);
   text-transform: uppercase;
   z-index: 1;
 }
@@ -42,6 +47,7 @@
   border: 1px solid var(--mm-color-border);
   border-radius: var(--mm-border-radius);
   color: inherit;
+  text-shadow: none;
 }
 
 .categories-section {
