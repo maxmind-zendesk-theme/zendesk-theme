@@ -4,11 +4,7 @@
   margin: 20px auto;
   max-width: 500px;
   position: relative;
-  z-index: 11;
-
-  &-full input[type='search'] {
-    // border: 1px solid #fff;
-  }
+  z-index: 1;
 
   input[type='search'] {
     border: 0;
