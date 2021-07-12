@@ -125,7 +125,7 @@
           {{#each results}}
             <li class="search-result-list-item result-{{type}}">
               <h2 class="search-result-title">
-                <a href="{{url}}" class="results-list-item-link"  {{#if is_external}} target="_blank" {{/if}}>
+                <a href="{{url}}" class="results-list-item-link"  target="{{#if is_external}}_blank{{/if}}">
                   {{title}}
                   {{#if is_external}}
                     <svg viewBox="0 0 12 12" height="12" id="zd-svg-icon-12-new-window-fill">

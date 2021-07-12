@@ -119,3 +119,61 @@
   white-space: nowrap;
   width: 1px;
 }
+
+$pattern-scale: 1;
+
+@mixin pattern-base {
+  background-color: #00a7e5;
+  background-image: url('/assets/svg/bg-pattern.svg');
+  background-position: center center;
+  background-size: (80px * $pattern-scale) (140px * $pattern-scale);
+  content: ' ';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: translateZ(0);
+  width: 100%;
+  will-change: transform; /* stylelint-disable-line */
+}
+
+@mixin pattern-gradient {
+  background: rgb(0, 119, 194);
+  background: linear-gradient(90deg, rgba(0, 119, 194, 0.5) 0%, var(--page-type-color));
+  content: ' ';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+@mixin pattern {
+  position: relative;
+
+  &::before {
+    @include pattern-base;
+  }
+
+  &::after {
+    @include pattern-gradient;
+  }
+}
+
+@mixin pattern-border {
+  &::before,
+  &::after {
+    display: block;
+    height: 10px !important;
+    overflow: hidden;
+  }
+
+  &::before {
+    @include pattern-base;
+  }
+
+  &::after {
+    @include pattern-gradient;
+  }
+}
+

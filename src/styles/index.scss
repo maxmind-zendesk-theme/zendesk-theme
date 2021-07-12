@@ -40,3 +40,41 @@
 @import 'search_results';
 @import 'notifications';
 @import 'dropdowns';
+
+:root {
+  --mm-color-active-blue: #2b7ec6;
+  --mm-color-background: #fff;
+  --mm-color-background-code: #274958;
+  --mm-color-sidebar: #f5f6f7;
+  --mm-color-border: #ddd;
+  --mm-color-logo-blue-light: #00aeef;
+  --mm-color-logo-blue-dark: #005f83;
+  --mm-color-primary-text: #595959;
+  --mm-color-display-text: #005f83;
+  --mm-border-radius: 6px;
+  --mm-font-stack-default: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Ubuntu, sans-serif;
+  --mm-font-stack-display: 'montserrat', var(--mm-font-stack-default);
+  --mm-font-stack-monospace: 'Source Code Pro', monospace;
+  --mm-layout-toc-width: 290px;
+  --mm-layout-sidebar-width: 350px;
+  --mm-outline: 2px solid var(--mm-color-logo-blue-light);
+  --mm-spacing: 40px;
+  --page-header-height: 80px;
+  --page-type-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Not sure why .page-type--minfraud does not work here */
+[class='page-type--minfraud'] {
+  --page-type-color: rgba(255, 0, 136, 0.5);
+}
+
+/* Not sure why .page-type--geoip does not work here */
+[class='page-type--geoip'] {
+  --page-type-color: rgba(0, 255, 102, 0.5);
+}
+
+*:focus {
+  outline-color: var(--mm-color-logo-blue-light);
+  outline-style: solid;
+  outline-width: 2px;
+}

@@ -1,17 +1,35 @@
+@use './mixins';
+
 /***** Hero component *****/
 .hero {
-  /* stylelint-disable-next-line function-url-quotes */
-  background-image: url(unquote("$homepage_background_image"));
-  background-position: center;
-  background-size: cover;
-  height: 300px;
-  padding: 0 20px;
-  text-align: center;
+  @include mixins.pattern;
+  padding: 20px 20px 40px;
   width: 100%;
 
   &-inner {
-    @include vertical-align;
     margin: 0 auto;
     max-width: 610px;
+    position: relative;
+  }
+}
+
+.hero-inner h2 {
+  color: $brand-text-color;
+  font-family: $heading-font;
+  font-size: 30px;
+  margin-bottom: 0;
+  position: relative;
+  text-align: center;
+  text-shadow: $overview-heading-text-shadow;
+  z-index: 1;
+}
+
+@media only screen and (min-width: 1410px) {
+  .hero-inner {
+    max-width: 950px;
+  }
+
+  .hero-inner h2 {
+    font-size: 45px;
   }
 }

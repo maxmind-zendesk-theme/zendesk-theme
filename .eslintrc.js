@@ -6,11 +6,18 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
-    'plugin:compat/recommended',
     'plugin:security/recommended',
     'standard',
   ],
   overrides: [
+    {
+      extends: [
+        'plugin:compat/recommended',
+      ],
+      files: [
+        'src/scripts/**/*.js',
+      ],
+    },
     {
       extends: [
         'plugin:json/recommended',
@@ -48,7 +55,7 @@ module.exports = {
   rules: {
     'comma-dangle': [
       'warn',
-      'always',
+      'always-multiline',
     ],
     semi: [
       'warn',

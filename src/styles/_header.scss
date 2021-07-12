@@ -1,7 +1,10 @@
+@use './mixins';
+
 /***** Header *****/
 $page-header-height: 80px;
 
 .header {
+  @include mixins.pattern-border;
   background: $background-color;
   box-shadow: 0 1px 13px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.06);
   height: $page-header-height;
@@ -98,7 +101,6 @@ $page-header-height: 80px;
 }
 
 .nav-wrapper .nav-item {
-  color: $text-color;
   display: block;
   font-family: $heading-font;
   font-size: 16px;
