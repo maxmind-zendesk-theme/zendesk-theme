@@ -1,7 +1,59 @@
-<footer class="footer">
-  <div class="footer-inner">
-    {{#link 'help_center'}}{{help_center.name}}{{/link}}
-
+<footer id="footer" class="Footer-module--footer">
+    {{!-- {{#link 'help_center'}}{{help_center.name}}{{/link}} --}}
+    <div class="Footer-module--container">
+      <div class="Footer-module--branding">
+        <a aria-label="https://www.maxmind.com" class="Footer-module--logo" href="https://www.maxmind.com">
+          <svg viewBox="0 0 276 108"><path fill="#ffffff" d="M19.5 108V91.7l-7 10.7h-0.1l-7-10.6V108H0V82.9h5.9l6.6 10.6 6.6-10.6H25V108H19.5z"></path><path fill="#ffffff" d="M61.9 108l-2.3-5.6H49l-2.3 5.6h-5.6l10.7-25.3h5.1L67.6 108H61.9zM54.3 89.4L51 97.5h6.6L54.3 89.4z"></path><path fill="#ffffff" d="M98.7 108l-5.6-8.6 -5.6 8.6h-6.3l8.7-12.7 -8.4-12.3h6.4l5.3 8.1 5.3-8.1h6.3l-8.4 12.2 8.7 12.8H98.7z"></path><polygon fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="7" points="212.4 56.2 257 2.8 264.4 72.8 273.6 32.2 "></polygon><polygon fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="6" points="212.4 56.2 167.7 23 167.7 73.4 108.1 40.5 "></polygon><path fill="#ffffff" d="M141 108V91.7l-7 10.7h-0.1l-7-10.6V108h-5.4V82.9h5.9l6.6 10.6 6.6-10.6h5.9V108H141z"></path><path fill="#ffffff" d="M164.9 108V82.9h5.5V108H164.9z"></path><path fill="#ffffff" d="M206.5 108l-12.1-15.9V108H189V82.9h5.1l11.7 15.4V82.9h5.4V108H206.5z"></path><path fill="#ffffff" d="M239.2 108h-9.8V82.9h9.8c7.9 0 13.3 5.4 13.3 12.4v0.1C252.5 102.5 247.1 108 239.2 108zM246.8 95.5c0-4.4-3-7.5-7.5-7.5H235v15.1h4.3C243.7 103 246.8 100 246.8 95.5L246.8 95.5z"></path><path fill="#ffffff" d="M164.9 76.1v-5.6h5.5V76L164.9 76.1 164.9 76.1z"></path><path fill="#ffffff" d="M105.8 38.4c1.1-1 2.9-0.8 3.9 0.3 1 1.2 0.9 2.9-0.2 3.9 -1.1 1-2.9 0.8-3.9-0.3C104.6 41.1 104.7 39.4 105.8 38.4z"></path><path fill="#ffffff" d="M165.6 20.9c1.1-1 2.8-0.9 3.8 0.2 1 1.1 0.9 2.8-0.2 3.8s-2.8 0.9-3.8-0.2S164.5 21.8 165.6 20.9z"></path><path fill="#ffffff" d="M214.1 54.2c-1-1.1-2.7-1.3-3.9-0.3 -1.1 1-1.2 2.7-0.2 3.9 1 1.1 2.7 1.2 3.9 0.2C215 57.1 215.1 55.4 214.1 54.2z"></path><path fill="#ffffff" d="M258.8 1c-1-1.1-2.7-1.3-3.9-0.3 -1.1 1-1.2 2.7-0.2 3.9 1 1.1 2.7 1.2 3.9 0.2C259.7 3.9 259.8 2.1 258.8 1z"></path><path fill="#ffffff" d="M271.4 30.1c1.1-1 2.9-0.8 3.9 0.3 1 1.2 0.9 2.9-0.2 3.9 -1.1 1-2.9 0.8-3.9-0.3C270.2 32.9 270.3 31.1 271.4 30.1z"></path><path fill="#ffffff" d="M262.3 70.7c1.1-1 2.8-0.9 3.8 0.2s0.9 2.8-0.2 3.8c-1.1 1-2.8 0.9-3.8-0.2C261.1 73.4 261.2 71.7 262.3 70.7z"></path><path fill="#ffffff" d="M257.5 87.5L257.5 87.5c0-3.9 3.1-7.2 7.2-7.2 4.1 0 7 3.3 7 7l0 0c0 3.9-3.1 7-7.2 7C260.6 94.5 257.5 91.4 257.5 87.5zM271 87.5L271 87.5c0-3.6-2.8-6.5-6.3-6.5 -3.7 0-6.5 2.9-6.5 6.5l0 0c0 3.6 2.8 6.3 6.3 6.3C268.2 94 271 91 271 87.5zM261.9 83.6h3.3c1 0 1.6 0.3 2.1 0.8 0.3 0.3 0.7 0.8 0.7 1.5l0 0c0 1.1-0.8 2-2 2.1l2.3 2.9H267l-2.1-2.8h-1.8V91H262L261.9 83.6 261.9 83.6zM265 87.1c1 0 1.8-0.5 1.8-1.3l0 0c0-0.8-0.7-1.3-1.6-1.3h-2.1v2.6C263 87.1 265 87.1 265 87.1z"></path></svg>
+        </a>
+        <div class="Footer-module--social">
+          <a aria-label="Twitter" class="Footer-module--socialIcon" href="https://twitter.com/maxmind">
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" class="fa-icon" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-48.9 158.8c.2 2.8.2 5.7.2 8.5 0 86.7-66 186.6-186.6 186.6-37.2 0-71.7-10.8-100.7-29.4 5.3.6 10.4.8 15.8.8 30.7 0 58.9-10.4 81.4-28-28.8-.6-53-19.5-61.3-45.5 10.1 1.5 19.2 1.5 29.6-1.2-30-6.1-52.5-32.5-52.5-64.4v-.8c8.7 4.9 18.9 7.9 29.6 8.3a65.447 65.447 0 0 1-29.2-54.6c0-12.2 3.2-23.4 8.9-33.1 32.3 39.8 80.8 65.8 135.2 68.6-9.3-44.5 24-80.6 64-80.6 18.9 0 35.9 7.9 47.9 20.7 14.8-2.8 29-8.3 41.6-15.8-4.9 15.2-15.2 28-28.8 36.1 13.2-1.4 26-5.1 37.8-10.2-8.9 13.1-20.1 24.7-32.9 34z"></path></svg>
+          </a>
+          <a aria-label="LinkedIn" class="Footer-module--socialIcon" href="https://www.linkedin.com/company/maxmind">
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" class="fa-icon" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>
+          </a>
+        </div>
+      </div>
+      <div class="Footer-module--group Footer-module--group__products">
+        <h3 class="Footer-module--heading">Products</h3>
+        <a class="Footer-module--link" href="https://www.maxmind.com/en/solutions/minfraud-services">minFraud Services</a>
+        <a class="Footer-module--link" href="https://www.maxmind.com/en/solutions/geoip2-enterprise-product-suite/anonymous-ip-database">GeoIP2 Anonymous IP Database</a>
+        <a class="Footer-module--link" href="https://www.maxmind.com/en/solutions/geoip2-enterprise-product-suite/enterprise-database">GeoIP2 Enterprise Database</a>
+        <a class="Footer-module--link" href="https://www.maxmind.com/en/geoip2-precision-services">GeoIP2 Precision Services</a>
+        <a class="Footer-module--link" href="https://www.maxmind.com/en/geoip2-databases">GeoIP2 Databases</a>
+        <a class="Footer-module--link" href="https://dev.maxmind.com/geoip/geoip2/geolite2">GeoLite2 Databases</a>
+      </div>
+      <div class="Footer-module--group Footer-module--group__support">
+        <h3 class="Footer-module--heading">Support</h3>
+        <a class="Footer-module--link" href="https://support.maxmind.com/">Support Center</a>
+        <a class="Footer-module--link" href="https://status.maxmind.com/">System Status</a>
+        <a class="Footer-module--link" href="https://support.maxmind.com/">Frequently Asked Questions</a>
+        <a class="Footer-module--link" href="https://support.maxmind.com/geoip-data-correction-request/">GeoIP Data Correction Request</a>
+        <a class="Footer-module--link" href="https://www.maxmind.com/en/privacy-policy#additional-disclosures-for-california-residents">Do Not Sell My Personal Information</a>
+        <a class="Footer-module--link" href="https://www.maxmind.com/en/privacy-policy#california-notice-of-collection">Notice of Collection</a>
+      </div>
+      <div class="Footer-module--group Footer-module--group__developers">
+        <h3 class="Footer-module--heading">Developers</h3>
+        <a class="Footer-module--link" href="https://dev.maxmind.com/">Dev Center</a>
+        <a class="Footer-module--link" href="https://dev.maxmind.com/minfraud/">minFraud</a>
+        <a class="Footer-module--link" href="https://dev.maxmind.com/geoip/">GeoIP</a>
+      </div>
+      <div class="Footer-module--group Footer-module--group__company">
+        <h3 class="Footer-module--heading">Company</h3>
+        <a class="Footer-module--link" href="https://www.maxmind.com/en/company">About MaxMind</a>
+        <a class="Footer-module--link" href="https://www.maxmind.com/en/company/working-at-maxmind">Working at MaxMind</a>
+        <a class="Footer-module--link" href="https://www.maxmind.com/en/company/commitment-to-security">Commitment to Security</a>
+        <a class="Footer-module--link" href="https://www.maxmind.com/en/company/charitable-giving">Charitable Giving</a>
+        <a class="Footer-module--link" href="https://www.maxmind.com/en/company/contact-us">Contact Us</a>
+      </div>
+      <section class="Footer-module--copyright">
+        <p>© 2012-2021 MaxMind, Inc. All Rights Reserved. MaxMind, GeoIP, minFraud, and related trademarks belong to MaxMind, Inc.</p>
+        <div class="Footer-module--terms">
+          <a class="Footer-module--termsLink" href="https://www.maxmind.com/en/terms-of-use">Terms of Use</a>
+          <a class="Footer-module--termsLink" href="https://www.maxmind.com/en/privacy-policy">Privacy Policy</a>
+        </div>
+      </section>
+    </div>
     <div class="footer-language-selector">
       {{#if alternative_locales}}
         <div class="dropdown language-selector">
