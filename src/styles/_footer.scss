@@ -49,7 +49,7 @@
 
   .Footer-module--copyright {
     grid-column: 3/span 2;
-    margin-top: calc(var(--mm-spacing) / 2);
+    // margin-top: calc(var(--mm-spacing) / 2);
     text-align: right;
   }
 
@@ -103,6 +103,7 @@
 
   .Footer-module--copyright p {
     grid-area: p;
+    margin-top: 0;
   }
 
   .Footer-module--terms {
@@ -127,12 +128,12 @@
     width: 100%;
   }
 
-  a { color: $secondary-text-color; }
+  // a { color: $secondary-text-color; }
 
-  &-language-selector button {
-    color: $secondary-text-color;
-    display: inline-block;
-  }
+  // &-language-selector button {
+  //   color: $secondary-text-color;
+  //   display: inline-block;
+  // }
 }
 
 .Footer-module--container {
@@ -205,6 +206,10 @@
   font-size: 12px;
   grid-area: copyright;
   padding: var(--mm-spacing) var(--mm-spacing) calc(var(--mm-spacing) * 2.5);
+}
+
+.Footer-module--copyright p {
+  grid-area: p;
 }
 
 .Footer-module--terms {
