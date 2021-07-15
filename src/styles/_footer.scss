@@ -27,6 +27,7 @@
     text-align: center;
   }
 }
+
 @media only screen and (min-width: 768px) {
   .Footer-module--container {
     grid-template-areas: 'a b c d' 'branding branding copyright copyright';
@@ -49,7 +50,6 @@
 
   .Footer-module--copyright {
     grid-column: 3/span 2;
-    // margin-top: calc(var(--mm-spacing) / 2);
     text-align: right;
   }
 
@@ -69,7 +69,6 @@
     align-content: flex-start;
     border-top: 0;
     display: grid;
-    // grid-area: branding;
     grid-template-areas: 'logo' 'social';
     justify-content: center;
     order: 0;
@@ -115,8 +114,8 @@
 .Footer-module--footer {
   @include mixins.pattern;
   background-color: #2e3a47;
-  border-top: 1px solid var(--mm-color-border);
   color: var(--mm-color-background);
+  font-size: 14px;
 
   &::after {
     background: rgba(25, 19, 6, 0.7);
@@ -127,13 +126,6 @@
     top: 0;
     width: 100%;
   }
-
-  // a { color: $secondary-text-color; }
-
-  // &-language-selector button {
-  //   color: $secondary-text-color;
-  //   display: inline-block;
-  // }
 }
 
 .Footer-module--container {
@@ -173,14 +165,14 @@
 .Footer-module--group {
   padding: var(--mm-spacing);
   padding-bottom: 0;
+}
 
-  .Footer-module--link {
-    color: var(--mm-color-background);
-    display: block;
-    font-family: $text-font;
-    font-weight: 500;
-    padding-bottom: 10px;
-  }
+.Footer-module--link {
+  color: var(--mm-color-background);
+  display: block;
+  font-family: var(--mm-font-stack-default);
+  font-weight: 500;
+  margin-bottom: 10px;
 }
 
 .Footer-module--group__products {
@@ -201,7 +193,10 @@
 
 .Footer-module--heading {
   color: #c0d2e4;
-  font-family: $heading-font;
+  font-family: var(--mm-font-stack-display);
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: calc(var(--mm-spacing) / 2);
 }
 
 .Footer-module--copyright {
@@ -212,6 +207,7 @@
 
 .Footer-module--copyright p {
   grid-area: p;
+  margin: 0;
 }
 
 .Footer-module--terms {
