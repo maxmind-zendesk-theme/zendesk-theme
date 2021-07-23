@@ -14,9 +14,17 @@
       {{/is}}
     </div>
     <h2 class="Hero__title">{{category.name}}</h2>
-    {{#if category.description}}
-      <h3 class="Hero__description">{{category.description}}</p>
-    {{/if}}
+    {{#is category.name 'minFraud Services'}}
+      <h3 class="Hero__subtitle">Transaction Risk API</h3>
+    {{/is}}
+
+    {{#is category.name 'GeoIP and GeoLite'}}
+      <h3 class="Hero__subtitle">Databases and Web Services</h3>
+    {{/is}}
+
+    {{#is category.name 'Account and Purchasing'}}
+      <h3 class="Hero__subtitle">Managing Your MaxMind Services</h3>
+    {{/is}}
     {{!-- Hide this for now <include src="svg/icon-search.svg"></include> --}}
     {{search scoped=settings.scoped_kb_search submit=false placeholder='Search by keyword' class='hero__search search search-full'}}
   </div>
