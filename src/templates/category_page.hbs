@@ -1,46 +1,67 @@
-<section class="section hero">
-  <div class="Hero__group__category" category="{{category.name}}">
-    <div class="Hero__icon">
-      {{#is category.name 'minFraud Services'}}
-        <include src="svg/icon-minfraud.svg"></include>
-      {{/is}}
-
-      {{#is category.name 'GeoIP and GeoLite'}}
-        <include src="svg/icon-geoip.svg"></include>
-      {{/is}}
-
-      {{#is category.name 'Account and Purchasing'}}
-        <include src="svg/icon-account-and-purchasing.svg"></include>
-      {{/is}}
-    </div>
-    <h2 class="Hero__title">{{category.name}}</h2>
+<section class="section hero" category="{{category.name}}">
+  <div class="hero__lockup">
+    <div class="hero__icon">
     {{#is category.name 'minFraud Services'}}
-      <h3 class="Hero__subtitle">Transaction Risk API</h3>
+      <include src="svg/icon-minfraud.svg"></include>
     {{/is}}
 
     {{#is category.name 'GeoIP and GeoLite'}}
-      <h3 class="Hero__subtitle">Databases and Web Services</h3>
+      <include src="svg/icon-geoip.svg"></include>
     {{/is}}
 
     {{#is category.name 'Account and Purchasing'}}
-      <h3 class="Hero__subtitle">Managing Your MaxMind Services</h3>
+      <include src="svg/icon-account-and-purchasing.svg"></include>
     {{/is}}
-    {{!-- Hide this for now <include src="svg/icon-search.svg"></include> --}}
-    {{search scoped=settings.scoped_kb_search submit=false placeholder='Search by keyword' class='hero__search search search-full'}}
-  </div>
-</section>
-<div class="Overview-module__content">
 
-  <div class="LinkGroup__container">
-    <section class="LinkGroup__section">
-      <h3 class="">Guides</h3>
-      <div class="LinkGroup__cards">
+    {{#is category.name 'Support'}}
+      <include src="svg/icon-support.svg"></include>
+    {{/is}}
+
+    {{#is category.name 'Sales'}}
+      <include src="svg/icon-sales.svg"></include>
+    {{/is}}
+    </div>
+    <h2 class="hero__title">{{category.name}}</h2>
+    <h3 class="hero__subtitle">
+    {{#is category.name 'minFraud Services'}}
+      Transaction Risk API
+    {{/is}}
+
+    {{#is category.name 'GeoIP and GeoLite'}}
+      Databases and Web Services
+    {{/is}}
+
+    {{#is category.name 'Account and Purchasing'}}
+      Managing Your MaxMind Services
+    {{/is}}
+
+    {{#is category.name 'Support'}}
+      Support subtitle
+    {{/is}}
+
+    {{#is category.name 'Sales'}}
+      Sales subtitle
+    {{/is}}
+    </h3>
+  </div>
+  {{!-- Hide this for now <include src="svg/icon-search.svg"></include> --}}
+  {{search scoped=settings.scoped_kb_search submit=false placeholder='Search by keyword' class='hero__search search search-full'}}
+</section>
+<div class="overview__content">
+  <p class="overview__description">{{category.description}}</p>
+  <div class="container">
+    <section class="category__section">
+      <h3 class="category__section__heading">Guides</h3>
+      <div class="category__cards" category="{{category.name}}">
         {{#each sections}}
-          <a class="LinkGroupCard__container" href="{{url}}">
-            <h3 class="LinkGroupCard__header">{{name}}</h3>
+          <a class="category__card-container" href="{{url}}">
+            <h3 class="category__card-header">{{name}}</h3>
             {{#if description}}
-            <p class="LinkGroupCard__description">{{description}}</p>
+            <p class="category__card-description">{{description}}</p>
             {{/if}}
+            <div class="category__card-arrow">
+              <include src="svg/icon-arrow-right2.svg"></include>
+            </div>
           </a>
         {{else}}
           <i class="category-empty">

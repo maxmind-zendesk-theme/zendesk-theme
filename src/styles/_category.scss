@@ -1,54 +1,246 @@
+@use './mixins';
+
 /***** Category pages *****/
-.category {
-  &-container {
-    display: flex;
-    justify-content: flex-end;
+
+@media only screen and (min-width: 576px) {
+  .hero__title {
+    font-size: 30px;
   }
 
-  &-content {
-    flex: 1;
-    @include desktop {
-      flex: 0 0 80%;
-    }
-  }
-}
-
-.section-tree {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  @include tablet { flex-direction: row; }
-
-  .section {
-    flex: initial;
-    @include tablet { flex: 0 0 45%; /* Two columns for tablet and desktop. Leaving 5% separation between columns */ }
-  }
-
-  &-title {
+  .hero__subtitle {
     font-size: 18px;
-    font-weight: $font-weight-semibold;
-    margin-bottom: 0;
-
-    a { color: $text-color; }
   }
-
-  .see-all-articles {
-    display: block;
-    padding: 15px 0;
+}
+@media only screen and (min-width: 768px) {
+  .category__cards {
+    display: grid;
+    gap: var(--mm-spacing);
+    grid-gap: var(--mm-spacing);
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
   }
 }
 
-.article-list {
-  &-item {
-    font-size: $font-size-bigger;
-    padding: 15px 0;
+@media only screen and (min-width: 1200px) {
+  .hero__title {
+    font-size: 40px;
+  }
 
-    a { color: $text-color; }
+  .hero__subtitle {
+    font-size: 25px;
+  }
+
+  .overview__description {
+    justify-self: center;
+    max-width: 880px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .container {
+    display: grid;
+    justify-self: center;
+    max-width: 980px;
+  }
+
+  .category__cards {
+    display: grid;
+    gap: var(--mm-spacing);
+    grid-gap: var(--mm-spacing);
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
   }
 }
 
-.icon-star {
-  color: $brand-color;
+.hero {
+  display: grid;
+  padding: var(--mm-spacing);
+  position: relative;
+}
+
+.hero[category='minFraud Services'] {
+  --page-type-color: rgba(255, 0, 136, 0.5);
+}
+
+.hero[category='GeoIP and GeoLite'] {
+  --page-type-color: rgba(0, 255, 102, 0.5);
+}
+
+.hero__lockup {
+  column-gap: 20px;
+  display: grid;
+  grid-column-gap: 20px;
+  grid-row-gap: 10px;
+  grid-template-areas: 'icon title' 'icon subtitle';
+  grid-template-columns: max-content max-content;
+  justify-self: center;
+  row-gap: 10px;
+}
+
+.hero__icon {
+  --mm-overview-heading-drop-shadow: 1px 3px 0 rgba(0, 0, 0, 0.25);
+  --mm-product-icon-stroke-width: 6px;
+  align-items: center;
+  aspect-ratio: 1/1;
+  background: linear-gradient(var(--page-type-color), #0077c2);
+  border-radius: calc(var(--mm-border-radius) * 3);
+  box-shadow: var(--mm-overview-heading-drop-shadow),inset 0 0 0 var(--mm-product-icon-stroke-width) rgba(255, 255, 255, 0.35);
+  display: grid;
+  grid-area: icon;
+  height: 100px;
+  justify-items: center;
+  position: relative;
+  transform-style: preserve-3d;
+  width: 100px;
+  z-index: 1;
+
+  svg {
+    fill: var(--mm-color-background);
+    filter: drop-shadow(1px 2px 5px #0077c2);
+    max-height: 70%;
+    max-width: 70%;
+    width: 100%;
+  }
+}
+
+.hero__title {
+  align-self: end;
+  color: var(--mm-color-background);
+  font-family: var(--mm-font-stack-display);
+  font-weight: 700;
+  grid-area: title;
+  line-height: 1em;
+  margin-bottom: 0;
+  position: relative;
+  text-align: left;
+  text-shadow: var(--mm-overview-heading-drop-shadow);
+  z-index: 1;
+}
+
+.hero__subtitle {
+  color: var(--mm-color-background);
+  font-family: var(--mm-font-stack-display);
   font-size: 18px;
+  font-weight: 700;
+  grid-area: subtitle;
+  line-height: 1em;
+  margin-bottom: 0;
+  position: relative;
+  text-align: left;
+  text-shadow: var(--mm-overview-heading-drop-shadow);
+  z-index: 1;
+}
+
+.overview__content {
+  background: var(--mm-color-background);
+  display: grid;
+  padding: var(--mm-spacing);
+
+  >:first-child {
+    margin-top: 0;
+  }
+}
+
+.overview__description {
+  color: var(--mm-color-primary-text);
+  font-size: 16px;
+  line-height: 26px;
+  margin: calc(var(--mm-spacing) / 2) 0;
+}
+
+.container {
+  display: block;
+}
+
+.category__section {
+  margin-top: var(--mm-spacing);
+}
+
+.category__section__heading {
+  color: var(--mm-color-primary-text);
+  font-family: var(--mm-font-stack-default);
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.category__cards {
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+.category__card-container {
+  @include mixins.pattern-border;
+  background: linear-gradient(#fff, var(--mm-color-sidebar));
+  border: 1px solid;
+  border-color: #eee #eee #ddd;
+  border-radius: var(--mm-border-radius);
+  display: grid;
+  gap: calc(var(--mm-spacing) / 2);
+  grid-gap: calc(var(--mm-spacing) / 2);
+  grid-template-areas: '. heading arrow' '. description arrow';
+  grid-template-columns: min-content 1fr min-content;
+  grid-template-rows: auto;
+  margin-top: 0;
+  overflow: hidden;
+  padding: calc(var(--mm-spacing) / 2);
+  padding-top: calc(var(--mm-spacing) / 2 + 6px);
+  position: relative;
+  text-decoration: none;
+  transition: all 0.1s ease-in-out;
+  width: 100%;
+
+  &::before,
+  &::after {
+    height: 6px !important;
+  }
+
+  &:hover {
+    text-decoration: none;
+    top: -2px;
+  }
+}
+
+.category__cards[category='minFraud Services'] {
+  .category__card-container {
+    --page-type-color: rgba(255, 0, 136, 0.5);
+  }
+}
+
+.category__cards[category='GeoIP and GeoLite'] {
+  .category__card-container {
+    --page-type-color: rgba(0, 255, 102, 0.5);
+  }
+}
+
+.category__card-header {
+  align-self: center;
+  color: var(--mm-color-display-text);
+  font-family: var(--mm-font-stack-default);
+  font-size: 18px;
+  font-weight: 500;
+  grid-area: heading;
+  margin: 0;
+}
+
+.category__card-description {
+  color: var(--mm-color-primary-text);
+  font-family: var(--mm-font-stack-default);
+  font-size: 14px;
+  grid-area: description;
+  margin: 0;
+}
+
+.category__card-arrow {
+  border-left: 1px solid var(--mm-color-border);
+  color: var(--mm-color-active-blue);
+  display: grid;
+  grid-area: arrow;
+  height: 100%;
+  padding-left: calc(var(--mm-spacing) / 2);
+
+  > * {
+    align-self: center;
+  }
 }
