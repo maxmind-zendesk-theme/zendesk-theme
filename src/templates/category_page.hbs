@@ -43,16 +43,16 @@
       Sales subtitle
     {{/is}}
     </h3>
+    {{!-- Hide this for now <include src="svg/icon-search.svg"></include> --}}
+  {{search scoped=settings.scoped_kb_search placeholder='Search by keyword' class='hero__search search search-full'}}
   </div>
-  {{!-- Hide this for now <include src="svg/icon-search.svg"></include> --}}
-  {{search scoped=settings.scoped_kb_search submit=false placeholder='Search by keyword' class='hero__search search search-full'}}
 </section>
 <div class="overview__content">
   <p class="overview__description">{{category.description}}</p>
-  <div class="container">
+  <div class="category__container">
     <section class="category__section">
-      <h3 class="category__section__heading">Guides</h3>
-      <div class="category__cards" category="{{category.name}}">
+      <h3 class="category__section-heading">Guides</h3>
+      <div class="category__section-cards" category="{{category.name}}">
         {{#each sections}}
           <a class="category__card-container" href="{{url}}">
             <h3 class="category__card-header">{{name}}</h3>
@@ -60,7 +60,7 @@
             <p class="category__card-description">{{description}}</p>
             {{/if}}
             <div class="category__card-arrow">
-              <include src="svg/icon-arrow-right2.svg"></include>
+              <include src="svg/icon-arrow-right.svg"></include>
             </div>
           </a>
         {{else}}
