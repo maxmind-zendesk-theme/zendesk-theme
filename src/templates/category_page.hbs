@@ -1,4 +1,4 @@
-<section class="section hero" category="{{category.name}}">
+<section class="section hero" data-category="{{category.name}}">
   <div class="hero__lockup">
     <div class="hero__icon">
     {{#is category.name 'minFraud Services'}}
@@ -52,7 +52,7 @@
   <div class="category__container">
     <section class="category__section">
       <h3 class="category__section-heading">Guides</h3>
-      <div class="category__section-cards" category="{{category.name}}">
+      <div class="category__section-cards" data-category="{{category.name}}">
         {{#each sections}}
           <a class="category__card-container" href="{{url}}">
             <h3 class="category__card-header">{{name}}</h3>

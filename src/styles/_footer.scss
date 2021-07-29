@@ -123,6 +123,7 @@
   background-color: #2e3a47;
   color: var(--mm-color-background);
   font-size: 14px;
+  z-index: 10;
 
   &::after {
     background: rgba(25, 19, 6, 0.7);

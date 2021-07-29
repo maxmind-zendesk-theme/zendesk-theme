@@ -3,7 +3,11 @@
 /***** Category pages *****/
 @media only screen and (min-width: 320px) {
   .hero__lockup {
-    grid-template-areas: 'icon' 'title' 'subtitle' 'search';
+    grid-template-areas:
+      'icon'
+      'title'
+      'subtitle'
+      'search';
   }
 
   .hero__icon {
@@ -29,7 +33,10 @@
 
 @media only screen and (min-width: 576px) {
   .hero__lockup {
-    grid-template-areas: 'icon title' 'icon subtitle' '. search';
+    grid-template-areas:
+      'icon title'
+      'icon subtitle'
+      '.... search';
   }
 
   .hero__icon {
@@ -65,7 +72,10 @@
 
 @media only screen and (min-width: 1200px) {
   .hero__lockup {
-    grid-template-areas: 'icon title' 'icon subtitle' '. search';
+    grid-template-areas:
+      'icon title'
+      'icon subtitle'
+      '.... search';
   }
 
   .hero__title {
@@ -111,11 +121,11 @@
   position: relative;
 }
 
-.hero[category='minFraud Services'] {
+.hero[data-category='minFraud Services'] {
   --page-type-color: rgba(255, 0, 136, 0.5);
 }
 
-.hero[category='GeoIP and GeoLite'] {
+.hero[data-category='GeoIP and GeoLite'] {
   --page-type-color: rgba(0, 255, 102, 0.5);
 }
 
@@ -240,7 +250,9 @@
   display: grid;
   gap: calc(var(--mm-spacing) / 2);
   grid-gap: calc(var(--mm-spacing) / 2);
-  grid-template-areas: '. heading arrow' '. description arrow';
+  grid-template-areas:
+    '.... heading arrow'
+    '.... description arrow';
   grid-template-columns: min-content 1fr min-content;
   grid-template-rows: auto;
   margin-top: 0;
@@ -264,13 +276,13 @@
   }
 }
 
-.category__section-cards[category='minFraud Services'] {
+.category__section-cards[data-category='minFraud Services'] {
   .category__card-container {
     --page-type-color: rgba(255, 0, 136, 0.5);
   }
 }
 
-.category__section-cards[category='GeoIP and GeoLite'] {
+.category__section-cards[data-category='GeoIP and GeoLite'] {
   .category__card-container {
     --page-type-color: rgba(0, 255, 102, 0.5);
   }
