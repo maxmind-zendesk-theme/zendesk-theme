@@ -1,3 +1,16 @@
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    var categoryTitle = document.querySelector('ol.breadcrumbs > li:nth-child(2) > a');
+    var $header = document.querySelector('.header');
+
+    if (categoryTitle.innerText === 'GeoIP and GeoLite') {
+      $header.classList.add('page-type--geoip');
+    } else if (categoryTitle.innerText === 'minFraud Services') {
+      $header.classList.add('page-type--minfraud');
+    }
+  });
+</script>
+
 <div class="container-divider"></div>
 <div class="container">
   <nav class="sub-nav">
