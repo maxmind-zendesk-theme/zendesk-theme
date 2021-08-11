@@ -22,20 +22,21 @@
         </svg>
       {{/if}}
     </h1>
-    <div class="article__updated">
-        {{#if article.internal}}
-          <div class="article__author">
-            By {{article.author.name}}
-          </div>
-        {{/if}}
-      {{#is article.created_at article.edited_at}}
-        <span class="meta__data">{{date article.created_at format='medium'}}</span>
-      {{else}}
-        <span class="meta__data">Last updated</span>
-        <span class="meta__data">{{date article.edited_at format='medium'}}</span>
-      {{/is}}
-    </div>
   </section>
+  <div class="article__aside">
+    <div class="aside__top">
+      <span class="aside__header">In this section</span>
+      <div class="aside__articles">
+        <ul>
+          {{#each section.articles}}
+            <li>
+              <a href="{{url}}" class="sidenav-item {{#is id ../article.id}}current-article{{/is}}">{{title}}</a>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
   <div class="article__content">
     <div class="article__body">
       {{article.body}}
@@ -56,9 +57,13 @@
         </ul>
       </div>
     {{/if}}
-  </div>
-  <div class="breadcrumb-test">
-    {{breadcrumbs}}
+    <div class="article__updated">
+      {{#is article.created_at article.edited_at}}
+        <p>This page was last updated on {{date article.created_at format='medium'}}.</p>
+      {{else}}
+        <p>This page was last updated on {{date article.edited_at format='medium'}}.</p>
+      {{/is}}
+    </div>
   </div>
   <footer class="article__footer">
     {{#with article}}
