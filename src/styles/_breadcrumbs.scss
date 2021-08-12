@@ -1,13 +1,15 @@
 /***** Breadcrumbs *****/
 .breadcrumbs {
-  margin: 0 0 15px;
+  margin: 0;
   padding: 0;
-  @include tablet {
-    margin: 0;
+  padding-bottom: calc(var(--mm-spacing) / 2);
+
+  a {
+    color: var(--mm-color-primary-text);
   }
 
   li {
-    color: $secondary-text-color;
+    color: var(--mm-color-primary-text);
     display: inline;
     font-size: $font-size-small;
     max-width: 450px;
@@ -18,9 +20,13 @@
       content: '>';
       margin: 0 4px;
     }
+  }
 
-    a:visited {
-      color: $link-color;
-    }
+  li:nth-child(1) {
+    display: none;
+  }
+
+  li:nth-child(2)::before {
+    display: none;
   }
 }

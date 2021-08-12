@@ -1,9 +1,9 @@
 /***** Buttons *****/
 .button {
-  background-color: transparent;
-  border: 1px solid $button-color;
+  background-color: var(--mm-color-background-code);
+  border: 1px solid var(--mm-color-background-code);
   border-radius: 4px;
-  color: $button-color;
+  color: var(--mm-color-background);
   cursor: pointer;
   display: inline-block;
   font-size: 12px;
@@ -17,14 +17,14 @@
   white-space: nowrap;
   @include tablet { width: auto; }
 
-  &:hover,
-  &:active,
-  &:focus,
-  &.button-primary {
-    background-color: $brand-color;
-    color: $brand-text-color;
-    text-decoration: none;
-  }
+  // &:hover,
+  // &:active,
+  // &:focus,
+  // &.button-primary {
+  //   background-color: $brand-color;
+  //   color: $brand-text-color;
+  //   text-decoration: none;
+  // }
 
   &.button-primary {
     &:hover,
