@@ -17,15 +17,6 @@
   white-space: nowrap;
   @include tablet { width: auto; }
 
-  // &:hover,
-  // &:active,
-  // &:focus,
-  // &.button-primary {
-  //   background-color: $brand-color;
-  //   color: $brand-text-color;
-  //   text-decoration: none;
-  // }
-
   &.button-primary {
     &:hover,
     &:focus,
