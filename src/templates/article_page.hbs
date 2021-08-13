@@ -82,10 +82,8 @@
     {{#with article}}
       <div class="article__votes">
         <span class="article__votes-question" id="article-votes-label">{{t 'was_this_article_helpful'}}</span>
-        <div class="article__votes-controls" role="group" aria-labelledby="article-votes-label">
-          {{vote "up" role="radio" class="button article-vote article-vote-up"}}
-          {{vote "down" role="radio" class="button article-vote article-vote-down"}}
-        </div>
+        {{vote "up" role="radio" class="button article-vote article-vote-up"}}
+        {{vote "down" role="radio" class="button article-vote article-vote-down"}}
       </div>
     {{/with}}
   </footer>
