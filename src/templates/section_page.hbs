@@ -1,12 +1,12 @@
 <script>
   window.addEventListener('DOMContentLoaded', (event) => {
     var categoryTitle = document.querySelector('ol.breadcrumbs > li:nth-child(2) > a');
-    var $header = document.querySelector('.header');
+    var $body = document.querySelector('body');
 
     if (categoryTitle.innerText === 'GeoIP and GeoLite') {
-      $header.classList.add('page-type--geoip');
+      $body.classList.add('page-type--geoip');
     } else if (categoryTitle.innerText === 'minFraud Services') {
-      $header.classList.add('page-type--minfraud');
+      $body.classList.add('page-type--minfraud');
     }
   });
 </script>
