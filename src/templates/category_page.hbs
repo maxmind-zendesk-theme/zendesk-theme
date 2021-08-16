@@ -1,12 +1,12 @@
 <script>
   window.addEventListener('DOMContentLoaded', (event) => {
-      var minfraudCategory = document.querySelector('[data-category="minFraud Services"]');
-      var geoipCategory = document.querySelector('[data-category="GeoIP and GeoLite"]');
-      var $body = document.querySelector('body');
+      const $minfraudCategory = document.querySelector('[data-category="minFraud Services"]');
+      const $geoipCategory = document.querySelector('[data-category="GeoIP and GeoLite"]');
+      const $body = document.querySelector('body');
 
-      if (geoipCategory) {
+      if ($geoipCategory) {
         $body.classList.add('page-type--geoip');
-      } else if (minfraudCategory) {
+      } else if ($minfraudCategory) {
         $body.classList.add('page-type--minfraud');
       }
 });

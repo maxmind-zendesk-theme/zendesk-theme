@@ -1,11 +1,11 @@
 <script>
   window.addEventListener('DOMContentLoaded', (event) => {
-    var categoryTitle = document.querySelector('ol.breadcrumbs > li:nth-child(2) > a');
-    var $body = document.querySelector('body');
+    const $categoryTitle = document.querySelector('ol.breadcrumbs > li:nth-child(2) > a');
+    const $body = document.querySelector('body');
 
-    if (categoryTitle.innerText === 'GeoIP and GeoLite') {
+    if ($categoryTitle.innerText === 'GeoIP and GeoLite') {
       $body.classList.add('page-type--geoip');
-    } else if (categoryTitle.innerText === 'minFraud Services') {
+    } else if ($categoryTitle.innerText === 'minFraud Services') {
       $body.classList.add('page-type--minfraud');
     }
   });
