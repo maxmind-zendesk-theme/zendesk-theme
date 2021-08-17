@@ -74,6 +74,14 @@
   --page-type-color: rgba(0, 255, 102, 0.5);
 }
 
+.page-type--geoip {
+  --page-type-color: rgba(0, 255, 102, 0.5);
+}
+
+.page-type--minfraud {
+  --page-type-color: rgba(255, 0, 136, 0.5);
+}
+
 *:focus {
   outline-color: var(--mm-color-logo-blue-light);
   outline-style: solid;
