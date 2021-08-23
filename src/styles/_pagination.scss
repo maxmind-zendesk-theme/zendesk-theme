@@ -1,70 +1,47 @@
 /* stylelint-disable scss/at-extend-no-missing-placeholder */
 
-/***** Pagination *****/
-
 .pagination {
-  margin: 20px 0;
-  text-align: center;
+  margin-bottom: var(--mm-spacing);
 
-  &-next,
-  &-prev,
-  &-first,
-  &-last {
-    display: inline-block;
+  &::after {
+    clear: both;
+    content: '';
+    display: table;
+  }
 
-    &-link {
-      @extend .button;
+  .pagination-prev-text {
+    float: left;
+
+    &::before {
+      content: '<';
+      margin-right: 5px;
     }
   }
 
-  &-first,
-  &-last {
-    &-link {
-      padding: 0 10px;
-    }
+  .pagination-next-text {
+    float: right;
 
-    &-text {
-      @include visually-hidden;
+    &::after {
+      content: '>';
+      margin-left: 5px;
     }
   }
 
-  &-next {
-    &-link {
-      padding-right: 10px;
-    }
+  .pagination-prev-text,
+  .pagination-next-text {
+    border-bottom: 2px dotted var(--mm-color-display-text);
+    color: var(--mm-color-display-text);
+    text-decoration: none;
 
-    &-text {
-      margin-right: 10px;
-    }
-
-    [dir='rtl'] & {
-      &-link {
-        padding-left: 10px;
-      }
-
-      &-text {
-        margin-left: 10px;
-      }
+    &:hover {
+      border-bottom-style: solid;
     }
   }
 
-  &-prev {
-    &-link {
-      padding-left: 10px;
-    }
-
-    &-text {
-      margin-left: 10px;
-    }
-
-    [dir='rtl'] & {
-      &-link {
-        padding-right: 10px;
-      }
-
-      &-text {
-        margin-right: 10px;
-      }
-    }
+  .pagination-first,
+  .pagination-last,
+  .pagination-next-icon,
+  .pagination-prev-icon {
+    display: none;
   }
 }
