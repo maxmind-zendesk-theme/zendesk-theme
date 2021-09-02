@@ -11,10 +11,6 @@
   });
 </script>
 
-<head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-
 <div class="section__page">
   <div class="section__header">
     {{breadcrumbs}}
@@ -30,7 +26,9 @@
       <ul class="article__list">
         {{#each section.articles}}
           <li class="article__list-item">
-            <i class="fa fa-question-circle" style="color: var(--mm-color-display-text)"></i>
+            <div class="icon__question">
+              <include src="svg/icon-question.svg"></include>
+            </div>
             <a href="{{url}}" class="article__list-link">
               {{title}}
               {{#if internal}}

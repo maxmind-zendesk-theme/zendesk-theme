@@ -72,10 +72,11 @@
         '.... excerpt';
       margin-bottom: 20px;
 
-      .fa-question-circle {
-        font-size: 20px;
+      .icon__question {
+        color: var(--mm-color-display-text);
         grid-area: icon;
         padding-top: 6px;
+        width: 20px;
       }
 
       a {
