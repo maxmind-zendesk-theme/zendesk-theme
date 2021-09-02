@@ -36,7 +36,7 @@
     grid-template-areas:
       'icon title'
       'icon subtitle'
-      '.... search';
+      '. search';
   }
 
   .hero__icon {
@@ -75,7 +75,7 @@
     grid-template-areas:
       'icon title'
       'icon subtitle'
-      '.... search';
+      '. search';
   }
 
   .hero__title {
@@ -251,8 +251,8 @@
   gap: calc(var(--mm-spacing) / 2);
   grid-gap: calc(var(--mm-spacing) / 2);
   grid-template-areas:
-    '.... heading arrow'
-    '.... description arrow';
+    '. heading arrow'
+    '. description arrow';
   grid-template-columns: min-content 1fr min-content;
   grid-template-rows: auto;
   margin-top: 0;
