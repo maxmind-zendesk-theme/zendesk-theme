@@ -1,43 +1,59 @@
 /***** Tables *****/
 .table {
+  background-color: var(--mm-color-sidebar);
+  border: 1px solid #eee;
+  border-bottom: 1px solid var(--mm-color-border);
   border-collapse: collapse;
+  border-radius: var(--mm-border-radius);
   border-spacing: 0;
-  table-layout: fixed;
-
+  box-shadow: 0 1px 3px rgb(0 0 0 / 10%);
+  color: #ccc;
+  margin: 0 auto;
+  max-width: 100%;
+  overflow-x: scroll;
+  position: relative;
   width: 100%;
-  @include tablet { table-layout: auto; }
+  z-index: 2;
+
+  thead {
+    background-color: var(--mm-color-background);
+    border-bottom: 1px solid var(--mm-color-border);
+  }
 
   tr {
-    border-bottom: 1px solid $border-color;
-    display: block;
-    padding: 20px 0;
-    @include tablet { display: table-row; }
+    a,
+    a:visited {
+      color: var(--mm-color-display-text);
+    }
+  }
+
+  tr:nth-child(even) {
+    background-color: var(--mm-color-background);
+  }
+
+  tbody {
+    tr:hover {
+      cursor: pointer;
+    }
+  }
+
+  th {
+    border-bottom: 1px solid var(--mm-color-border);
+    color: var(--mm-color-display-text);
+    font-family: var(--mm-font-stack-display);
+    font-size: 14px;
+    font-weight: 700;
+    padding: 16px;
+    position: sticky;
+    text-align: left;
+    white-space: nowrap;
   }
 
   td {
-    display: block;
-    @include tablet {
-      display: table-cell;
-    }
-  }
-
-  td,
-  th {
-    @include desktop {
-      padding: 20px 30px;
-    }
-    @include tablet {
-      height: 60px;
-      padding: 10px 20px;
-    }
-  }
-
-  th,
-  th a {
-    color: $secondary-text-color;
-    font-size: $font-size-small;
-    text-align: left;
-
-    [dir='rtl'] & { text-align: right; }
+    border-top: 1px solid #eee;
+    color: var(--mm-color-primary-text);
+    font-size: 12px !important;
+    line-height: 18px !important;
+    padding: 16px;
   }
 }
