@@ -18,13 +18,6 @@
 
   <div class="request__container">
     <section class="request__details">
-      {{#if request.followup_source_id}}
-        <div class="request__details-follow-up">
-          <div>{{t 'followup'}}</div>
-          <div>{{link 'request' id=request.followup_source_id}}</div>
-        </div>
-      {{/if}}
-
       <div class="request__details-id">
         <label class="request__details-label">Ticket</label>
         <span class="request__details-span">#{{request.id}}</span>
@@ -47,10 +40,16 @@
           {{request.status_name}}
         </span>
       </div>
+      {{#if request.followup_source_id}}
+        <div class="request__details-follow-up">
+          <label class="request__details-label">Follow-Up</label>
+          <span class"request__details-span">{{link 'request' id=request.followup_source_id}}</span>
+        </div>
+      {{/if}}
+      {{satisfaction}}
     </section>
 
     <section class="request__main">
-      {{satisfaction}}
       <div class="comment__list">
         {{#each comments}}
           <div id="{{anchor}}" class="comment">
@@ -91,7 +90,7 @@
 
       {{pagination}}
 
-      <div class="request-follow-up">
+      <div class="request__follow-up">
         {{comment_callout}}
       </div>
 
