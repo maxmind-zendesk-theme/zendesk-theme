@@ -113,22 +113,6 @@
               {{upload}}
             </div>
           </div>
-
-          <div class="comment-form-controls">
-            {{checkbox 'mark_as_solved'}}
-
-            {{#if request.can_be_marked_as_solved}}
-              <button type="button" class="button-large button-secondary mark-as-solved"
-                data-solve-translation="{{t 'mark_as_solved'}}"
-                data-solve-and-submit-translation="{{t 'mark_as_solved_and_submit'}}">
-                {{t 'mark_as_solved'}}
-              </button>
-            {{/if}}
-
-            <span class="request-submit-comment {{#validate 'body'}}shown{{/validate}}">
-              {{input type='submit' class="button button-large"}}
-            </span>
-          </div>
         </div>
       {{/form}}
     </section>
