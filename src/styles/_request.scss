@@ -19,7 +19,9 @@
       'requester'
       'created'
       'updated'
-      'status';
+      'status'
+      'followup'
+      'satisfaction';
     grid-template-columns: 1fr;
   }
 }
@@ -39,7 +41,8 @@
     grid-template-areas:
       'id created'
       'requester updated'
-      'status .';
+      'status followup'
+      'satisfaction satisfaction';
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -75,7 +78,8 @@
   .request__details {
     grid-template-areas:
       'id created status'
-      'requester updated .';
+      'requester updated followup'
+      'satisfaction satisfaction satisfaction';
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
@@ -201,6 +205,41 @@
   .request__details-status {
     grid-area: status;
   }
+
+  .request__details-follow-up {
+    grid-area: followup;
+
+    a {
+      border-bottom: 2px dotted var(--mm-color-display-text);
+      color: var(--mm-color-display-text);
+      font-weight: 500;
+    }
+
+    a:hover {
+      text-decoration: none;
+      border-bottom: 2px solid var(--mm-color-display-text);
+    }
+  }
+}
+
+.comment__list {
+  word-wrap: break-word;
+}
+
+.request__follow-up {
+  font-weight: 500;
+  margin-top: calc(var(--mm-spacing) / 2);
+
+  a {
+    border-bottom: 2px dotted var(--mm-color-display-text);
+    color: var(--mm-color-display-text);
+    font-weight: 500;
+  }
+
+  a:hover {
+    text-decoration: none;
+    border-bottom: 2px solid var(--mm-color-display-text);
+  }
 }
 
 .comment__meta {
@@ -214,6 +253,26 @@
 .request__main {
   border-top: 1px solid var(--mm-color-border);
   margin-top: calc(var(--mm-spacing) / 2);
+}
+
+.satisfaction-box {
+  background-color: var(--mm-color-sidebar);
+  border-style: none;
+  grid-area: satisfaction;
+  margin: 0;
+  margin-top: calc(var(--mm-spacing) / 2);
+  padding: 0;
+  text-align: center;
+
+  h4 {
+    font-size: 14px;
+    line-height: 2;
+    margin-bottom: 0;
+  }
+
+  p {
+    margin: 0;
+  }
 }
 
 .comment-container {
