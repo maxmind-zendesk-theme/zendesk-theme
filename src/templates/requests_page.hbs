@@ -1,3 +1,15 @@
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+      const $rows = document.querySelectorAll('tr[data-href]');
+
+      $rows.forEach(row => {
+        row.addEventListener('click', () => {
+          window.location.href = row.dataset.href;
+        })
+      });
+    });
+</script>
+
 <div class="my__requests">
   <header class="my__requests__header">
     <h1 class="my__requests__title">{{t 'my_requests'}}</h1>
@@ -65,7 +77,7 @@
 
         <tbody>
           {{#each requests}}
-            <tr class="{{#is status 'closed'}}request-closed{{/is}}">
+            <tr class="{{#is status 'closed'}}request-closed{{/is}}" data-href="{{url}}">
               <td class="request-info requests-table-info">
                 <a href="{{url}}" class="striped-list-title" title="{{subject}}">
                   {{#if subject}}

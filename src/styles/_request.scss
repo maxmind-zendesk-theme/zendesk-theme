@@ -26,6 +26,17 @@
   }
 }
 
+@media only screen and (min-width: 620px) {
+  .request__details {
+    grid-template-areas:
+      'id created'
+      'requester updated'
+      'status followup'
+      'satisfaction satisfaction';
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 @media only screen and (min-width: 768px) {
   .new__request,
   .request__page {
@@ -35,15 +46,6 @@
   .new__request__title,
   .request__title {
     font-size: 42px;
-  }
-
-  .request__details {
-    grid-template-areas:
-      'id created'
-      'requester updated'
-      'status followup'
-      'satisfaction satisfaction';
-    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -216,8 +218,8 @@
     }
 
     a:hover {
-      text-decoration: none;
       border-bottom: 2px solid var(--mm-color-display-text);
+      text-decoration: none;
     }
   }
 }
@@ -237,8 +239,8 @@
   }
 
   a:hover {
-    text-decoration: none;
     border-bottom: 2px solid var(--mm-color-display-text);
+    text-decoration: none;
   }
 }
 
