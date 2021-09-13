@@ -77,7 +77,7 @@
   .requests-table-toolbar,
   .requests,
   .pagination {
-    max-width: 880px;
+    max-width: 1200px;
     padding: 0 var(--mm-spacing) 0;
     width: 100%;
   }
@@ -94,7 +94,6 @@
 .my__requests__header {
   grid-area: header;
   margin: 0;
-  max-width: 880px;
   z-index: 5;
 
   .my__requests__title {
@@ -153,7 +152,6 @@
 .requests-table-toolbar {
   grid-area: search;
   margin: 0;
-  max-width: 880px;
 
   .search__requests {
     grid-area: searchbar;
@@ -184,7 +182,6 @@
 
 .requests {
   grid-area: requests;
-  max-width: 880px;
   overflow-x: scroll;
   padding: 0 var(--mm-spacing) var(--mm-spacing);
   width: 100%;
@@ -195,7 +192,6 @@
 }
 
 .pagination {
-  max-width: 880px;
   padding: 0 var(--mm-spacing) 0;
   width: 100%;
 }

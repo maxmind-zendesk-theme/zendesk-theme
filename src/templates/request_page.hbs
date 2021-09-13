@@ -19,30 +19,30 @@
   <div class="request__container">
     <section class="request__details">
       <div class="request__details-id">
-        <label class="request__details-label">Ticket</label>
+        <label class="request__details-label">Ticket:</label>
         <span class="request__details-span">#{{request.id}}</span>
       </div>
       <div class="request__details-requester">
-        <label class="request__details-label">Name</label>
+        <label class="request__details-label">Name:</label>
         <span class="request__details-span">{{request.requester.name}}</span>
       </div>
       <div class="request__details-created">
-        <label class="request__details-label">Created</label>
+        <label class="request__details-label">Created:</label>
         <span class="request__details-span">{{date request.created_at}}</span>
       </div>
       <div class="request__details-updated">
-        <label class="request__details-label">Updated</label>
+        <label class="request__details-label">Updated:</label>
         <span class="request__details-span">{{date request.updated_at}}</span>
       </div>
       <div class="request__details-status">
-        <label class="request__details-label">Status</label>
+        <label class="request__details-label">Status:</label>
         <span class="request__details-span status-label status-label-{{request.status}}" title="{{request.status_description}}">
           {{request.status_name}}
         </span>
       </div>
       {{#if request.followup_source_id}}
         <div class="request__details-follow-up">
-          <label class="request__details-label">Follow-Up</label>
+          <label class="request__details-label">Follow-Up:</label>
           <span class"request__details-span">{{link 'request' id=request.followup_source_id}}</span>
         </div>
       {{/if}}
@@ -64,7 +64,7 @@
                   </div>
                 </div>
 
-                <section class="comment-body">{{body}}</section>
+                <section class="comment__body">{{body}}</section>
 
                 {{#if attachments}}
                   <ul class="attachments">
