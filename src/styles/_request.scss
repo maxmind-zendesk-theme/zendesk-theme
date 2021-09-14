@@ -307,7 +307,8 @@
 }
 
 .comment-container {
-  .comment-show-container {
+  .comment-show-container,
+  .comment-submit {
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
     display: block;
     font-size: 16px;
@@ -320,6 +321,11 @@
       box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
       top: -2px;
     }
+  }
+
+  .comment-submit {
+    display: none;
+    margin-top: calc(var(--mm-spacing) / 2);
   }
 
   .comment-fields {

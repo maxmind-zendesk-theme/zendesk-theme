@@ -1,13 +1,16 @@
 <script>
   window.addEventListener('DOMContentLoaded', (event) => {
-      const $addBtn = document.querySelector('.comment-show-container');
+      const $replyBtn = document.querySelector('.comment-show-container');
       const $commentForm = document.querySelector('.comment-fields');
+      const $submitBtn = document.querySelector('.comment-submit');
 
       function showCommentForm() {
         $commentForm.style.display = "block";
+        $replyBtn.style.display = "none";
+        $submitBtn.style.display = "block";
       }
 
-      $addBtn.addEventListener("click", showCommentForm)
+      $replyBtn.addEventListener("click", showCommentForm)
     });
 </script>
 
@@ -113,6 +116,10 @@
               {{upload}}
             </div>
           </div>
+
+          <button type="button" class="button comment-submit" value="Submit">
+            Submit
+          </button>
         </div>
       {{/form}}
     </section>
