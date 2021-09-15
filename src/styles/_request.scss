@@ -24,6 +24,11 @@
       'satisfaction';
     grid-template-columns: 1fr;
   }
+
+  #new_satisfaction_rating {
+    display: grid;
+    margin: auto;
+  }
 }
 
 @media only screen and (min-width: 620px) {
@@ -34,6 +39,11 @@
       'status followup'
       'satisfaction satisfaction';
     grid-template-columns: 250px;
+  }
+
+  #new_satisfaction_rating {
+    display: inline;
+    margin: auto;
   }
 }
 
@@ -332,10 +342,87 @@
     font-size: 14px;
     line-height: 2;
     margin-bottom: 0;
+    margin-top: 15px;
   }
 
   p {
     margin: 0;
+  }
+
+  [data-satisfied],
+  [data-unsatisfied] {
+    width: 160px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  label[for=satisfaction_rating_reason_code],
+  label[for=satisfaction_rating_comment] {
+    font-family: var(--mm-font-stack-display);
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.2em;
+  }
+
+  input[type=radio]~label {
+    justify-self: center;
+    margin-right: 0;
+  }
+
+  .satisfaction_rating_comment,
+  .satisfaction_rating_reason {
+    margin-top: 15px;
+    padding-top: calc(var(--mm-spacing) / 2);
+  }
+
+  .satisfaction-link-box {
+    display: grid;
+    grid-template-areas: 'submit' 'cancel';
+    text-align: center;
+
+    a,
+    input[type=submit] {
+      margin-left: 0;
+    }
+  }
+
+  .satisfaction-submit {
+    background-color: var(--mm-color-background-code);
+    border: 1px solid var(--mm-color-background-code);
+    border-radius: 4px;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
+    display: block;
+    grid-area: submit;
+    justify-self: center;
+    margin: 0;
+    margin-bottom: calc(var(--mm-spacing) / 2);
+    position: relative;
+    top: 0;
+    width: 200px;
+
+    &:hover {
+      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
+      top: -2px;
+    }
+  }
+
+  .satisfaction-cancel {
+    border: 1px solid var(--mm-color-background-code);
+    border-radius: 4px;
+    display: block;
+    grid-area: cancel;
+    justify-self: center;
+    margin: 0;
+    position: relative;
+    top: 0;
+    width: 200px;
+
+    &:hover {
+      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
+      top: -2px;
+    }
   }
 }
 
