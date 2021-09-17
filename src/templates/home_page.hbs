@@ -105,25 +105,33 @@
 </section>
 
 {{#if promoted_articles}}
-  <section class="articles">
-    <h2>{{t 'promoted_articles'}}</h2>
-    <ul class="article-list promoted-articles">
-      {{#each promoted_articles}}
-        <li class="promoted-articles-item">
-            <a href="{{url}}">
+  <div class="home__page-promoted">
+   <div class="category__container">
+      <section class="category__section">
+        <h3 class="home__page-promoted-heading">Featured articles</h3>
+        <div class="promoted__cards">
+          {{#each promoted_articles}}
+          <a class="category__card-container" href="{{url}}">
+            <h3 class="category__card-header">
               {{title}}
-
               {{#if internal}}
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" focusable="false" viewBox="0 0 16 16" class="icon-lock" title="{{t 'internal'}}">
-                  <rect width="12" height="9" x="2" y="7" fill="currentColor" rx="1" ry="1"/>
-                  <path fill="none" stroke="currentColor" d="M4.5 7.5V4a3.5 3.5 0 017 0v3.5"/>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" focusable="false" viewBox="0 0 16 16"
+                  class="icon-lock" title="{{t 'internal'}}">
+                  <rect width="12" height="9" x="2" y="7" fill="currentColor" rx="1" ry="1" />
+                  <path fill="none" stroke="currentColor" d="M4.5 7.5V4a3.5 3.5 0 017 0v3.5" />
                 </svg>
               {{/if}}
-            </a>
-        </li>
-      {{/each}}
-    </ul>
-  </section>
+            </h3>
+            <p class="category__card-description">{{excerpt body characters=50}}</p>
+            <div class="category__card-arrow">
+              <include src="svg/icon-arrow-right.svg"></include>
+            </div>
+          </a>
+          {{/each}}
+        </div>
+      </section>
+    </div>
+  </div>
 {{/if}}
 
 {{!--
