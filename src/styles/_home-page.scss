@@ -178,69 +178,52 @@
   width: 14px;
 }
 
-/***** Promoted articles *****/
+.home__page-promoted {
+  margin: var(--mm-spacing);
 
-.promoted-articles {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  @include desktop { flex-direction: row; }
-
-  &-item {
-    flex: 1 0 auto;
-    @include desktop {
-      align-self: flex-end;
-      flex: 0 0 auto;
-      padding-right: 30px;
-      width: 33%; /* Three columns on desktop */
-
-      [dir='rtl'] & { padding: 0 0 0 30px; }
-    }
-
-    &:nth-child(3n) {
-      padding-right: 0;
-    }
-
-    a {
-      border-bottom: 1px solid $border-color;
-      color: $text-color;
-      display: block;
-      padding: 15px 0;
-    }
-
-    .icon-lock {
-      vertical-align: baseline;
-    }
-
-    &:last-child a {
-      border: 0;
-      @include desktop {
-        border-bottom: 1px solid $border-color;
-      }
-    }
+  .category__card-header {
+    font-size: 14px;
   }
 
-}
+  .category__card-description {
+    font-size: 12px;
+  }
 
-/***** Community section in homepage *****/
-.community {
-  text-align: center;
+  .promoted__cards {
+    display: grid;
+    gap: calc(var(--mm-spacing) / 2);
+    grid-gap: calc(var(--mm-spacing) / 2);
+  }
 
-  &-image {
-    /* stylelint-disable-next-line function-url-quotes */
-    background-image: url(unquote("$community_image"));
-    background-position: center;
-    background-repeat: no-repeat;
-    margin-top: 32px;
-    max-width: 100%;
-    min-height: 300px;
+  .category__card-container {
+    gap: calc(var(--mm-spacing) / 4);
+    grid-gap: calc(var(--mm-spacing) / 4);
+    padding: calc(var(--mm-spacing) / 4);
+    padding-top: calc(var(--mm-spacing) / 4 + 6px);
+  }
+
+  .home__page-promoted-heading {
+    border-top: 1px dashed var(--mm-color-border);
+    color: #00374c;
+    font-family: var(--mm-font-stack-display);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.2em;
+    margin: var(--mm-spacing) 0 calc(var(--mm-spacing) / 2) 0;
+    padding-top: var(--mm-spacing);
   }
 }
 
-.community,
-.activity {
-  border-top: 1px solid $border-color;
-  padding: 30px 0;
+@media only screen and (min-width: 320px) {
+  .promoted__cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media only screen and (min-width: 576px) {
+  .promoted__cards {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media only screen and (min-width: 992px) {
@@ -250,5 +233,9 @@
 
   .page__home main {
     margin-left: 0;
+  }
+
+  .promoted__cards {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
