@@ -14,7 +14,7 @@ GEM
     faye-websocket (0.10.9)
       eventmachine (>= 0.12.0)
       websocket-driver (>= 0.5.1)
-    ffi (1.9.25)
+    ffi (1.15.4)
     hitimes (2.0.0)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
@@ -29,10 +29,12 @@ GEM
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     marcel (1.0.1)
-    mini_portile2 (2.4.0)
+    mini_portile2 (2.6.1)
     multipart-post (2.1.1)
-    nokogiri (1.10.10)
-      mini_portile2 (~> 2.4.0)
+    nokogiri (1.12.4)
+      mini_portile2 (~> 2.6.1)
+      racc (~> 1.4)
+    racc (1.5.2)
     rack (1.6.13)
     rack-livereload (0.3.17)
       rack
@@ -47,9 +49,8 @@ GEM
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
-    sassc (1.12.1)
-      ffi (~> 1.9.6)
-      sass (>= 3.3.0)
+    sassc (2.4.0)
+      ffi (~> 1.9)
     sinatra (1.4.8)
       rack (~> 1.5)
       rack-protection (~> 1.4)
@@ -66,7 +67,7 @@ GEM
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    zendesk_apps_support (4.29.8)
+    zendesk_apps_support (4.29.10)
       erubis
       i18n
       image_size (~> 2.0.2)
@@ -74,7 +75,7 @@ GEM
       json
       loofah (~> 2.3.1)
       marcel
-      nokogiri (>= 1.8.5, < 1.11.0)
+      nokogiri
       rb-inotify (= 0.9.10)
       sass
       sassc
