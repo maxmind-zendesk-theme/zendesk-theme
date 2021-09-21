@@ -1,5 +1,5 @@
 /***** Tables *****/
-.table {
+table {
   background-color: var(--mm-color-sidebar);
   border: 1px solid #eee;
   border-bottom: 1px solid var(--mm-color-border);
@@ -14,10 +14,22 @@
   position: relative;
   width: 100%;
   z-index: 2;
+}
 
-  thead {
-    background-color: var(--mm-color-background);
-    border-bottom: 1px solid var(--mm-color-border);
+thead {
+  background-color: var(--mm-color-background);
+  border-bottom: 1px solid var(--mm-color-border);
+}
+
+tr:nth-child(even) {
+  background-color: var(--mm-color-background);
+}
+
+.table {
+  tbody {
+    tr:hover {
+      cursor: pointer;
+    }
   }
 
   tr {
@@ -26,34 +38,25 @@
       color: var(--mm-color-display-text);
     }
   }
-
-  tr:nth-child(even) {
-    background-color: var(--mm-color-background);
-  }
-
-  tbody {
-    tr:hover {
-      cursor: pointer;
-    }
-  }
-
-  th {
-    border-bottom: 1px solid var(--mm-color-border);
-    color: var(--mm-color-display-text);
-    font-family: var(--mm-font-stack-display);
-    font-size: 14px;
-    font-weight: 700;
-    padding: 16px;
-    position: sticky;
-    text-align: left;
-    white-space: nowrap;
-  }
-
-  td {
-    border-top: 1px solid #eee;
-    color: var(--mm-color-primary-text);
-    font-size: 12px !important;
-    line-height: 18px !important;
-    padding: 16px;
-  }
 }
+
+th {
+  border-bottom: 1px solid var(--mm-color-border);
+  color: var(--mm-color-display-text);
+  font-family: var(--mm-font-stack-display);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 16px;
+  position: sticky;
+  text-align: left;
+  white-space: nowrap;
+}
+
+td {
+  border-top: 1px solid #eee;
+  color: var(--mm-color-primary-text);
+  font-size: 12px !important;
+  line-height: 18px !important;
+  padding: 16px;
+}
+
