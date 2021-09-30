@@ -220,12 +220,12 @@
   @include mixins.pattern-border;
   background-color: var(--mm-color-sidebar);
   display: grid;
-  justify-content: center;
   padding: calc(var(--mm-spacing) / 2);
   position: relative;
 
   [class*='request__details-'] {
     display: flex;
+    margin: 4px;
 
     .request__details-label {
       font-weight: 500;
@@ -282,6 +282,10 @@
   box-shadow: rgb(87 102 114 / 50%) 0 1px 5px 0 inset;
   color: var(--mm-color-primary-text);
   width: 100%;
+}
+
+#upload-dropzone {
+  padding: var(--mm-spacing);
 }
 
 #new_request > footer {

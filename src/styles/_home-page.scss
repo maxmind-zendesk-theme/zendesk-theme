@@ -200,6 +200,10 @@
     grid-gap: calc(var(--mm-spacing) / 4);
     padding: calc(var(--mm-spacing) / 4);
     padding-top: calc(var(--mm-spacing) / 4 + 6px);
+
+    .category__card-arrow {
+      padding-left: calc(var(--mm-spacing) / 4);
+    }
   }
 
   .home__page-promoted-heading {
@@ -237,5 +241,9 @@
 
   .promoted__cards {
     grid-template-columns: 1fr 1fr 1fr;
+
+    a:hover {
+      text-decoration: none;
+    }
   }
 }
