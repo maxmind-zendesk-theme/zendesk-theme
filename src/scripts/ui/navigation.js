@@ -13,4 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
     $headerSearch.classList.add('search-mobile-open');
     $headerSearchQuery.focus();
   });
+
+  document.body.addEventListener('click', () => {
+    if ($headerSearchQuery === document.activeElement) {
+      $headerSearch.classList.add('search-mobile-open');
+    } else {
+      $headerSearch.classList.remove('search-mobile-open');
+    }
+  });
 });

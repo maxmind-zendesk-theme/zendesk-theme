@@ -1,6 +1,13 @@
 <script>
   var $body = document.body;
   $body.classList.add('page__home');
+
+  const $pageHome = document.querySelector('.page__home');
+  const $pageHomeHeaderSearch = document.querySelector('.header-search');
+
+  if ($pageHome) {
+    $pageHomeHeaderSearch.style.display = 'none';
+  }
 </script>
 
 <h1 class="visibility-hidden">{{ help_center.name }}</h1>

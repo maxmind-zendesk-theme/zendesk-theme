@@ -1,48 +1,57 @@
 /***** Search field *****/
-.search {
-  justify-self: center;
-  margin: 20px auto;
-  // max-width: 500px;
-  position: relative;
-  z-index: 1;
 
+// Homepage search
+
+.search {
   input[type='search'] {
     border: 1px solid var(--mm-color-border);
     border-radius: var(--mm-border-radius);
-    box-sizing: border-box;
-    color: $field-text-color;
-    height: 40px;
-    padding-left: 40px;
-    padding-right: 120px;
+    color: var(--mm-color-primary-text);
     width: 100%;
-
-    [dir='rtl'] & {
-      padding-left: 20px;
-      padding-right: 40px;
-    }
 
     &:focus {
       border: var(--mm-outline);
     }
   }
+}
 
-  input[type='submit'] {
-    background: var(--mm-color-sidebar);
-    border: 1px solid $border-color;
-    border-radius: var(--mm-border-radius);
-    color: var(--mm-color-primary-text);
-    display: grid;
-    font-family: var(--mm-font-stack-display);
-    font-weight: 600;
-    height: calc(100% - 10px);
-    line-height: 1;
-    margin: 5px;
-    min-width: 0;
-    padding: 0 calc(var(--mm-spacing) / 2);
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: auto;
+.hero-inner {
+  .search {
+    justify-self: center;
+    margin: 20px auto;
+    position: relative;
+    z-index: 1;
+
+    input[type='search'] {
+      box-sizing: border-box;
+      height: 40px;
+      padding-left: 40px;
+      padding-right: 120px;
+
+      [dir='rtl'] & {
+        padding-left: 20px;
+        padding-right: 40px;
+      }
+    }
+
+    input[type='submit'] {
+      background: var(--mm-color-sidebar);
+      border: 1px solid $border-color;
+      border-radius: var(--mm-border-radius);
+      color: var(--mm-color-primary-text);
+      display: grid;
+      font-family: var(--mm-font-stack-display);
+      font-weight: 600;
+      height: calc(100% - 10px);
+      line-height: 1;
+      margin: 5px;
+      min-width: 0;
+      padding: 0 calc(var(--mm-spacing) / 2);
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: auto;
+    }
   }
 }
 
@@ -59,8 +68,4 @@
     left: auto;
     right: 15px;
   }
-}
-
-.search-container {
-  position: relative;
 }
