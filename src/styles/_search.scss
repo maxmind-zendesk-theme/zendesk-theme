@@ -2,12 +2,12 @@
 .search {
   justify-self: center;
   margin: 20px auto;
-  max-width: 500px;
+  // max-width: 500px;
   position: relative;
   z-index: 1;
 
   input[type='search'] {
-    border: 1px solid transparent;
+    border: 1px solid var(--mm-color-border);
     border-radius: var(--mm-border-radius);
     box-sizing: border-box;
     color: $field-text-color;
@@ -22,8 +22,7 @@
     }
 
     &:focus {
-      border: 1px solid $brand-color;
-      color: $field-text-focus-color;
+      border: var(--mm-outline);
     }
   }
 

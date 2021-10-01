@@ -6,8 +6,7 @@
     grid-template-areas:
       'icon'
       'title'
-      'subtitle'
-      'search';
+      'subtitle';
   }
 
   .hero__icon {
@@ -24,11 +23,6 @@
     font-size: 18px;
     text-align: center;
   }
-
-  .hero__search {
-    margin-bottom: 0;
-    margin-top: 20px;
-  }
 }
 
 @media only screen and (min-width: 576px) {
@@ -36,7 +30,6 @@
     grid-template-areas:
       'icon title'
       'icon subtitle'
-      '. search';
   }
 
   .hero__icon {
@@ -51,10 +44,6 @@
   .hero__subtitle {
     font-size: 18px;
     text-align: left;
-  }
-
-  .hero__search {
-    margin: 0;
   }
 }
 
@@ -74,8 +63,7 @@
   .hero__lockup {
     grid-template-areas:
       'icon title'
-      'icon subtitle'
-      '. search';
+      'icon subtitle';
   }
 
   .hero__title {
@@ -86,10 +74,6 @@
   .hero__subtitle {
     font-size: 25px;
     text-align: left;
-  }
-
-  .hero__search {
-    margin: 0;
   }
 
   .overview__content {
@@ -189,11 +173,6 @@
   position: relative;
   text-shadow: var(--mm-overview-heading-drop-shadow);
   z-index: 1;
-}
-
-.hero__search {
-  grid-area: search;
-  justify-self: left;
 }
 
 .overview__content {
