@@ -15,7 +15,6 @@
 <section id="main-content" class="section hero">
   <div class="hero-inner">
     <h2>How can we help?</h2>
-    {{!-- Hide this for now <include src="svg/icon-search.svg"></include> --}}
     {{search instant=settings.instant_search placeholder='Search by keyword' class='search search-full'}}
   </div>
 </section>
@@ -25,19 +24,18 @@
 </div>
 
 <section class="categories-section categories-section--public active blocks">
-  <div class="container">
+  <div class="categories-container">
     <ul class="blocks__list">
-      {{!-- Only display the first three categories --}}
       {{#each (slice categories 0 4)}}
         <li class="blocks__item" data-name="{{name}}">
           <div class="blocks__item-header">
               <div class="blocks__item-lockup">
                 <div class="blocks__item-icon">
-                  {{#is name 'minFraud Services'}}
+                  {{#is name 'minFraud Web Services'}}
                     <include src="svg/icon-minfraud.svg"></include>
                   {{/is}}
 
-                  {{#is name 'GeoIP and GeoLite'}}
+                  {{#is name 'GeoIP2 and GeoLite2'}}
                     <include src="svg/icon-geoip.svg"></include>
                   {{/is}}
 
@@ -57,7 +55,7 @@
 
           <div class="blocks__item-links">
             <a href='{{url}}' class="blocks__item-link">
-              <span class="blocks__item-link-text">View knowledge base</span>
+              <span class="blocks__item-link-text">View all articles</span>
               <include src="svg/icon-arrow-right.svg"></include>
             </a>
           </div>
@@ -101,7 +99,7 @@
 
           <div class="blocks__item-links">
             <a href='{{url}}' class="blocks__item-link">
-              <span class="blocks__item-link-text">View knowledge base</span>
+              <span class="blocks__item-link-text">View all articles</span>
               <include src="svg/icon-arrow-right.svg"></include>
             </a>
           </div>

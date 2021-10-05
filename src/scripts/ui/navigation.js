@@ -17,8 +17,12 @@ document.addEventListener('DOMContentLoaded', () => {
   document.body.addEventListener('click', () => {
     if ($headerSearchQuery === document.activeElement) {
       $headerSearch.classList.add('search-mobile-open');
+      $headerCheckbox.style.visibility = 'hidden';
+      $headerSearchBtn.style.visibility = 'hidden';
     } else {
       $headerSearch.classList.remove('search-mobile-open');
+      $headerCheckbox.style.visibility = 'visible';
+      $headerSearchBtn.style.visibility = 'visible';
     }
   });
 });

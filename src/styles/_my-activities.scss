@@ -152,10 +152,12 @@
 .requests-table-toolbar {
   grid-area: search;
   margin: 0;
+  position: relative;
 
   .search__requests {
     grid-area: searchbar;
     margin: 0;
+    padding: calc(var(--mm-spacing) / 2) 0;
 
     .requests-search {
       border: 1px solid var(--mm-color-border);

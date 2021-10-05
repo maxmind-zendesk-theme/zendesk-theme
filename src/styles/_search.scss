@@ -1,20 +1,34 @@
 /***** Search field *****/
-
-// Homepage search
-
 .search {
   input[type='search'] {
     border: 1px solid var(--mm-color-border);
     border-radius: var(--mm-border-radius);
     color: var(--mm-color-primary-text);
+    height: 40px;
     width: 100%;
 
     &:focus {
-      border: var(--mm-outline);
+      box-shadow: 0 0 0 2px var(--mm-color-logo-blue-light);
+      outline: none;
     }
   }
 }
 
+.hero-inner .search,
+.header-search .search {
+  &::before {
+    background: no-repeat url('/assets/svg/icon-search.svg');
+    content: ' ';
+    height: 1em;
+    left: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1em;
+  }
+}
+
+// Homepage search
 .hero-inner {
   .search {
     justify-self: center;
@@ -24,9 +38,8 @@
 
     input[type='search'] {
       box-sizing: border-box;
-      height: 40px;
-      padding-left: 40px;
-      padding-right: 120px;
+      padding-left: calc(var(--mm-spacing) + 15px);
+      padding-right: calc(var(--mm-spacing) * 3);
 
       [dir='rtl'] & {
         padding-left: 20px;
@@ -55,17 +68,9 @@
   }
 }
 
-.search-icon {
-  color: #777;
-  height: 18px;
-  left: 15px;
-  position: relative;
-  top: 33px;
-  width: 18px;
-  z-index: 1;
-
-  [dir='rtl'] & {
-    left: auto;
-    right: 15px;
+// My requests search
+.search__requests {
+  .search {
+    padding-left: var(--mm-spacing);
   }
 }
