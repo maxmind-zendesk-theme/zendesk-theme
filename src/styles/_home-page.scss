@@ -7,47 +7,30 @@
   text-align: center;
 }
 
-.categories-toggle {
-  display: flex;
-  justify-content: center;
-  margin: var(--mm-spacing);
+.toggle-container {
+  margin: auto;
+  margin-top: var(--mm-spacing);
+  width: 150px;
 }
 
-.categories-toggle__form {
-  @include mixins.pattern;
-  border: 1px solid var(--mm-color-border);
+.categories-toggle-btn {
+  background-color: var(--mm-color-background-code);
+  border: 1px solid var(--mm-color-background-code);
   border-radius: var(--mm-border-radius);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  display: grid;
-  grid-auto-flow: column;
-  overflow: hidden;
-  padding: 4px;
-}
-
-.categories-toggle .categories-toggle__radio {
-  display: none;
-}
-
-.categories-toggle__label {
-  align-content: center;
-  color: #fff;
-  cursor: pointer;
-  display: grid;
-  font-size: 12px;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
+  color: var(--mm-color-background);
   font-weight: bold;
-  padding: 4px 8px;
+  padding: 10px;
   position: relative;
-  text-shadow: 1px 2px 0 rgb(0 0 0 / 25%);
-  text-transform: uppercase;
-  z-index: 1;
-}
+  top: 0;
+  transition: all 0.1s ease-in-out;
+  width: 150px;
 
-.categories-toggle .categories-toggle__radio:checked + .categories-toggle__label {
-  background: var(--mm-color-sidebar);
-  border: 1px solid var(--mm-color-border);
-  border-radius: var(--mm-border-radius);
-  color: inherit;
-  text-shadow: none;
+  &:hover {
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
+    cursor: pointer;
+    top: -2px;
+  }
 }
 
 .categories-section {
@@ -67,7 +50,7 @@
 }
 
 .blocks__item {
-  background-color: var(--mm-background-color);
+  background-color: var(--mm-color-sidebar);
   border: 0;
   border-radius: var(--mm-border-radius);
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -195,69 +178,56 @@
   width: 14px;
 }
 
-/***** Promoted articles *****/
+.home__page-promoted {
+  margin: var(--mm-spacing);
 
-.promoted-articles {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  @include desktop { flex-direction: row; }
+  .category__card-header {
+    font-size: 14px;
+  }
 
-  &-item {
-    flex: 1 0 auto;
-    @include desktop {
-      align-self: flex-end;
-      flex: 0 0 auto;
-      padding-right: 30px;
-      width: 33%; /* Three columns on desktop */
+  .category__card-description {
+    font-size: 12px;
+  }
 
-      [dir='rtl'] & { padding: 0 0 0 30px; }
-    }
+  .promoted__cards {
+    display: grid;
+    gap: calc(var(--mm-spacing) / 2);
+    grid-gap: calc(var(--mm-spacing) / 2);
+  }
 
-    &:nth-child(3n) {
-      padding-right: 0;
-    }
+  .category__card-container {
+    gap: calc(var(--mm-spacing) / 4);
+    grid-gap: calc(var(--mm-spacing) / 4);
+    padding: calc(var(--mm-spacing) / 4);
+    padding-top: calc(var(--mm-spacing) / 4 + 6px);
 
-    a {
-      border-bottom: 1px solid $border-color;
-      color: $text-color;
-      display: block;
-      padding: 15px 0;
-    }
-
-    .icon-lock {
-      vertical-align: baseline;
-    }
-
-    &:last-child a {
-      border: 0;
-      @include desktop {
-        border-bottom: 1px solid $border-color;
-      }
+    .category__card-arrow {
+      padding-left: calc(var(--mm-spacing) / 4);
     }
   }
 
-}
-
-/***** Community section in homepage *****/
-.community {
-  text-align: center;
-
-  &-image {
-    /* stylelint-disable-next-line function-url-quotes */
-    background-image: url(unquote("$community_image"));
-    background-position: center;
-    background-repeat: no-repeat;
-    margin-top: 32px;
-    max-width: 100%;
-    min-height: 300px;
+  .home__page-promoted-heading {
+    border-top: 1px dashed var(--mm-color-border);
+    color: #00374c;
+    font-family: var(--mm-font-stack-display);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.2em;
+    margin: var(--mm-spacing) 0 calc(var(--mm-spacing) / 2) 0;
+    padding-top: var(--mm-spacing);
   }
 }
 
-.community,
-.activity {
-  border-top: 1px solid $border-color;
-  padding: 30px 0;
+@media only screen and (min-width: 320px) {
+  .promoted__cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media only screen and (min-width: 576px) {
+  .promoted__cards {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media only screen and (min-width: 992px) {
@@ -267,5 +237,13 @@
 
   .page__home main {
     margin-left: 0;
+  }
+
+  .promoted__cards {
+    grid-template-columns: 1fr 1fr 1fr;
+
+    a:hover {
+      text-decoration: none;
+    }
   }
 }

@@ -1,24 +1,27 @@
-<div class="container-divider"></div>
-<div class="container">
-  <nav class="sub-nav">
-    {{breadcrumbs}}
-    <div class="search-container">
-      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" focusable="false" viewBox="0 0 12 12" class="search-icon">
-        <circle cx="4.5" cy="4.5" r="4" fill="none" stroke="currentColor"/>
-        <path stroke="currentColor" stroke-linecap="round" d="M11 11L7.5 7.5"/>
-      </svg>
-      {{search submit=false}}
-    </div>
-  </nav>
-
-  <h1>
-    {{t 'submit_a_request'}}
-    <span class="follow-up-hint">
-      {{follow_up}}
-    </span>
-  </h1>
-
-  <div id="main-content" class="form">
+<div class="new__request">
+  <div class="new__request__header">
+    <h1 class="new__request__title">
+      {{t 'submit_a_request'}}
+    </h1>
+  </div>
+  <div class="new__request__form">
     {{request_form wysiwyg=true}}
+  </div>
+  <div class="contact__container">
+    <div class="contact__section">
+      <div class="contact__section-header">
+        Emergency Contact
+      </div>
+      <p class="contact__section-para">If you are experiencing an urgent issue (e.g. your service is down or
+        billing has been interrupted) please contact us right away.
+        The "Chat with us!" popup in the lower right corner
+        is available 3am to 7am and 10am to 9pm Eastern Time, Monday - Friday. We'll get back to you
+        within 60 seconds.
+      </p>
+      <p class="contact__section-para"> If you are contacting us outside of regular business hours, please email
+        <a href="mailto:alert@maxmind.com">alert@maxmind.com</a>.
+      </p>
+      <p class="contact__section-para">Additional contact information can be found <a href="https://www.maxmind.com/en/company/contact-us">here</a>.</p>
+    </div>
   </div>
 </div>

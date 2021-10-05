@@ -20,7 +20,6 @@
   font-size: $font-size-small;
 
   &:not(:last-child)::after {
-    content: '\00B7';
     margin: 0 5px;
   }
 }
