@@ -5,7 +5,7 @@ $page-header-height: 80px;
 
 .header {
   @include mixins.pattern-border;
-  background: $background-color;
+  background: var(--mm-color-background);
   box-shadow: 0 1px 13px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.06);
   height: $page-header-height;
   padding-top: 10px;
@@ -21,7 +21,7 @@ $page-header-height: 80px;
   grid-template-columns: max-content 1fr max-content;
   grid-template-rows: auto;
   height: 70px;
-  padding: 0 $spacing;
+  padding: 0 var(--mm-spacing);
 }
 
 .header-area>* {
@@ -134,13 +134,14 @@ $page-header-height: 80px;
 }
 
 .nav-wrapper .nav-item {
+  color: var(--mm-color-primary-text);
   display: block;
   font-family: $heading-font;
   font-size: 16px;
   font-weight: 500;
   line-height: 20px;
   margin-left: 5px;
-  padding: 5px 10px;
+  padding: 10px;
   position: relative;
   text-decoration: none;
   white-space: nowrap;
@@ -148,7 +149,7 @@ $page-header-height: 80px;
   &:active,
   &:hover,
   &:focus {
-    color: $link-color;
+    color: var(--mm-color-display-text);
     text-decoration: none;
   }
 }
@@ -160,7 +161,7 @@ $page-header-height: 80px;
 }
 
 .nav-wrapper .nav-item.nav-header {
-  color: $link-color;
+  color: var(--mm-color-display-text);
   font-size: 18px;
   font-weight: 700;
   padding-bottom: 10px;
@@ -189,15 +190,15 @@ $page-header-height: 80px;
 }
 
 .nav-wrapper .nav-icon path {
-  fill: $text-color;
+  fill: var(--mm-color-primary-text);
 }
 
 .header-module-toggle {
   align-items: center;
-  border: 1px solid $border-color;
+  border: 1px solid var(--mm-color-border);
   border-radius: 6px;
   box-sizing: border-box;
-  color: $text-color;
+  color: var(--mm-color-primary-text);
   cursor: pointer;
   display: flex;
   font-size: 12px;
@@ -216,8 +217,8 @@ $page-header-height: 80px;
 }
 
 #header-menu {
-  background-color: $background-color;
-  border-left: 1px solid $border-color;
+  background-color: var(--mm-color-background);
+  border-left: 1px solid var(--mm-color-border);
   border-top: 1px solid transparent;
   box-shadow: inset 0 3px 5px -3px rgba(0, 0, 0, 0.6);
   height: 100vh;
@@ -344,7 +345,6 @@ $page-header-height: 80px;
     align-items: center;
     border: 1px solid transparent;
     border-radius: 6px;
-    color: $text-color;
     display: inline-block;
     font-size: 14px;
     padding-bottom: 10px;
@@ -353,7 +353,7 @@ $page-header-height: 80px;
     &:hover,
     &:focus {
       background: #f5f6f7;
-      color: $text-color;
+      color: var(--mm-color-primary-text);
     }
   }
 
@@ -375,7 +375,7 @@ $page-header-height: 80px;
   }
 
   .header-sidebar {
-    background-color: $background-color;
+    background-color: var(--mm-color-background);
     left: 0;
     margin-top: var(--mm-spacing);
     padding: 20px 0;
@@ -404,7 +404,7 @@ $page-header-height: 80px;
     &:hover,
     &:focus {
       background-color: transparent;
-      color: $link-color;
+      color: var(--mm-color-display-text);
     }
   }
   /* stylelint-enable no-descending-specificity */

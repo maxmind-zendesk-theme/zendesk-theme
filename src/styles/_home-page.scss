@@ -132,7 +132,7 @@
 .blocks__item-links {
   background: var(--mm-color-sidebar);
   border-top: 1px solid var(--mm-color-border);
-  padding: calc(var(--mm-spacing) / 2);
+  padding: 10px;
   text-align: center;
 }
 
@@ -149,7 +149,7 @@
   font-weight: 400;
   gap: 5px;
   grid-template-columns: max-content max-content;
-  margin: 0 5px;
+  margin: 10px;
   overflow: hidden;
   padding: 12px 10px 8px;
   position: relative;
