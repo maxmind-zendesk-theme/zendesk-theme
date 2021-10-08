@@ -1,55 +1,56 @@
 
 document.addEventListener('DOMContentLoaded', () => {
-  const $publicCategoriesSection = document.querySelector('.categories-section--public');
-  const $privateCategoriesSection = document.querySelector('.categories-section--private');
-  const $toggleBtn = document.querySelector('.categories-toggle-btn');
+  const $publicCategoriesSection = document.getElementById('category-public');
+  const $privateCategoriesSection = document.getElementById('category-private');
+  const $toggleBtn = document.getElementById('toggle-categories');
 
   const privateBtn = 'Switch to Private';
   const publicBtn = 'Switch to Public';
 
+  const showingPrivate = 'showingPrivate';
+  const showingPublic = 'showingPublic';
+
+  const storageKey = 'mm-toggle-categories';
+
   function showPublicCategories () {
-    sessionStorage.setItem('toggle', 'showingPublic');
     $publicCategoriesSection.classList.add('active');
     $privateCategoriesSection.classList.remove('active');
     $toggleBtn.innerText = privateBtn;
   }
 
   function showPrivateCategories () {
-    sessionStorage.setItem('toggle', 'showingPrivate');
     $publicCategoriesSection.classList.remove('active');
     $privateCategoriesSection.classList.add('active');
     $toggleBtn.innerText = publicBtn;
   }
 
-  if (typeof (Storage) !== 'undefined') {
-    if (sessionStorage.length === 0) {
-      sessionStorage.setItem('toggle', 'showingPublic');
-    } else {
-      if (sessionStorage.getItem('toggle') === 'showingPublic') {
-        showPublicCategories();
-      } else if (sessionStorage.getItem('toggle') === 'showingPrivate') {
-        showPrivateCategories();
-      }
-    }
+  function showVisibleCategory () {
+    const storageValue = sessionStorage.getItem(storageKey);
 
-    console.log(sessionStorage);
-  }
-
-  function showVisibleCategories () {
-    if ($toggleBtn.innerText === privateBtn && sessionStorage.getItem('toggle') === 'showingPrivate') {
+    if (storageValue === showingPublic) {
       showPublicCategories();
-    } else if ($toggleBtn.innerText === publicBtn && sessionStorage.getItem('toggle') === 'showingPublic') {
+    } else if (storageValue === showingPrivate) {
       showPrivateCategories();
     }
-
-    if (sessionStorage.getItem('toggle') === 'showingPublic') {
-      showPrivateCategories();
-    } else if (sessionStorage.getItem('toggle') === 'showingPrivate') {
-      showPublicCategories();
-    }
-
-    console.log(sessionStorage);
   }
 
-  $toggleBtn.addEventListener('click', showVisibleCategories);
+  function toggleCategories () {
+    const storageValue = sessionStorage.getItem(storageKey);
+
+    if (storageValue === showingPrivate) {
+      sessionStorage.setItem(storageKey, showingPublic);
+    } else if (storageValue === showingPublic) {
+      sessionStorage.setItem(storageKey, showingPrivate);
+    }
+
+    showVisibleCategory();
+  }
+
+  if (!sessionStorage.getItem(storageKey)) {
+    sessionStorage.setItem(storageKey, showingPublic);
+  }
+
+  showVisibleCategory();
+
+  $toggleBtn.addEventListener('click', toggleCategories);
 });

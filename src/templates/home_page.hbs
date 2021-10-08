@@ -20,10 +20,10 @@
 </section>
 
 <div class="toggle-container">
-  <button class="categories-toggle-btn">Switch to Private</button>
+  <button id="toggle-categories" class="categories-toggle-btn">Switch to Private</button>
 </div>
 
-<section class="categories-section categories-section--public active blocks">
+<section id="category-public" class="categories-section categories-section--public active blocks">
   <div class="categories-container">
     <ul class="blocks__list">
       {{#each (slice categories 0 4)}}
@@ -69,7 +69,7 @@
   </div>
 </section>
 
-<section class="categories-section categories-section--private private blocks">
+<section id="category-private" class="categories-section categories-section--private private blocks">
   <div class="container">
     <ul class="blocks__list">
       {{#each (filter categories on="description" starts_with="Internal")}}
