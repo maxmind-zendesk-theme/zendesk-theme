@@ -331,12 +331,9 @@ $page-header-height: 80px;
       display: inline-block;
       width: 100%;
     }
-
-    .header-search-mobile {
-      display: none;
-    }
   }
 
+  .header-search-mobile,
   .header-module-toggle {
     display: none;
   }
