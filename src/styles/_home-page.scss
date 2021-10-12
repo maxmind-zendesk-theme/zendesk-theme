@@ -291,8 +291,7 @@
 }
 
 @media only screen and (min-width: 576px) {
-  .promoted__cards,
-  .blocks__cards {
+  .promoted__cards {
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -300,6 +299,10 @@
 @media only screen and (min-width: 768px) {
   .blocks__list {
     grid-template-columns: repeat(2, minmax(0, 600px));
+  }
+
+  .blocks__cards {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
