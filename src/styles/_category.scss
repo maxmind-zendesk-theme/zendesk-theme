@@ -131,6 +131,7 @@
   background: linear-gradient(var(--page-type-color), #0077c2);
   border-radius: calc(var(--mm-border-radius) * 3);
   box-shadow: var(--mm-overview-heading-drop-shadow),inset 0 0 0 var(--mm-product-icon-stroke-width) rgba(255, 255, 255, 0.35);
+  color: var(--mm-color-background);
   display: grid;
   grid-area: icon;
   height: 100px;
@@ -230,10 +231,10 @@
   gap: calc(var(--mm-spacing) / 2);
   grid-gap: calc(var(--mm-spacing) / 2);
   grid-template-areas:
-    '. heading arrow'
+    'c-icon heading arrow'
     '. description arrow';
   grid-template-columns: min-content 1fr min-content;
-  grid-template-rows: auto;
+  grid-template-rows: min-content;
   margin-top: 0;
   overflow: hidden;
   padding: calc(var(--mm-spacing) / 2);
