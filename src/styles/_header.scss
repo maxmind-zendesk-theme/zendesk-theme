@@ -133,34 +133,66 @@ $page-header-height: 80px;
   grid-row: 1;
 }
 
-.nav-wrapper .nav-item {
+.nav-item {
+  background-color: transparent;
   color: var(--mm-color-primary-text);
   display: block;
   font-family: $heading-font;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 20px;
-  margin-left: 5px;
-  padding: 10px;
+  margin-left: 46px;
+  max-width: calc(100% - 46px);
+  padding: 5px 10px;
   position: relative;
   text-decoration: none;
-  white-space: nowrap;
 
   &:active,
   &:hover,
   &:focus {
+    background-color: transparent;
     color: var(--mm-color-display-text);
     text-decoration: none;
   }
 }
 
-#header-menu .sub-nav {
-  display: block;
+.nav-category.nav-item,
+.contact-us {
+  font-size: 16px;
   margin: 0;
-  padding: 0;
+  max-width: 300px;
+  padding: 10px;
 }
 
-.nav-wrapper .nav-item.nav-header {
+.nav-category.nav-item {
+  font-weight: 700;
+}
+
+.contact-us {
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.nav-icon,
+.nav-label {
+  display: inline-block;
+}
+
+.nav-icon {
+  height: 28px;
+  position: relative;
+  top: 5px;
+  width: 28px;
+}
+
+.nav-icon path {
+  fill: var(--mm-color-primary-text);
+}
+
+.contact-us > .nav-icon {
+  margin-right: 10px;
+}
+
+.nav-item.nav-header {
   color: var(--mm-color-display-text);
   font-size: 18px;
   font-weight: 700;
@@ -168,29 +200,12 @@ $page-header-height: 80px;
   padding-top: 20px;
 }
 
-.nav-wrapper .nav-icon,
-.nav-wrapper .nav-label {
-  display: inline-block;
-}
-
-.nav-wrapper .nav-label {
-  padding: 10px 0 0 5px;
-  white-space: nowrap;
+.sub-nav-items > li {
+  margin: 2px 0 3px;
 }
 
 .nav-wrapper .nav-item.nav-header .nav-label {
   padding-left: 0;
-}
-
-.nav-wrapper .nav-icon {
-  height: 20px;
-  position: relative;
-  top: 5px;
-  width: 20px;
-}
-
-.nav-wrapper .nav-icon path {
-  fill: var(--mm-color-primary-text);
 }
 
 .header-module-toggle {
@@ -208,13 +223,13 @@ $page-header-height: 80px;
   z-index: 4;
 }
 
-.header-module-toggle .menu-open,
-.header-module-toggle .menu-close {
+.menu-open,
+.menu-close {
   text-align: center;
   vertical-align: middle;
 }
 
-.header-module-toggle .menu-close {
+.menu-close {
   display: none;
 }
 
@@ -246,10 +261,6 @@ $page-header-height: 80px;
   width: 0;
 }
 
-#header-menu .header-sidebar .empty {
-  display: none;
-}
-
 .header-module-toggle.open ~ #header-menu {
   max-width: 100%;
   padding: 5px 0 5px 10px;
@@ -266,6 +277,17 @@ $page-header-height: 80px;
 
 .header-module-toggle.open > .menu-close {
   display: block;
+}
+
+.header-sidebar {
+  max-width: var(--mm-layout-sidebar-width);
+
+  .nav-icon {
+    color: #444;
+    height: 28px;
+    margin-right: 10px;
+    width: 28px;
+  }
 }
 
 @media only screen and (min-width: 320px) {
@@ -340,20 +362,24 @@ $page-header-height: 80px;
     display: none;
   }
 
-  .nav-wrapper .nav-item {
+  .nav-category.nav-item {
+    padding: 10px 30px;
+  }
+
+  .nav-item {
     align-items: center;
     border: 1px solid transparent;
     border-radius: 6px;
     display: inline-block;
-    font-size: 14px;
-    padding-bottom: 10px;
+    margin-left: 66px;
+    max-width: calc(100% - 66px);
+  }
 
-    &:active,
-    &:hover,
-    &:focus {
-      background: #f5f6f7;
-      color: var(--mm-color-primary-text);
-    }
+  .contact-us {
+    font-weight: 500;
+    margin-bottom: calc(var(--mm-spacing) / 4);
+    margin-left: 0;
+    max-width: none;
   }
 
   #header-menu {
@@ -369,50 +395,22 @@ $page-header-height: 80px;
     transition: none;
   }
 
-  .nav-wrapper .nav-item.nav-header {
-    display: none;
-  }
-
   .header-sidebar {
     background-color: var(--mm-color-background);
     left: 0;
     margin-top: var(--mm-spacing);
     padding: 20px 0;
     position: absolute;
-    top: 100%;
-    width: 350px;
-  }
 
-  .header-sidebar::after {
-    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1));
-    content: '';
-    height: 100vh;
-    position: absolute;
-    right: 0;
-    top: -40px;
-    width: 5px;
-  }
-
-  /* stylelint-disable no-descending-specificity */
-  .header-sidebar .nav-item {
-    background-color: transparent;
-    font-size: 16px;
-    padding: 10px 30px;
-
-    &:active,
-    &:hover,
-    &:focus {
-      background-color: transparent;
-      color: var(--mm-color-display-text);
+    &::after {
+      background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1));
+      content: '';
+      height: 100vh;
+      position: absolute;
+      right: 0;
+      top: -40px;
+      width: 5px;
     }
-  }
-  /* stylelint-enable no-descending-specificity */
-
-  .header-sidebar .nav-icon {
-    color: #444;
-    height: 28px;
-    margin-right: 10px;
-    width: 28px;
   }
 }
 
