@@ -3,9 +3,9 @@
     const $categoryTitle = document.querySelector('ol.breadcrumbs > li:nth-child(2) > a');
     const $body = document.querySelector('body');
 
-    if ($categoryTitle.innerText === 'GeoIP and GeoLite') {
+    if ($categoryTitle.innerText === 'GeoIP2 and GeoLite2') {
       $body.classList.add('page-type--geoip');
-    } else if ($categoryTitle.innerText === 'minFraud Services') {
+    } else if ($categoryTitle.innerText === 'minFraud Web Services') {
       $body.classList.add('page-type--minfraud');
     }
   });

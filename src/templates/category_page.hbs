@@ -1,7 +1,7 @@
 <script>
   window.addEventListener('DOMContentLoaded', (event) => {
-      const $minfraudCategory = document.querySelector('[data-category="minFraud Services"]');
-      const $geoipCategory = document.querySelector('[data-category="GeoIP and GeoLite"]');
+      const $minfraudCategory = document.querySelector('[data-category="minFraud Web Services"]');
+      const $geoipCategory = document.querySelector('[data-category="GeoIP2 and GeoLite2"]');
       const $body = document.querySelector('body');
 
       if ($geoipCategory) {
@@ -15,11 +15,11 @@
 <section class="section hero" data-category="{{category.name}}">
   <div class="hero__lockup">
     <div class="hero__icon">
-    {{#is category.name 'minFraud Services'}}
+    {{#is category.name 'minFraud Web Services'}}
       <include src="svg/icon-minfraud.svg"></include>
     {{/is}}
 
-    {{#is category.name 'GeoIP and GeoLite'}}
+    {{#is category.name 'GeoIP2 and GeoLite2'}}
       <include src="svg/icon-geoip.svg"></include>
     {{/is}}
 
@@ -37,11 +37,11 @@
     </div>
     <h2 class="hero__title">{{category.name}}</h2>
     <h3 class="hero__subtitle">
-    {{#is category.name 'minFraud Services'}}
+    {{#is category.name 'minFraud Web Services'}}
       Transaction Risk API
     {{/is}}
 
-    {{#is category.name 'GeoIP and GeoLite'}}
+    {{#is category.name 'GeoIP2 and GeoLite2'}}
       Databases and Web Services
     {{/is}}
 
@@ -57,8 +57,6 @@
       Sales subtitle
     {{/is}}
     </h3>
-    {{!-- Hide this for now <include src="svg/icon-search.svg"></include> --}}
-  {{search scoped=settings.scoped_kb_search placeholder='Search by keyword' class='hero__search search search-full'}}
   </div>
 </section>
 <div class="overview__content">

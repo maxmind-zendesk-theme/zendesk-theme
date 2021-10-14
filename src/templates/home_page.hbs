@@ -1,6 +1,13 @@
 <script>
   var $body = document.body;
   $body.classList.add('page__home');
+
+  const $pageHome = document.querySelector('.page__home');
+  const $pageHomeHeaderSearch = document.querySelector('.header-search');
+
+  if ($pageHome) {
+    $pageHomeHeaderSearch.style.display = 'none';
+  }
 </script>
 
 <h1 class="visibility-hidden">{{ help_center.name }}</h1>
@@ -8,34 +15,28 @@
 <section id="main-content" class="section hero">
   <div class="hero-inner">
     <h2>How can we help?</h2>
-    {{!-- Hide this for now <include src="svg/icon-search.svg"></include> --}}
     {{search instant=settings.instant_search placeholder='Search by keyword' class='search search-full'}}
   </div>
 </section>
 
 <div class="toggle-container">
-  <button class="categories-toggle-btn">Switch to Private</button>
+  <button id="toggle-categories" class="categories-toggle-btn">Switch to Private</button>
 </div>
 
-<section class="categories-section categories-section--public active blocks">
-  <div class="container">
+<section id="category-public" class="categories-section categories-section--public active blocks">
+  <div class="categories-container">
     <ul class="blocks__list">
-      {{!-- Only display the first three categories --}}
-      {{#each (slice categories 0 4)}}
+      {{#each (slice categories 0 2)}}
         <li class="blocks__item" data-name="{{name}}">
           <div class="blocks__item-header">
               <div class="blocks__item-lockup">
                 <div class="blocks__item-icon">
-                  {{#is name 'minFraud Services'}}
+                  {{#is name 'minFraud Web Services'}}
                     <include src="svg/icon-minfraud.svg"></include>
                   {{/is}}
 
-                  {{#is name 'GeoIP and GeoLite'}}
+                  {{#is name 'GeoIP2 and GeoLite2'}}
                     <include src="svg/icon-geoip.svg"></include>
-                  {{/is}}
-
-                  {{#is name 'Account and Purchasing'}}
-                    <include src="svg/icon-account-and-purchasing.svg"></include>
                   {{/is}}
                 </div>
                 <h2 class="blocks__item-heading">
@@ -50,17 +51,68 @@
 
           <div class="blocks__item-links">
             <a href='{{url}}' class="blocks__item-link">
-              <span class="blocks__item-link-text">View knowledge base</span>
+              <span class="blocks__item-link-text">Quickstart</span>
+              <include src="svg/icon-arrow-right.svg"></include>
+            </a>
+            <a href='{{url}}' class="blocks__item-link">
+              <span class="blocks__item-link-text">See articles</span>
               <include src="svg/icon-arrow-right.svg"></include>
             </a>
           </div>
         </li>
       {{/each}}
     </ul>
+    <ul class="blocks__cards">
+      <a class="category__card-container"
+        href="https://maxmind.zendesk.com/hc/en-us/articles/4408252036123-GeoIP-Corrections">
+        <div class="category__card-icon">
+          <include src="svg/icon-question.svg"></include>
+        </div>
+        <h3 class="category__card-header">GeoIP Corrections</h3>
+        <p class="category__card-description">All corrections are reviewed by MaxMind to ensure they are accurate and comply
+          with our policies and this process takes up to one week.</p>
+        <div class="category__card-arrow">
+          <include src="svg/icon-arrow-right.svg"></include>
+        </div>
+      </a>
+      {{#each (slice categories 2 2)}}
+        <a class="category__card-container" href="{{url}}">
+          <div class="category__card-icon">
+            {{#is name 'Account and Purchasing'}}
+              <include src="svg/icon-account-and-purchasing.svg"></include>
+            {{/is}}
+
+            {{#is name 'Data Privacy and Licenses'}}
+              <include src="svg/icon-question.svg"></include>
+            {{/is}}
+          </div>
+            <h3 class="category__card-header">{{name}}</h3>
+            {{#if description}}
+            <p class="category__card-description">{{description}}</p>
+            {{/if}}
+            <div class="category__card-arrow">
+              <include src="svg/icon-arrow-right.svg"></include>
+            </div>
+          </a>
+      {{/each}}
+    </ul>
+    {{!-- <ul class="blocks__cards">
+      {{#each (slice categories 3 4)}}
+        <a class="category__card-container" href="{{url}}">
+            <h3 class="category__card-header">{{name}}</h3>
+            {{#if description}}
+            <p class="category__card-description">{{description}}</p>
+            {{/if}}
+            <div class="category__card-arrow">
+              <include src="svg/icon-arrow-right.svg"></include>
+            </div>
+          </a>
+      {{/each}}
+    </ul> --}}
   </div>
 </section>
 
-<section class="categories-section categories-section--private private blocks">
+<section id="category-private" class="categories-section categories-section--private private blocks">
   <div class="container">
     <ul class="blocks__list">
       {{#each (filter categories on="description" starts_with="Internal")}}
@@ -91,10 +143,9 @@
           <div class="blocks__item-content">
             <span class="blocks-item-description">{{description}}</span>
           </div>
-
           <div class="blocks__item-links">
             <a href='{{url}}' class="blocks__item-link">
-              <span class="blocks__item-link-text">View knowledge base</span>
+              <span class="blocks__item-link-text">View all articles</span>
               <include src="svg/icon-arrow-right.svg"></include>
             </a>
           </div>

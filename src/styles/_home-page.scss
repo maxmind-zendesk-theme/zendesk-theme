@@ -33,20 +33,18 @@
   }
 }
 
-.categories-section {
-  margin: var(--mm-spacing);
-}
-
 .categories-section:not(.active) {
   display: none;
 }
 
 /***** Categories *****/
-.blocks__list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
+.blocks__list,
+.blocks__cards {
+  display: grid;
+  gap: var(--mm-spacing);
+  grid-gap: var(--mm-spacing);
   justify-content: center;
+  padding: var(--mm-spacing);
 }
 
 .blocks__item {
@@ -54,18 +52,17 @@
   border: 0;
   border-radius: var(--mm-border-radius);
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  flex: 0 0 1;
+  display: grid;
   margin: 0;
-  max-width: 360px;
   overflow: hidden;
   width: 100%;
 }
 
-.blocks__item[data-name='minFraud Services'] {
+.blocks__item[data-name='minFraud Web Services'] {
   --page-type-color: rgba(255, 0, 136, 0.5);
 }
 
-.blocks__item[data-name='GeoIP and GeoLite'] {
+.blocks__item[data-name='GeoIP2 and GeoLite2'] {
   --page-type-color: rgba(0, 255, 102, 0.5);
 }
 
@@ -73,8 +70,8 @@
   @include mixins.pattern;
   align-items: center;
   display: flex;
+  grid-area: header;
   justify-content: center;
-  padding: calc(var(--mm-spacing) / 2);
 }
 
 .blocks__item-lockup {
@@ -131,14 +128,21 @@
 
 .blocks__item-content {
   background: var(--mm-color-background);
+  grid-area: content;
   padding: calc(var(--mm-spacing) / 2);
 }
 
 .blocks__item-links {
   background: var(--mm-color-sidebar);
   border-top: 1px solid var(--mm-color-border);
-  padding: calc(var(--mm-spacing) / 2);
+  display: grid;
+  grid-area: links;
+  padding: 10px;
   text-align: center;
+
+  > * {
+    justify-self: center;
+  }
 }
 
 .blocks__item-link {
@@ -154,7 +158,7 @@
   font-weight: 400;
   gap: 5px;
   grid-template-columns: max-content max-content;
-  margin: 0 5px;
+  margin: 0;
   overflow: hidden;
   padding: 12px 10px 8px;
   position: relative;
@@ -178,6 +182,28 @@
   width: 14px;
 }
 
+.blocks__cards {
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+.category__card-icon {
+  color: var(--mm-color-active-blue);
+  display: grid;
+  grid-area: c-icon;
+  height: 30px;
+
+  > * {
+    align-self: center;
+  }
+
+  svg {
+    height: 30px;
+    width: 30px;
+  }
+}
+
 .home__page-promoted {
   margin: var(--mm-spacing);
 
@@ -193,6 +219,10 @@
     display: grid;
     gap: calc(var(--mm-spacing) / 2);
     grid-gap: calc(var(--mm-spacing) / 2);
+
+    a:hover {
+      text-decoration: none;
+    }
   }
 
   .category__card-container {
@@ -219,13 +249,59 @@
 }
 
 @media only screen and (min-width: 320px) {
-  .promoted__cards {
+  .promoted__cards,
+  .blocks__cards {
     grid-template-columns: 1fr;
+  }
+
+  .blocks__item {
+    grid-template-areas:
+      'header'
+      'content'
+      'links';
+  }
+
+  .blocks__item-header {
+    padding: calc(var(--mm-spacing) / 2);
+  }
+
+  .blocks__item-content {
+    padding: calc(var(--mm-spacing) / 2);
+  }
+
+  .blocks-item-description {
+    font-size: 14px;
+  }
+
+  .blocks__item-links {
+    gap: calc(var(--mm-spacing) / 2);
+    grid-auto-flow: column;
+    grid-gap: calc(var(--mm-spacing) / 2);
+    grid-template-columns: repeat(2, max-content);
+    justify-content: center;
+    padding: calc(var(--mm-spacing) / 2);
+    width: 100%;
+  }
+
+  .blocks__item-link {
+    gap: 10px;
+    grid-auto-flow: column;
+    grid-template-columns: max-content auto;
   }
 }
 
 @media only screen and (min-width: 576px) {
   .promoted__cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .blocks__list {
+    grid-template-columns: repeat(2, minmax(0, 600px));
+  }
+
+  .blocks__cards {
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -241,9 +317,41 @@
 
   .promoted__cards {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+}
 
-    a:hover {
-      text-decoration: none;
-    }
+@media only screen and (min-width: 1200px) {
+  .blocks__item {
+    grid-template-areas:
+      'header header'
+      'content links';
+  }
+
+  .blocks__cards {
+    grid-template-columns: repeat(3, minmax(0, 400px));
+  }
+
+  .blocks__item-header {
+    padding: var(--mm-spacing);
+  }
+
+  .blocks__item-content {
+    padding: var(--mm-spacing);
+  }
+
+  .blocks-item-description {
+    font-size: 16px;
+  }
+
+  .blocks__item-links {
+    border-left: 1px solid var(--mm-color-border);
+    border-top: 0;
+    display: grid;
+    gap: calc(var(--mm-spacing) / 2);
+    grid-area: links;
+    grid-gap: calc(var(--mm-spacing) / 2);
+    grid-template-columns: auto;
+    grid-template-rows: max-content max-content;
+    padding: var(--mm-spacing);
   }
 }
