@@ -1,12 +1,6 @@
 @use './mixins';
 
 /***** Homepage *****/
-
-.home-section h2 {
-  margin-bottom: 10px;
-  text-align: center;
-}
-
 .toggle-container {
   margin: auto;
   margin-top: var(--mm-spacing);

@@ -14,7 +14,7 @@
 
 <section id="main-content" class="section hero">
   <div class="hero-inner">
-    <h2>How can we help?</h2>
+    <h2 class="hero-title">How can we help?</h2>
     {{search instant=settings.instant_search placeholder='Search by keyword' class='search search-full'}}
   </div>
 </section>
@@ -96,19 +96,6 @@
           </a>
       {{/each}}
     </ul>
-    {{!-- <ul class="blocks__cards">
-      {{#each (slice categories 3 4)}}
-        <a class="category__card-container" href="{{url}}">
-            <h3 class="category__card-header">{{name}}</h3>
-            {{#if description}}
-            <p class="category__card-description">{{description}}</p>
-            {{/if}}
-            <div class="category__card-arrow">
-              <include src="svg/icon-arrow-right.svg"></include>
-            </div>
-          </a>
-      {{/each}}
-    </ul> --}}
   </div>
 </section>
 

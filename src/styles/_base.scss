@@ -6,7 +6,7 @@
 body {
   background-color: #f5f6f7;
   color: $text-color;
-  font-family: $text-font;
+  font-family: var(--mm-font-stack-default);
   font-size: $font-size-base;
   -webkit-font-smoothing: antialiased;
   line-height: 1.5;
@@ -30,7 +30,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $heading-font;
+  font-family: var(--mm-font-stack-display);
   margin-top: 0;
 }
 
@@ -45,7 +45,7 @@ h3 {
 h4 { font-size: 16px; }
 
 a {
-  color: $link-color;
+  color: var(--mm-color-display-text);
   text-decoration: none;
 
   &:hover,
