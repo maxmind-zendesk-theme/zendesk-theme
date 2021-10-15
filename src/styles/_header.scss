@@ -156,7 +156,7 @@ $page-header-height: 80px;
 }
 
 .nav-category.nav-item,
-.contact-us {
+.contact-us-sidenav {
   font-size: 16px;
   margin: 0;
   max-width: 300px;
@@ -167,29 +167,45 @@ $page-header-height: 80px;
   font-weight: 700;
 }
 
-.contact-us {
+.contact-us-sidenav {
   font-weight: 700;
   margin-bottom: 0;
-}
-
-.nav-icon,
-.nav-label {
-  display: inline-block;
 }
 
 .nav-icon {
   height: 28px;
   position: relative;
-  top: 5px;
   width: 28px;
+
+  path {
+    fill: var(--mm-color-primary-text);
+  }
 }
 
-.nav-icon path {
-  fill: var(--mm-color-primary-text);
+.header-sidebar {
+  max-width: var(--mm-layout-sidebar-width);
+  overflow-y: scroll;
 }
 
-.contact-us > .nav-icon {
-  margin-right: 10px;
+
+.nav-item.nav-category,
+.nav-item.contact-us-header,
+.nav-item.contact-us-sidenav {
+  border-left: 0;
+  column-gap: calc(var(--mm-spacing) / 4);
+  display: grid;
+  grid-column-gap: calc(var(--mm-spacing) / 4);
+  grid-template-areas: 'icon label';
+  grid-template-columns: max-content auto;
+  grid-template-rows: auto auto;
+
+  .nav-icon {
+    grid-area: icon;
+  }
+
+  .nav-label {
+    grid-area: label;
+  }
 }
 
 .nav-item.nav-header {
@@ -279,17 +295,6 @@ $page-header-height: 80px;
   display: block;
 }
 
-.header-sidebar {
-  max-width: var(--mm-layout-sidebar-width);
-
-  .nav-icon {
-    color: #444;
-    height: 28px;
-    margin-right: 10px;
-    width: 28px;
-  }
-}
-
 @media only screen and (min-width: 320px) {
   .logo {
     gap: 8px;
@@ -373,13 +378,18 @@ $page-header-height: 80px;
     display: inline-block;
     margin-left: 66px;
     max-width: calc(100% - 66px);
+    width: 100%;
   }
 
-  .contact-us {
+  .contact-us-header {
+    font-size: 16px;
     font-weight: 500;
-    margin-bottom: calc(var(--mm-spacing) / 4);
     margin-left: 0;
     max-width: none;
+  }
+
+  .contact-us-sidenav {
+    display: none !important;
   }
 
   #header-menu {
@@ -485,5 +495,9 @@ $page-header-height: 80px;
     transform: translateY(-50%);
     width: calc(100% - var(--mm-spacing) * 2);
     z-index: 100;
+  }
+
+  .contact-us-header {
+    display: none !important;
   }
 }
