@@ -7,12 +7,13 @@ $page-header-height: 80px;
   @include mixins.pattern-border;
   background: var(--mm-color-background);
   box-shadow: 0 1px 13px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.06);
+  grid-area: header;
   height: $page-header-height;
   padding-top: 10px;
   position: sticky;
   top: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 12;
 }
 
 .header-area {
@@ -183,10 +184,24 @@ $page-header-height: 80px;
 }
 
 .header-sidebar {
+  background: var(--mm-color-sidebar);
+  border-left: 1px solid var(--mm-color-border);
+  box-shadow: -2px -1px 3px rgb(0 0 0 / 10%);
+  display: block;
+  grid-area: sidebar;
+  height: 100%;
   max-width: var(--mm-layout-sidebar-width);
-  overflow-y: scroll;
+  position: sticky;
+  right: 0;
+  transition: all 0.5s ease-out;
+  width: 100%;
+  z-index: 9;
 }
 
+.sidebar-list {
+  overflow-y: auto;
+  position: sticky;
+}
 
 .nav-item.nav-category,
 .nav-item.contact-us-header,
@@ -262,19 +277,19 @@ $page-header-height: 80px;
   right: 0;
   top: 100%;
   transition: max-width 0.15s ease-out;
-}
 
-#header-menu::before {
-  backdrop-filter: blur(10px);
-  bottom: 0;
-  box-shadow: inset 0 3px 5px -3px rgba(0, 0, 0, 0.6);
-  content: '';
-  opacity: 0;
-  position: absolute;
-  right: 100%;
-  top: 0;
-  transition: opacity 0.15s ease-out;
-  width: 0;
+  &::before {
+    backdrop-filter: blur(10px);
+    bottom: 0;
+    box-shadow: inset 0 3px 5px -3px rgba(0, 0, 0, 0.6);
+    content: '';
+    opacity: 0;
+    position: absolute;
+    right: 100%;
+    top: 0;
+    transition: opacity 0.15s ease-out;
+    width: 0;
+  }
 }
 
 .header-module-toggle.open ~ #header-menu {
@@ -287,20 +302,14 @@ $page-header-height: 80px;
   width: 100vw;
 }
 
-.header-module-toggle.open > .menu-open {
-  display: none;
-}
+.header-module-toggle.open {
+  .menu-open {
+    display: none;
+  }
 
-.header-module-toggle.open > .menu-close {
-  display: block;
-}
-
-.header {
-  grid-area: header;
-}
-
-.header-sidebar {
-  grid-area: sidebar;
+  .menu-close {
+    display: block;
+  }
 }
 
 main {
@@ -313,6 +322,10 @@ main {
 
 #preview-bar-container {
   grid-area: preview;
+}
+
+.header-sidebar-hidden {
+  transform: translate3d(360px, 0, 0);
 }
 
 @media only screen and (min-width: 320px) {
@@ -333,6 +346,14 @@ main {
     height: 30px;
     min-width: 30px;
     width: 30px;
+  }
+
+  .header-sidebar-hidden {
+    transform: translate3d(100vw, 0, 0);
+  }
+
+  body {
+    grid-template-columns: 100vw var(--mm-layout-sidebar-width);
   }
 }
 
@@ -426,11 +447,9 @@ main {
   }
 
   .header-sidebar {
-    background-color: var(--mm-color-background);
+    display: block !important;
     left: 0;
-    margin-top: var(--mm-spacing);
-    padding: 20px 0;
-    position: relative;
+    transform: none !important;
 
     &::after {
       background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1));
@@ -443,9 +462,19 @@ main {
     }
   }
 
+  .sidebar-list {
+    height: 100%;
+    margin: var(--mm-spacing) 0;
+    max-height: calc(100vh - var(--page-header-height) - 41px);
+    top: calc(var(--page-header-height) + var(--mm-spacing));
+  }
+
   body {
-    display: grid;
-    grid-template-areas: 'header header' 'sidebar content' 'footer footer' 'preview preview';
+    grid-template-areas:
+      'header header'
+      'sidebar content'
+      'footer footer'
+      'preview preview';
     grid-template-columns: var(--mm-layout-sidebar-width) calc(100vw - var(--mm-layout-sidebar-width));
   }
 }
@@ -529,11 +558,31 @@ main {
 
   .header-sidebar {
     display: none;
+    z-index: 11;
   }
 
   body {
-    display: grid;
-    grid-template-areas: 'header' 'content' 'footer' 'preview';
-    grid-template-columns: 1fr;
+    grid-template-areas:
+      'header .'
+      'content sidebar'
+      'footer .'
+      'preview .';
+    grid-template-columns: 100vw var(--mm-layout-sidebar-width);
+    overflow-x: hidden;
+  }
+
+  body.blur-background {
+    &::after {
+      backdrop-filter: blur(3px);
+      background-color: rgba(255, 255, 255, 0.7);
+      content: '';
+      display: block;
+      height: 100%;
+      left: 0;
+      position: fixed;
+      top: 0;
+      width: 100vw;
+      z-index: 8;
+    }
   }
 }
