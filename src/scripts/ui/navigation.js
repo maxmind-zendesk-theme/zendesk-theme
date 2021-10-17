@@ -3,6 +3,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const $sidebar = document.querySelector('.header-sidebar');
   const $body = document.querySelector('body');
 
+  const $navCategoryHeaders = document.querySelectorAll('.nav-category-header');
+
+  $navCategoryHeaders.forEach(navDropdown => {
+    navDropdown.addEventListener('click', () => {
+      navDropdown.parentElement.classList.contains('is-open')
+        ? navDropdown.parentElement.classList.remove('is-open')
+        : navDropdown.parentElement.classList.add('is-open');
+
+      navDropdown.parentElement.classList.contains('is-closed')
+        ? navDropdown.parentElement.classList.remove('is-closed')
+        : navDropdown.parentElement.classList.add('is-closed');
+    });
+  });
+
   const $headerSearch = document.querySelector('.header-search > .search');
   const $headerSearchBtn = document.querySelector('.search-mobile-btn');
   const $headerSearchQuery = document.querySelector('.header-search > .search > #query');
@@ -31,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     $headerSearchQuery.focus();
   });
 
-  document.body.addEventListener('click', () => {
+  function searchMobileToggle () {
     if ($headerSearchQuery === document.activeElement) {
       $headerSearch.classList.add('search-mobile-open');
       $headerCheckbox.style.visibility = 'hidden';
@@ -41,5 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
       $headerCheckbox.style.visibility = 'visible';
       $headerSearchBtn.style.visibility = 'visible';
     }
-  });
+  }
+
+  document.body.addEventListener('click', searchMobileToggle);
 });
