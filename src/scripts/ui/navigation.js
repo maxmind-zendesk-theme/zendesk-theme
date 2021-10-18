@@ -7,6 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   $navCategoryHeaders.forEach(navDropdown => {
     navDropdown.addEventListener('click', () => {
+      const $isOpen = document.querySelector('.is-open');
+
+      if ($isOpen) {
+        $isOpen.classList.add('is-closed');
+        $isOpen.classList.remove('is-open');
+      }
+
       navDropdown.parentElement.classList.contains('is-open')
         ? navDropdown.parentElement.classList.remove('is-open')
         : navDropdown.parentElement.classList.add('is-open');
