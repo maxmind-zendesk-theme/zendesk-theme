@@ -22,12 +22,18 @@
 .hero-title {
   color: var(--mm-color-background);
   font-family: var(--mm-font-stack-display);
-  font-size: 36px;
+  font-size: 28px;
   margin-bottom: 0;
   position: relative;
   text-align: center;
   text-shadow: $overview-heading-text-shadow;
   z-index: 1;
+}
+
+@media only screen and (min-width: 400px) {
+  .hero-title {
+    font-size: 42px;
+  }
 }
 
 @media only screen and (min-width: 768px) {
