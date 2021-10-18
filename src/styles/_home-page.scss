@@ -1,6 +1,16 @@
 @use './mixins';
 
 /***** Homepage *****/
+
+.page__home {
+  zd-autocomplete-multibrand zd-autocomplete-title-multibrand {
+    font-size: 18px;
+  }
+
+  zd-autocomplete-multibrand zd-autocomplete-breadcrumbs-multibrand {
+    font-size: 14px;
+  }
+}
 .toggle-container {
   margin: auto;
   margin-top: var(--mm-spacing);

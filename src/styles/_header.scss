@@ -348,6 +348,7 @@ main {
 
 #preview-bar-container {
   grid-area: preview;
+  position: sticky;
 }
 
 .header-sidebar-hidden {
@@ -501,10 +502,10 @@ main {
 
   body {
     grid-template-areas:
+      'preview preview'
       'header header'
       'sidebar content'
-      'footer footer'
-      'preview preview';
+      'footer footer';
     grid-template-columns: var(--mm-layout-sidebar-width) calc(100vw - var(--mm-layout-sidebar-width));
   }
 }
@@ -593,10 +594,10 @@ main {
 
   body {
     grid-template-areas:
+      'preview .'
       'header .'
       'content sidebar'
-      'footer .'
-      'preview .';
+      'footer .';
     grid-template-columns: 100vw var(--mm-layout-sidebar-width);
     overflow-x: hidden;
   }
