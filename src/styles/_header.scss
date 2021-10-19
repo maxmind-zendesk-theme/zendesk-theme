@@ -485,10 +485,10 @@ main {
     &::after {
       background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1));
       content: '';
-      height: 100vh;
+      height: 100%;
       position: absolute;
       right: 0;
-      top: -40px;
+      top: -0;
       width: 5px;
     }
   }
