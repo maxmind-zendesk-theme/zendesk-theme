@@ -207,10 +207,25 @@ $page-header-height: 80px;
   position: sticky;
 }
 
+.nav-item.contact-us-header {
+  cursor: pointer;
+  display: grid;
+  grid-column-gap: calc(var(--mm-spacing) / 4);
+  grid-template-areas: 'icon label';
+  grid-template-columns: max-content auto;
+  grid-template-rows: auto;
+
+  .nav-icon {
+    grid-area: icon;
+  }
+
+  .nav-label {
+    grid-area: label;
+  }
+}
+
 .nav-item.nav-category-header,
-.nav-item.contact-us-header,
 .nav-item.contact-us-sidenav {
-  border-left: 0;
   cursor: pointer;
   display: grid;
   grid-column-gap: calc(var(--mm-spacing) / 2);

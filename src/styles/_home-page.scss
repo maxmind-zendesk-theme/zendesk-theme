@@ -233,6 +233,9 @@
   .category__card-container {
     gap: calc(var(--mm-spacing) / 4);
     grid-gap: calc(var(--mm-spacing) / 4);
+    grid-template-areas: 'heading arrow';
+    grid-template-columns: 1fr min-content;
+    grid-template-rows: 1fr;
     padding: calc(var(--mm-spacing) / 4);
     padding-top: calc(var(--mm-spacing) / 4 + 6px);
 
