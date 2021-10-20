@@ -7,13 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   $navCategoryHeaders.forEach(navDropdown => {
     navDropdown.addEventListener('click', () => {
-      const $isOpen = document.querySelector('.is-open');
-
-      if ($isOpen) {
-        $isOpen.classList.add('is-closed');
-        $isOpen.classList.remove('is-open');
-      }
-
       navDropdown.parentElement.classList.contains('is-open')
         ? navDropdown.parentElement.classList.remove('is-open')
         : navDropdown.parentElement.classList.add('is-open');
@@ -31,10 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
   function headerCheckboxToggle () {
     $headerCheckbox.classList.toggle('closed');
     $headerCheckbox.classList.toggle('open');
-
-    $sidebar.style.display === 'block'
-      ? $sidebar.style.display = 'none'
-      : $sidebar.style.display = 'block';
 
     $body.classList.contains('blur-background')
       ? $body.classList.remove('blur-background')

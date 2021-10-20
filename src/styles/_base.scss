@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: #f5f6f7;
+  background: var(--mm-color-background);
   color: $text-color;
   display: grid;
   flex: 1 1 auto;
@@ -124,4 +124,41 @@ ul {
 
 .visibility-hidden {
   @include visually-hidden;
+}
+
+@media only screen and (min-width: 992px) {
+  body {
+    grid-template-areas:
+      'preview preview'
+      'header header'
+      'sidebar content'
+      'footer footer';
+    grid-template-columns: var(--mm-layout-sidebar-width) calc(100vw - var(--mm-layout-sidebar-width));
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  body {
+    grid-template-areas:
+      'preview .'
+      'header .'
+      'content sidebar'
+      'footer .';
+    grid-template-columns: 100vw var(--mm-layout-sidebar-width);
+  }
+
+  body.blur-background {
+    &::after {
+      backdrop-filter: blur(3px);
+      background-color: rgba(255, 255, 255, 0.7);
+      content: '';
+      display: block;
+      height: 100%;
+      left: 0;
+      position: fixed;
+      top: 0;
+      width: 100vw;
+      z-index: 8;
+    }
+  }
 }
