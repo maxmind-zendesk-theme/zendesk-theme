@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const $headerCheckbox = document.getElementById('header-checkbox');
   const $sidebar = document.querySelector('.header-sidebar');
   const $mainWrapper = document.querySelector('.main-wrapper');
-
   const $navCategoryHeaders = document.querySelectorAll('.nav-category-header');
 
   $navCategoryHeaders.forEach(navDropdown => {
@@ -14,6 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
       navDropdown.parentElement.classList.contains('is-closed')
         ? navDropdown.parentElement.classList.remove('is-closed')
         : navDropdown.parentElement.classList.add('is-closed');
+    });
+
+    navDropdown.addEventListener('keyup', function (event) {
+      if (event.keyCode === 13) {
+        event.preventDefault();
+        navDropdown.click();
+      }
     });
   });
 
