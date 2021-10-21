@@ -7,7 +7,6 @@ $page-header-height: 80px;
   @include mixins.pattern-border;
   background: var(--mm-color-background);
   box-shadow: 0 1px 13px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.06);
-  grid-area: header;
   height: $page-header-height;
   padding-top: 10px;
   position: sticky;
@@ -191,12 +190,9 @@ $page-header-height: 80px;
   background: var(--mm-color-sidebar);
   border-left: 1px solid var(--mm-color-border);
   box-shadow: -2px -1px 3px rgb(0 0 0 / 10%);
-  display: block;
   grid-area: sidebar;
   height: 100%;
   max-width: var(--mm-layout-sidebar-width);
-  overflow-x: hidden;
-  position: sticky;
   right: 0;
   transition: all 0.15s ease-out;
   width: 100%;
@@ -204,13 +200,12 @@ $page-header-height: 80px;
 }
 
 .header-sidebar-hidden {
-  overflow-x: hidden;
   transform: translate3d(360px, 0, 0);
 }
 
 .sidebar-list {
+  height: calc(100vh - var(--page-header-height));
   overflow-y: auto;
-  padding: calc(var(--mm-spacing) / 2);
   position: sticky;
 }
 
@@ -244,6 +239,18 @@ $page-header-height: 80px;
   .nav-label {
     grid-area: label;
   }
+}
+
+.nav-category {
+  margin: 2px 0 3px;
+}
+
+.nav-item.contact-us-header {
+  margin: 5px 3px;
+}
+
+.nav-item.contact-us-sidenav {
+  margin: 5px 0 3px;
 }
 
 .nav-item.nav-category-header,
@@ -295,10 +302,6 @@ $page-header-height: 80px;
   font-weight: 700;
   padding-bottom: 10px;
   padding-top: 20px;
-}
-
-.sub-nav-items > li {
-  margin: 2px 0 3px;
 }
 
 .nav-wrapper .nav-item.nav-header .nav-label {
@@ -378,19 +381,6 @@ $page-header-height: 80px;
   }
 }
 
-main {
-  grid-area: content;
-}
-
-.footer {
-  grid-area: footer;
-}
-
-#preview-bar-container {
-  grid-area: preview;
-  position: sticky;
-}
-
 @media only screen and (min-width: 320px) {
   .logo {
     gap: 8px;
@@ -409,10 +399,6 @@ main {
     height: 30px;
     min-width: 30px;
     width: 30px;
-  }
-
-  .header-sidebar {
-    margin-left: -350px;
   }
 
   .header-sidebar-hidden {
@@ -502,6 +488,7 @@ main {
     box-shadow: none;
     height: auto;
     max-width: 900px;
+    padding-right: 10px;
     padding-top: 0;
     position: static;
     right: 0;
@@ -512,7 +499,9 @@ main {
   .header-sidebar {
     display: block !important;
     left: 0;
+    position: relative;
     transform: none !important;
+    transition: none;
 
     &::after {
       background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1));
@@ -529,8 +518,6 @@ main {
     height: 100%;
     margin: var(--mm-spacing) 0;
     max-height: calc(100vh - var(--page-header-height) - 41px);
-    padding: 0;
-    top: calc(var(--page-header-height) + var(--mm-spacing));
   }
 
   .sidebar-quick-links {
@@ -616,6 +603,6 @@ main {
   }
 
   .header-sidebar {
-    z-index: 11;
+    position: sticky;
   }
 }

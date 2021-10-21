@@ -6,13 +6,10 @@
 body {
   background: var(--mm-color-background);
   color: $text-color;
-  display: grid;
-  flex: 1 1 auto;
   font-family: var(--mm-font-stack-default);
   font-size: $font-size-base;
   -webkit-font-smoothing: antialiased;
   line-height: 1.5;
-  transition: all 0.15s ease-out;
 }
 
 h1,
@@ -126,28 +123,31 @@ ul {
   @include visually-hidden;
 }
 
+.main-wrapper {
+  display: grid;
+  flex: 1 1 auto;
+  grid-template-rows: 100%;
+  overflow: hidden;
+
+  main {
+    grid-area: article;
+  }
+}
+
 @media only screen and (min-width: 992px) {
-  body {
-    grid-template-areas:
-      'preview preview'
-      'header header'
-      'sidebar content'
-      'footer footer';
+  .main-wrapper {
+    grid-template-areas: 'sidebar article';
     grid-template-columns: var(--mm-layout-sidebar-width) calc(100vw - var(--mm-layout-sidebar-width));
   }
 }
 
 @media only screen and (max-width: 992px) {
-  body {
-    grid-template-areas:
-      'preview .'
-      'header .'
-      'content sidebar'
-      'footer .';
+  .main-wrapper {
+    grid-template-areas: 'article sidebar';
     grid-template-columns: 100vw var(--mm-layout-sidebar-width);
   }
 
-  body.blur-background {
+  .main-wrapper.blur-background {
     &::after {
       backdrop-filter: blur(3px);
       background-color: rgba(255, 255, 255, 0.7);

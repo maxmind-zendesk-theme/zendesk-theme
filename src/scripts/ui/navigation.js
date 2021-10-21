@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const $headerCheckbox = document.getElementById('header-checkbox');
   const $sidebar = document.querySelector('.header-sidebar');
-  const $body = document.querySelector('body');
+  const $mainWrapper = document.querySelector('.main-wrapper');
 
   const $navCategoryHeaders = document.querySelectorAll('.nav-category-header');
 
@@ -25,9 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
     $headerCheckbox.classList.toggle('closed');
     $headerCheckbox.classList.toggle('open');
 
-    $body.classList.contains('blur-background')
-      ? $body.classList.remove('blur-background')
-      : $body.classList.add('blur-background');
+    $mainWrapper.classList.contains('blur-background')
+      ? $mainWrapper.classList.remove('blur-background')
+      : $mainWrapper.classList.add('blur-background');
 
     $sidebar.classList.contains('header-sidebar-hidden')
       ? $sidebar.classList.remove('header-sidebar-hidden')
