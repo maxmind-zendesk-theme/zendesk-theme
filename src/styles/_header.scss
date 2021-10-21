@@ -210,7 +210,23 @@ $page-header-height: 80px;
 
 .sidebar-list {
   overflow-y: auto;
+  padding: calc(var(--mm-spacing) / 2);
   position: sticky;
+}
+
+.sidebar-quick-links {
+  border-top: 1px solid var(--mm-color-border);
+  margin-top: var(--mm-spacing);
+  padding: var(--mm-spacing) var(--mm-spacing) var(--mm-spacing) 56px;
+}
+
+.sidebar-quick-links__heading {
+  margin-bottom: calc(var(--mm-spacing) / 4);
+}
+
+.sidebar-quick-links__link-list-item {
+  font-size: 14px;
+  padding: calc(var(--mm-spacing) / 8) 0;
 }
 
 .nav-item.contact-us-header {
@@ -513,7 +529,12 @@ main {
     height: 100%;
     margin: var(--mm-spacing) 0;
     max-height: calc(100vh - var(--page-header-height) - 41px);
+    padding: 0;
     top: calc(var(--page-header-height) + var(--mm-spacing));
+  }
+
+  .sidebar-quick-links {
+    padding-left: 76px;
   }
 }
 
