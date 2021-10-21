@@ -6,6 +6,7 @@ const gulp = require('gulp');
 const babel = require('gulp-babel');
 const concat = require('gulp-concat');
 const sass = require('gulp-dart-sass');
+const inject = require('gulp-inject-string');
 const postcss = require('gulp-postcss');
 const posthtml = require('gulp-posthtml');
 const sourcemaps = require('gulp-sourcemaps');
@@ -52,7 +53,7 @@ gulp.task('scripts', () => {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('templates', () => {
+gulp.task('templates:posthtml', () => {
   return gulp
     .src([
       'src/templates/*.hbs',
@@ -77,6 +78,33 @@ gulp.task('templates', () => {
     )
     .pipe(gulp.dest('./dist/templates'));
 });
+
+gulp.task('templates:transform-header', () => {
+  return gulp.src('dist/templates/header.hbs')
+    .pipe(
+      inject.replace(
+        '<!-- GULP REPLACE - MAIN WRAPPER OPENING TAG -->',
+        '<!-- GENERATED VIA GULP -->\n<div class="main-wrapper">',
+      ),
+    )
+    .pipe(gulp.dest('dist/templates/'));
+});
+
+gulp.task('templates:transform-footer', () => {
+  return gulp.src('dist/templates/footer.hbs')
+    .pipe(
+      inject.replace(
+        '<!-- GULP REPLACE - MAIN WRAPPER CLOSING TAG -->',
+        '<!-- GENERATED VIA GULP - Closes .main-wrapper from header template -->\n</div>',
+      ),
+    )
+    .pipe(gulp.dest('dist/templates/'));
+});
+
+gulp.task('templates', gulp.series(
+  'templates:posthtml',
+  gulp.parallel('templates:transform-header', 'templates:transform-footer'),
+));
 
 gulp.task('copy-files', () => {
   return gulp.src([
