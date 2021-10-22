@@ -285,6 +285,16 @@
   width: 100%;
 }
 
+#request_anonymous_requester_email:focus,
+#request_subject:focus,
+.nesty-input:focus,
+[data-hc-focus='true'],
+input[type='submit']:focus {
+  outline-color: var(--mm-color-logo-blue-light);
+  outline-style: solid;
+  outline-width: 2px;
+}
+
 #upload-dropzone {
   padding: var(--mm-spacing);
 }
