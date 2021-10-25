@@ -134,6 +134,7 @@ $page-header-height: 80px;
 }
 
 .nav-item {
+  align-items: center;
   background-color: transparent;
   color: var(--mm-color-primary-text);
   display: block;
@@ -152,6 +153,10 @@ $page-header-height: 80px;
     background-color: transparent;
     color: var(--mm-color-display-text);
     text-decoration: none;
+  }
+
+  > * {
+    align-self: center;
   }
 }
 
@@ -177,9 +182,19 @@ $page-header-height: 80px;
 }
 
 .nav-icon {
-  height: 28px;
+  display: grid;
+  height: 40px;
   position: relative;
-  width: 28px;
+  width: 40px;
+
+  svg {
+    align-self: center;
+    height: 100%;
+    justify-self: center;
+    max-height: 70%;
+    max-width: 70%;
+    width: 100%;
+  }
 
   path {
     fill: var(--mm-color-primary-text);
@@ -255,7 +270,7 @@ $page-header-height: 80px;
 .nav-item.contact-us-sidenav {
   cursor: pointer;
   display: grid;
-  grid-column-gap: calc(var(--mm-spacing) / 2);
+  grid-column-gap: calc(var(--mm-spacing) / 4);
   grid-template-areas: 'icon label caret';
   grid-template-columns: max-content auto min-content;
   grid-template-rows: auto;
@@ -281,6 +296,10 @@ $page-header-height: 80px;
 
   .sub-nav-items {
     display: block;
+
+    .nav-item {
+      border-left: 4px solid transparent;
+    }
   }
 }
 
