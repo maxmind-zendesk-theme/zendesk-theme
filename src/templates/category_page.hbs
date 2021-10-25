@@ -5,7 +5,7 @@
       const $minfraudCategory = document.querySelector('[data-category="minFraud Web Services"]');
       const $geoipCategory = document.querySelector('[data-category="GeoIP2 and GeoLite2"]');
       const $accountCategory = document.querySelector('[data-category="Account and Purchasing"]');
-      const $dataPrivacyCategory = document.querySelector('[data-category="Data Privacy and Licenses"]')
+      const $dataPrivacyCategory = document.querySelector('[data-category="Data Privacy"]')
 
       const $navCategoryHeaderGeoip = document.querySelector('.nav-category[data-category-name="geoip-and-geolite"');
       const $navCategoryHeaderMinfraud = document.querySelector('.nav-category[data-category-name="minfraud-services"');
@@ -45,7 +45,7 @@
       <include src="svg/icon-account.svg"></include>
     {{/is}}
 
-    {{#is category.name 'Data Privacy and Licenses'}}
+    {{#is category.name 'Data Privacy'}}
       <include src="svg/icon-privacy.svg"></include>
     {{/is}}
 

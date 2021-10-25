@@ -14,7 +14,7 @@
   max-width: fit-content;
   overflow-x: auto;
   position: relative;
-  white-space: nowrap;
+  white-space: wrap;
   width: 100%;
   z-index: 2;
 
@@ -53,6 +53,10 @@
     line-height: 18px !important;
     padding: 16px;
     vertical-align: top;
+
+    li {
+      padding-bottom: 5px;
+    }
   }
 }
 

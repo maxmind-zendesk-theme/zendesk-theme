@@ -50,10 +50,18 @@
           </div>
 
           <div class="blocks__item-links">
-            <a href='{{url}}' class="blocks__item-link">
-              <span class="blocks__item-link-text">Quickstart</span>
-              <include src="svg/icon-arrow-right.svg"></include>
-            </a>
+            {{#is name 'GeoIP2 and GeoLite2'}}
+              <a href='/hc/en-us/articles/4407630528795-Choose-the-Right-Geolocation-Product' class="blocks__item-link">
+                <span class="blocks__item-link-text">Overview</span>
+                <include src="svg/icon-arrow-right.svg"></include>
+              </a>
+            {{/is}}
+            {{#is name 'minFraud Web Services'}}
+              <a href='/hc/en-us/articles/4407833140123-Compare-the-minFraud-Services' class="blocks__item-link">
+                <span class="blocks__item-link-text">Overview</span>
+                <include src="svg/icon-arrow-right.svg"></include>
+              </a>
+            {{/is}}
             <a href='{{url}}' class="blocks__item-link">
               <span class="blocks__item-link-text">See articles</span>
               <include src="svg/icon-arrow-right.svg"></include>
@@ -66,11 +74,10 @@
       <a class="category__card-container"
         href="https://maxmind.zendesk.com/hc/en-us/articles/4408252036123-GeoIP-Corrections">
         <div class="category__card-icon">
-          <include src="svg/icon-question.svg"></include>
+          <include src="svg/icon-corrections.svg"></include>
         </div>
-        <h3 class="category__card-header">GeoIP Corrections</h3>
-        <p class="category__card-description">All corrections are reviewed by MaxMind to ensure they are accurate and comply
-          with our policies and this process takes up to one week.</p>
+        <h3 class="category__card-header">Correct GeoIP2 Data</h3>
+        <p class="category__card-description">We do our best to filter through all requests and apply them within a week if they are approved.</p>
         <div class="category__card-arrow">
           <include src="svg/icon-arrow-right.svg"></include>
         </div>
@@ -82,7 +89,7 @@
               <include src="svg/icon-account.svg"></include>
             {{/is}}
 
-            {{#is name 'Data Privacy and Licenses'}}
+            {{#is name 'Data Privacy'}}
               <include src="svg/icon-privacy.svg"></include>
             {{/is}}
           </div>
