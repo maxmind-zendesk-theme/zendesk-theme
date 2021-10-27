@@ -1,32 +1,3 @@
-<script>
-  window.addEventListener('DOMContentLoaded', (event) => {
-    const $body = document.querySelector('body');
-
-    const $categoryTitle = document.querySelector('ol.breadcrumbs > li:nth-child(2) > a');
-
-    const $navCategoryHeaderGeoip = document.querySelector('.nav-category[data-category-name="geoip-and-geolite"');
-    const $navCategoryHeaderMinfraud = document.querySelector('.nav-category[data-category-name="minfraud-services"');
-    const $navCategoryHeaderAccount = document.querySelector('.nav-category[data-category-name="account-and-purchasing"');
-    const $navCategoryHeaderDataPrivacy = document.querySelector('.nav-category[data-category-name="data-privacy-and-licenses"');
-
-    if ($categoryTitle.innerText === 'GeoIP2 and GeoLite2') {
-      $body.classList.add('page-type--geoip');
-      $navCategoryHeaderGeoip.classList.add('is-open');
-      $navCategoryHeaderGeoip.classList.remove('is-closed');
-    } else if ($categoryTitle.innerText === 'minFraud Web Services') {
-      $body.classList.add('page-type--minfraud');
-      $navCategoryHeaderMinfraud.classList.add('is-open');
-      $navCategoryHeaderMinfraud.classList.remove('is-closed');
-    } else if ($categoryTitle.innerText === 'Account and Purchasing') {
-      $navCategoryHeaderAccount.classList.add('is-open');
-      $navCategoryHeaderAccount.classList.remove('is-closed');
-    } else if ($categoryTitle.innerText === 'Data Privacy') {
-      $navCategoryHeaderDataPrivacy.classList.add('is-open');
-      $navCategoryHeaderDataPrivacy.classList.remove('is-closed');
-    }
-  });
-</script>
-
 <div class="article__page">
   <section class="article__header">
     {{breadcrumbs}}

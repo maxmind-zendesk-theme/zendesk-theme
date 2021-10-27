@@ -12,7 +12,7 @@ $page-header-height: 80px;
   position: sticky;
   top: 0;
   width: 100%;
-  z-index: 12;
+  z-index: 10;
 }
 
 .header-area {
@@ -208,11 +208,11 @@ $page-header-height: 80px;
   grid-area: sidebar;
   height: 100%;
   max-width: var(--mm-layout-sidebar-width);
-  position: sticky;
+  position: fixed;
   right: 0;
   transition: all 0.15s ease-out;
   width: 100%;
-  z-index: 9;
+  z-index: 20;
 }
 
 .header-sidebar-hidden {
@@ -450,6 +450,10 @@ $page-header-height: 80px;
 }
 
 @media only screen and (min-width: 992px) {
+  .header {
+    z-index: 30;
+  }
+
   .logo svg {
     max-width: 162px;
   }

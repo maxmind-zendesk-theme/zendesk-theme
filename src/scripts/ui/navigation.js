@@ -6,13 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   $navCategoryHeaders.forEach(navDropdown => {
     navDropdown.addEventListener('click', () => {
-      navDropdown.parentElement.classList.contains('is-open')
-        ? navDropdown.parentElement.classList.remove('is-open')
-        : navDropdown.parentElement.classList.add('is-open');
-
-      navDropdown.parentElement.classList.contains('is-closed')
-        ? navDropdown.parentElement.classList.remove('is-closed')
-        : navDropdown.parentElement.classList.add('is-closed');
+      navDropdown.parentElement.classList.toggle('is-open');
+      navDropdown.parentElement.classList.toggle('is-closed');
     });
 
     navDropdown.addEventListener('keyup', function (event) {
