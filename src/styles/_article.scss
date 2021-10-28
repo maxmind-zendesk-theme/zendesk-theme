@@ -286,6 +286,10 @@
     transition: background-color 0.2s ease-out;
   }
 
+  a > code {
+    padding-bottom: 0;
+  }
+
   code:hover {
     background-color: var(--mm-color-sidebar);
   }
