@@ -2,6 +2,10 @@
 
 /***** Homepage *****/
 
+.page__home .header-search {
+  display: none;
+}
+
 .page__home {
   zd-autocomplete-multibrand zd-autocomplete-title-multibrand {
     font-size: 18px;

@@ -12,6 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const storageKey = 'mm-toggle-categories';
 
+  if (window.location.href === 'https://maxmind.zendesk.com/hc/en-us') {
+    document.body.classList.add('page__home');
+  }
+
   function showPublicCategories () {
     $publicCategoriesSection.classList.add('active');
     $privateCategoriesSection.classList.remove('active');
