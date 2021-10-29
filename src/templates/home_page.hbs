@@ -17,9 +17,14 @@
   </div>
 </section>
 
-<div class="toggle-container">
-  <button id="toggle-categories" class="categories-toggle-btn">Switch to Private</button>
-</div>
+{{#if signed_in}}
+  {{#each (filter categories on="description" starts_with="Internal knowledge base for the Support")}}
+  <!-- toggle button will only appear if there is a category whose description starts with internal AND the user is logged in -->
+    <div class="toggle-container">
+      <button id="toggle-categories" class="categories-toggle-btn">Switch to Private</button>
+    </div>
+  {{/each}}
+{{/if}}
 
 <section id="category-public" class="categories-section categories-section--public active blocks">
   <div class="categories-container">
@@ -107,36 +112,39 @@
 <section id="category-private" class="categories-section categories-section--private private blocks">
   <div class="container">
     <ul class="blocks__list">
-      {{#each (filter categories on="description" starts_with="Internal")}}
-        <li class="blocks__item" data-name="{{name}}">
-          <div class="blocks__item-header">
-            <div class="blocks__item-lockup">
-              <div class="blocks__item-icon">
-                {{#is name 'Sales'}}
-                  <include src="svg/icon-sales.svg"></include>
-                {{/is}}
+      {{#if signed_in}}
+        {{#each (filter categories on="description" starts_with="Internal")}}
+        <!-- internal categories will only appear if there is a category whose description starts with internal AND the user is logged in -->
+          <li class="blocks__item" data-name="{{name}}">
+            <div class="blocks__item-header">
+              <div class="blocks__item-lockup">
+                <div class="blocks__item-icon">
+                  {{#is name 'Sales'}}
+                    <include src="svg/icon-sales.svg"></include>
+                  {{/is}}
 
-                {{#is name 'Support'}}
-                  <include src="svg/icon-support.svg"></include>
-                {{/is}}
+                  {{#is name 'Support'}}
+                    <include src="svg/icon-support.svg"></include>
+                  {{/is}}
+                </div>
+                <h2 class="blocks__item-heading">
+                  {{name}}
+                </h2>
               </div>
-              <h2 class="blocks__item-heading">
-                {{name}}
-              </h2>
             </div>
-          </div>
 
-          <div class="blocks__item-content">
-            <span class="blocks-item-description">{{description}}</span>
-          </div>
-          <div class="blocks__item-links">
-            <a href='{{url}}' class="blocks__item-link">
-              <span class="blocks__item-link-text">View all articles</span>
-              <include src="svg/icon-arrow-right.svg"></include>
-            </a>
-          </div>
-        </li>
-      {{/each}}
+            <div class="blocks__item-content">
+              <span class="blocks-item-description">{{description}}</span>
+            </div>
+            <div class="blocks__item-links">
+              <a href='{{url}}' class="blocks__item-link">
+                <span class="blocks__item-link-text">View all articles</span>
+                <include src="svg/icon-arrow-right.svg"></include>
+              </a>
+            </div>
+          </li>
+        {{/each}}
+      {{/if}}
     </ul>
   </div>
 </section>
