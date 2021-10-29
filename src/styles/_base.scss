@@ -127,6 +127,7 @@ ul {
   display: grid;
   flex: 1 1 auto;
   grid-template-rows: 100%;
+  min-height: calc(100vh - var(--page-header-height) - 400px);
   overflow: hidden;
 
   main {
