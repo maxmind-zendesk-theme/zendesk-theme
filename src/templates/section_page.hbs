@@ -1,16 +1,3 @@
-<script>
-  window.addEventListener('DOMContentLoaded', (event) => {
-    const $categoryTitle = document.querySelector('ol.breadcrumbs > li:nth-child(2) > a');
-    const $body = document.querySelector('body');
-
-    if ($categoryTitle.innerText === 'GeoIP2 and GeoLite2') {
-      $body.classList.add('page-type--geoip');
-    } else if ($categoryTitle.innerText === 'minFraud Web Services') {
-      $body.classList.add('page-type--minfraud');
-    }
-  });
-</script>
-
 <div class="section__page">
   <div class="section__header">
     {{breadcrumbs}}
@@ -26,9 +13,6 @@
       <ul class="article__list">
         {{#each section.articles}}
           <li class="article__list-item">
-            <div class="icon__question">
-              <include src="svg/icon-question.svg"></include>
-            </div>
             <a href="{{url}}" class="article__list-link">
               {{title}}
               {{#if internal}}

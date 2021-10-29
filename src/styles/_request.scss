@@ -273,6 +273,7 @@
   color: var(--mm-color-display-text);
 }
 
+#request_anonymous_requester_email,
 #request_subject,
 #hc-wysiwyg,
 .nesty-input,
@@ -282,6 +283,16 @@
   box-shadow: rgb(87 102 114 / 50%) 0 1px 5px 0 inset;
   color: var(--mm-color-primary-text);
   width: 100%;
+}
+
+#request_anonymous_requester_email:focus,
+#request_subject:focus,
+.nesty-input:focus,
+[data-hc-focus='true'],
+input[type='submit']:focus {
+  outline-color: var(--mm-color-logo-blue-light);
+  outline-style: solid;
+  outline-width: 2px;
 }
 
 #upload-dropzone {

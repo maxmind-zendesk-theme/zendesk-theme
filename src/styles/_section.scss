@@ -16,11 +16,6 @@
         'excerpt';
       margin-bottom: 20px;
 
-      .fa-question-circle {
-        display: none;
-      }
-
-
       a {
         color: var(--mm-color-display-text);
         font-family: var(--mm-font-stack-display);
@@ -66,19 +61,11 @@
 
     li {
       display: grid;
-      grid-column-gap: calc(var(--mm-spacing) / 2);
       grid-template-areas:
-        'icon title'
-        '. excerpt';
-      grid-template-columns: max-content 1fr;
+        'title'
+        'excerpt';
+      grid-template-columns: 1fr;
       margin-bottom: calc(var(--mm-spacing) / 2);
-
-      .icon__question {
-        color: var(--mm-color-display-text);
-        grid-area: icon;
-        padding-top: 6px;
-        width: 20px;
-      }
 
       a {
         color: var(--mm-color-display-text);

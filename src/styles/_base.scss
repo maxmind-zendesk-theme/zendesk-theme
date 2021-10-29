@@ -4,24 +4,12 @@
 }
 
 body {
-  background-color: #f5f6f7;
+  background: var(--mm-color-background);
   color: $text-color;
-  font-family: $text-font;
+  font-family: var(--mm-font-stack-default);
   font-size: $font-size-base;
   -webkit-font-smoothing: antialiased;
   line-height: 1.5;
-
-  > main {
-    @include desktop {
-      min-height: 65vh;
-    }
-  }
-}
-
-@media only screen and (min-width: 992px) {
-  main {
-    margin-left: 350px;
-  }
 }
 
 h1,
@@ -30,7 +18,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $heading-font;
+  font-family: var(--mm-font-stack-display);
   margin-top: 0;
 }
 
@@ -45,7 +33,7 @@ h3 {
 h4 { font-size: 16px; }
 
 a {
-  color: $link-color;
+  color: var(--mm-color-display-text);
   text-decoration: none;
 
   &:hover,
@@ -133,4 +121,44 @@ ul {
 
 .visibility-hidden {
   @include visually-hidden;
+}
+
+.main-wrapper {
+  display: grid;
+  flex: 1 1 auto;
+  grid-template-rows: 100%;
+  overflow: hidden;
+
+  main {
+    grid-area: article;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .main-wrapper {
+    grid-template-areas: 'sidebar article';
+    grid-template-columns: var(--mm-layout-sidebar-width) calc(100vw - var(--mm-layout-sidebar-width));
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .main-wrapper {
+    grid-template-areas: 'article sidebar';
+    grid-template-columns: 100vw var(--mm-layout-sidebar-width);
+  }
+
+  .main-wrapper.blur-background {
+    &::after {
+      backdrop-filter: blur(3px);
+      background-color: rgba(255, 255, 255, 0.7);
+      content: '';
+      display: block;
+      height: 100%;
+      left: 0;
+      position: fixed;
+      top: 0;
+      width: 100vw;
+      z-index: 8;
+    }
+  }
 }

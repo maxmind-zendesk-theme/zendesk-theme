@@ -9,10 +9,12 @@
   border-spacing: 0;
   box-shadow: 0 1px 3px rgb(0 0 0 / 10%);
   color: #ccc;
+  display: block;
   margin: 0 auto;
-  max-width: 100%;
-  overflow-x: scroll;
+  max-width: fit-content;
+  overflow-x: auto;
   position: relative;
+  white-space: wrap;
   width: 100%;
   z-index: 2;
 
@@ -51,6 +53,10 @@
     line-height: 18px !important;
     padding: 16px;
     vertical-align: top;
+
+    li {
+      padding-bottom: 5px;
+    }
   }
 }
 

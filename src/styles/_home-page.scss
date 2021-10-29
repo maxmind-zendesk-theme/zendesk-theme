@@ -2,9 +2,18 @@
 
 /***** Homepage *****/
 
-.home-section h2 {
-  margin-bottom: 10px;
-  text-align: center;
+.page__home .header-search {
+  display: none;
+}
+
+.page__home {
+  zd-autocomplete-multibrand zd-autocomplete-title-multibrand {
+    font-size: 18px;
+  }
+
+  zd-autocomplete-multibrand zd-autocomplete-breadcrumbs-multibrand {
+    font-size: 14px;
+  }
 }
 
 .toggle-container {
@@ -228,6 +237,9 @@
   .category__card-container {
     gap: calc(var(--mm-spacing) / 4);
     grid-gap: calc(var(--mm-spacing) / 4);
+    grid-template-areas: 'heading arrow';
+    grid-template-columns: 1fr min-content;
+    grid-template-rows: 1fr;
     padding: calc(var(--mm-spacing) / 4);
     padding-top: calc(var(--mm-spacing) / 4 + 6px);
 
@@ -308,11 +320,11 @@
 
 @media only screen and (min-width: 992px) {
   .page__home .header-sidebar {
-    display: none;
+    display: none !important;
   }
 
   .page__home main {
-    margin-left: 0;
+    margin-left: -350px;
   }
 
   .promoted__cards {

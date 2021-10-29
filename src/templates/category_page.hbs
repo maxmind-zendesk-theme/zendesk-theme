@@ -1,17 +1,3 @@
-<script>
-  window.addEventListener('DOMContentLoaded', (event) => {
-      const $minfraudCategory = document.querySelector('[data-category="minFraud Web Services"]');
-      const $geoipCategory = document.querySelector('[data-category="GeoIP2 and GeoLite2"]');
-      const $body = document.querySelector('body');
-
-      if ($geoipCategory) {
-        $body.classList.add('page-type--geoip');
-      } else if ($minfraudCategory) {
-        $body.classList.add('page-type--minfraud');
-      }
-});
-</script>
-
 <section class="section hero" data-category="{{category.name}}">
   <div class="hero__lockup">
     <div class="hero__icon">
@@ -24,7 +10,11 @@
     {{/is}}
 
     {{#is category.name 'Account and Purchasing'}}
-      <include src="svg/icon-account-and-purchasing.svg"></include>
+      <include src="svg/icon-account.svg"></include>
+    {{/is}}
+
+    {{#is category.name 'Data Privacy'}}
+      <include src="svg/icon-privacy.svg"></include>
     {{/is}}
 
     {{#is category.name 'Support'}}
