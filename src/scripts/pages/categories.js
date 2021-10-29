@@ -17,32 +17,40 @@ window.addEventListener('DOMContentLoaded', (event) => {
   if ($geoipCategory) {
     $body.classList.add('page-type--geoip');
     $navCategoryHeaderGeoip.classList.add('is-open');
+    $navCategoryHeaderGeoip.setAttribute('aria-expanded', 'true');
     $navCategoryHeaderGeoip.classList.remove('is-closed');
   } else if ($minfraudCategory) {
     $body.classList.add('page-type--minfraud');
     $navCategoryHeaderMinfraud.classList.add('is-open');
+    $navCategoryHeaderMinfraud.setAttribute('aria-expanded', 'true');
     $navCategoryHeaderMinfraud.classList.remove('is-closed');
   } else if ($accountCategory) {
     $navCategoryHeaderAccount.classList.add('is-open');
+    $navCategoryHeaderAccount.setAttribute('aria-expanded', 'true');
     $navCategoryHeaderAccount.classList.remove('is-closed');
   } else if ($dataPrivacyCategory) {
     $navCategoryHeaderDataPrivacy.classList.add('is-open');
+    $navCategoryHeaderDataPrivacy.setAttribute('aria-expanded', 'true');
     $navCategoryHeaderDataPrivacy.classList.remove('is-closed');
   }
 
   if ($categoryTitle.innerText === 'GeoIP2 and GeoLite2') {
     $body.classList.add('page-type--geoip');
     $navCategoryHeaderGeoip.classList.add('is-open');
+    $navCategoryHeaderGeoip.setAttribute('aria-expanded', 'true');
     $navCategoryHeaderGeoip.classList.remove('is-closed');
   } else if ($categoryTitle.innerText === 'minFraud Web Services') {
     $body.classList.add('page-type--minfraud');
     $navCategoryHeaderMinfraud.classList.add('is-open');
+    $navCategoryHeaderMinfraud.setAttribute('aria-expanded', 'true');
     $navCategoryHeaderMinfraud.classList.remove('is-closed');
   } else if ($categoryTitle.innerText === 'Account and Purchasing') {
     $navCategoryHeaderAccount.classList.add('is-open');
+    $navCategoryHeaderAccount.setAttribute('aria-expanded', 'true');
     $navCategoryHeaderAccount.classList.remove('is-closed');
   } else if ($categoryTitle.innerText === 'Data Privacy') {
     $navCategoryHeaderDataPrivacy.classList.add('is-open');
+    $navCategoryHeaderDataPrivacy.setAttribute('aria-expanded', 'true');
     $navCategoryHeaderDataPrivacy.classList.remove('is-closed');
   }
 });

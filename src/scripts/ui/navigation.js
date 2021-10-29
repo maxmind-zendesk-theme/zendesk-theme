@@ -8,6 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
     navDropdown.addEventListener('click', () => {
       navDropdown.parentElement.classList.toggle('is-open');
       navDropdown.parentElement.classList.toggle('is-closed');
+
+      if (navDropdown.parentElement.getAttribute('aria-expanded') === 'false') {
+        navDropdown.parentElement.setAttribute('aria-expanded', 'true');
+      } else if (navDropdown.parentElement.getAttribute('aria-expanded') === 'true') {
+        navDropdown.parentElement.setAttribute('aria-expanded', 'false');
+      }
     });
 
     navDropdown.addEventListener('keyup', function (event) {
