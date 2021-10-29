@@ -31,14 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function headerCheckboxToggle () {
     $headerCheckbox.classList.toggle('closed');
     $headerCheckbox.classList.toggle('open');
-
-    $mainWrapper.classList.contains('blur-background')
-      ? $mainWrapper.classList.remove('blur-background')
-      : $mainWrapper.classList.add('blur-background');
-
-    $sidebar.classList.contains('header-sidebar-hidden')
-      ? $sidebar.classList.remove('header-sidebar-hidden')
-      : $sidebar.classList.add('header-sidebar-hidden');
+    $mainWrapper.classList.toggle('blur-background');
+    $sidebar.classList.toggle('header-sidebar-hidden');
   }
 
   $headerCheckbox.addEventListener('click', headerCheckboxToggle);
