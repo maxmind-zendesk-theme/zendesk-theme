@@ -78,16 +78,25 @@
 .blocks__item-header {
   @include mixins.pattern;
   align-items: center;
-  display: flex;
+  display: grid;
   grid-area: header;
   justify-content: center;
 }
 
 .blocks__item-lockup {
-  align-items: center;
   display: grid;
-  gap: calc(var(--mm-spacing) / 4);
-  grid-template-columns: max-content 1fr;
+  grid-auto-flow: column;
+  grid-template-areas:
+    'icon'
+    'heading'
+    'subheading';
+  position: relative;
+  z-index: 1;
+}
+
+.blocks__item-lockup > * {
+  align-self: center;
+  justify-self: center;
 }
 
 .blocks__item-icon {
@@ -101,7 +110,9 @@
   box-shadow: var(--mm-overview-heading-drop-shadow),
     inset 0 0 0 var(--mm-product-icon-stroke-width) rgba(255, 255, 255, 0.35);
   display: grid;
+  grid-area: icon;
   justify-items: center;
+  margin-bottom: calc(var(--mm-spacing) / 2);
   position: relative;
   transform-style: preserve-3d;
   width: 90px;
@@ -127,19 +138,37 @@
   width: 100%;
 }
 
-.blocks__item-heading {
+.blocks__item-heading,
+.blocks__item-subheading {
   color: #fff;
-  font-size: 20px;
-  margin: 0;
+  font-family: var(--mm-font-stack-display);
+  font-weight: 700;
+  line-height: 1em;
   position: relative;
-  text-shadow: 1px 2px 0 rgb(0 0 0 / 25%);
+  text-align: center;
+  text-shadow: var(--mm-overview-heading-drop-shadow);
   z-index: 1;
+}
+
+.blocks__item-heading {
+  align-self: end;
+  font-size: 20px;
+  grid-area: heading;
+  margin-bottom: 5px;
+}
+
+.blocks__item-subheading {
+  align-self: start;
+  font-size: 16px;
+  grid-area: subheading;
+  margin: 0;
 }
 
 .blocks__item-content {
   background: var(--mm-color-background);
   grid-area: content;
   padding: calc(var(--mm-spacing) / 2);
+  text-align: center;
 }
 
 .blocks__item-links {
@@ -367,7 +396,25 @@
     grid-template-columns: repeat(3, minmax(0, 400px));
   }
 
+  .blocks__item-lockup {
+    grid-column-gap: calc(var(--mm-spacing) / 2);
+    column-gap: calc(var(--mm-spacing) / 2);
+    grid-template-areas:
+        'icon heading'
+        'icon subheading';
+    grid-template-columns: max-content max-content;
+  }
+
+  .blocks__item-lockup > * {
+    justify-self: left;
+  }
+
+  .blocks__item-icon {
+    margin-bottom: 0;
+  }
+
   .blocks__item-header {
+    justify-content: center;
     padding: var(--mm-spacing);
   }
 
@@ -375,8 +422,14 @@
     font-size: 24px;
   }
 
+  .blocks__item-subheading {
+    align-self: start;
+    font-size: 18px;
+  }
+
   .blocks__item-content {
     padding: var(--mm-spacing);
+    text-align: left;
   }
 
   .blocks-item-description {
