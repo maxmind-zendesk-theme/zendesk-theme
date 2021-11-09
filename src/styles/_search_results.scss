@@ -71,10 +71,24 @@
     }
   }
 
-  .search__result-url {
+  .search__result-breadcrumbs {
     display: block;
     font-size: 12px;
     margin-bottom: 3px;
+
+    .search__result-breadcrumb-name {
+      display: inline-block;
+
+      &:nth-child(1) {
+        display: none;
+      }
+
+      &:nth-child(2)::after {
+        content: '>';
+        padding-left: 5px;
+        padding-right: 2px;
+      }
+    }
   }
 
   .search__result-description {
