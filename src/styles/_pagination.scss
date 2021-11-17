@@ -1,7 +1,9 @@
 /* stylelint-disable scss/at-extend-no-missing-placeholder */
 
 .pagination {
+  font-size: 18px;
   margin-bottom: var(--mm-spacing);
+  width: 100%;
 
   &::after {
     clear: both;

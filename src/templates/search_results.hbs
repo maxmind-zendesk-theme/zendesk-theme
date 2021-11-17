@@ -21,7 +21,11 @@
               {{title}}
             </a>
           </div>
-          <small class="search__result-url">[URL placeholder if we want it]</small>
+          <small class="search__result-breadcrumbs">
+            {{#each path_steps}}
+              <div class="search__result-breadcrumb-name">{{name}}</div>
+            {{/each}}
+          </small>
           <p class="search__result-description">{{text}}</p>
         </article>
       {{/each}}

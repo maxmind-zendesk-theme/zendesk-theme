@@ -75,8 +75,7 @@
 
   .my__requests__header,
   .requests-table-toolbar,
-  .requests,
-  .pagination {
+  .requests {
     max-width: 1200px;
     padding: 0 var(--mm-spacing) 0;
     width: 100%;
@@ -192,9 +191,4 @@
   .requests-search-info {
     padding-bottom: calc(var(--mm-spacing) / 2);
   }
-}
-
-.pagination {
-  padding: 0 var(--mm-spacing) 0;
-  width: 100%;
 }

@@ -33,6 +33,15 @@
                 <h2 class="blocks__item-heading">
                   {{name}}
                 </h2>
+                <h3 class="blocks__item-subheading">
+                  {{#is name 'minFraud Web Services'}}
+                    Transaction Risk API
+                  {{/is}}
+
+                  {{#is name 'GeoIP2 and GeoLite2'}}
+                    Databases and Web Services
+                  {{/is}}
+                </h3>
               </div>
           </div>
 
@@ -43,18 +52,18 @@
           <div class="blocks__item-links">
             {{#is name 'GeoIP2 and GeoLite2'}}
               <a href='/hc/en-us/articles/4407630528795-Choose-the-Right-Geolocation-Product' class="blocks__item-link">
-                <span class="blocks__item-link-text">Overview</span>
+                <span class="blocks__item-link-text">Product overview</span>
                 <include src="svg/icon-arrow-right.svg"></include>
               </a>
             {{/is}}
             {{#is name 'minFraud Web Services'}}
               <a href='/hc/en-us/articles/4407833140123-Compare-the-minFraud-Services' class="blocks__item-link">
-                <span class="blocks__item-link-text">Overview</span>
+                <span class="blocks__item-link-text">Product overview</span>
                 <include src="svg/icon-arrow-right.svg"></include>
               </a>
             {{/is}}
             <a href='{{url}}' class="blocks__item-link">
-              <span class="blocks__item-link-text">See articles</span>
+              <span class="blocks__item-link-text">See all articles</span>
               <include src="svg/icon-arrow-right.svg"></include>
             </a>
           </div>
@@ -126,7 +135,7 @@
             </div>
             <div class="blocks__item-links">
               <a href='{{url}}' class="blocks__item-link">
-                <span class="blocks__item-link-text">View all articles</span>
+                <span class="blocks__item-link-text">See all articles</span>
                 <include src="svg/icon-arrow-right.svg"></include>
               </a>
             </div>
