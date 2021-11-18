@@ -150,7 +150,6 @@ $page-header-height: 80px;
   &:active,
   &:hover,
   &:focus {
-    background-color: transparent;
     color: var(--mm-color-display-text);
     text-decoration: none;
   }
@@ -348,6 +347,16 @@ body.page-type--geoip .nav-category-header.nav-item[data-name="geoip-and-geolite
   .nav-dropdown {
     grid-area: caret;
   }
+}
+
+.sidebar-item {
+  margin: 2px 0 3px;
+}
+
+.sidebar-link-active {
+  background: var(--mm-color-background);
+  border-left: 4px solid var(--mm-color-active-blue)!important;
+  color: var(--mm-color-display-text);
 }
 
 .nav-has-divider-top::before,
@@ -556,8 +565,6 @@ body.page-type--geoip .nav-category-header.nav-item[data-name="geoip-and-geolite
 
   .nav-item {
     align-items: center;
-    border: 1px solid transparent;
-    border-radius: 6px;
     display: inline-block;
     margin-left: 66px;
     max-width: calc(100% - 66px);
