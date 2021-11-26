@@ -166,6 +166,7 @@ $page-header-height: 80px;
   margin: 0;
   max-width: 340px;
   padding: 10px;
+  position: relative;
 }
 
 .nav-category-header.nav-item {
@@ -181,11 +182,60 @@ $page-header-height: 80px;
   margin-bottom: 0;
 }
 
+body.page-type--minfraud .nav-category[data-category-name="minfraud-services"],
+body.page-type--geoip .nav-category[data-category-name="geoip-and-geolite"],
+body.page-type--account .nav-category[data-category-name="account-and-purchasing"],
+body.page-type--data-privacy .nav-category[data-category-name="data-privacy-and-licenses"] {
+  background: #fff;
+  border-top: 1px solid transparent;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 10%);
+
+  .nav-icon:before {
+    background: #00a7e5;
+    border-radius: 6px;
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    transform: translateZ(-1px);
+    width: 100%;
+  }
+
+  .nav-icon {
+    background: linear-gradient(rgba(255,255,255,0.3),#0077c2);
+    box-shadow: inset 0 0 0 3px rgb(255 255 255 / 35%);
+
+    svg {
+      filter: drop-shadow(1px 2px 5px #0077c2);
+
+      path {
+       fill: #fff;
+      }
+    }
+  }
+}
+
+body.page-type--minfraud .nav-category-header.nav-item[data-name="minfraud-services"] {
+  .nav-icon {
+    background: linear-gradient(rgba(255,0,136,0.5),#0077c2);
+  }
+}
+
+body.page-type--geoip .nav-category-header.nav-item[data-name="geoip-and-geolite"] {
+  .nav-icon {
+    background: linear-gradient(rgba(0,255,102,0.5),#0077c2);
+  }
+}
+
 .nav-icon {
+  align-self: center;
+  border-radius: 6px;
   display: grid;
   height: 40px;
   position: relative;
+  transform-style: preserve-3d;
   width: 40px;
+  z-index: 1;
 
   svg {
     align-self: center;

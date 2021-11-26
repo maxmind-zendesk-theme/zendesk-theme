@@ -25,10 +25,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
     $navCategoryHeaderMinfraud.setAttribute('aria-expanded', 'true');
     $navCategoryHeaderMinfraud.classList.remove('is-closed');
   } else if ($accountCategory) {
+    $body.classList.add('page-type--account');
     $navCategoryHeaderAccount.classList.add('is-open');
     $navCategoryHeaderAccount.setAttribute('aria-expanded', 'true');
     $navCategoryHeaderAccount.classList.remove('is-closed');
   } else if ($dataPrivacyCategory) {
+    $body.classList.add('page-type--data-privacy');
     $navCategoryHeaderDataPrivacy.classList.add('is-open');
     $navCategoryHeaderDataPrivacy.setAttribute('aria-expanded', 'true');
     $navCategoryHeaderDataPrivacy.classList.remove('is-closed');
@@ -45,10 +47,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
     $navCategoryHeaderMinfraud.setAttribute('aria-expanded', 'true');
     $navCategoryHeaderMinfraud.classList.remove('is-closed');
   } else if ($categoryTitle.innerText === 'Account and Purchasing') {
+    $body.classList.add('page-type--account');
     $navCategoryHeaderAccount.classList.add('is-open');
     $navCategoryHeaderAccount.setAttribute('aria-expanded', 'true');
     $navCategoryHeaderAccount.classList.remove('is-closed');
   } else if ($categoryTitle.innerText === 'Data Privacy') {
+    $body.classList.add('page-type--data-privacy');
     $navCategoryHeaderDataPrivacy.classList.add('is-open');
     $navCategoryHeaderDataPrivacy.setAttribute('aria-expanded', 'true');
     $navCategoryHeaderDataPrivacy.classList.remove('is-closed');
