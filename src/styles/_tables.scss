@@ -18,6 +18,11 @@
   width: 100%;
   z-index: 2;
 
+  ul li,
+  ol li {
+    line-height: 21px;
+  }
+
   thead {
     background-color: var(--mm-color-background);
     border-bottom: 1px solid var(--mm-color-border);
