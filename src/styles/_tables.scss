@@ -44,6 +44,16 @@
     position: sticky;
     text-align: left;
     white-space: nowrap;
+
+    a {
+      padding-bottom: 0px;
+    }
+
+    a[href^="http://"]:after,
+    a[href^="https://"]:after {
+      height: 0.85em;
+      width: 0.85em;
+    }
   }
 
   td {
@@ -53,6 +63,22 @@
     line-height: 18px !important;
     padding: 16px;
     vertical-align: top;
+
+    a {
+      padding-bottom: 0px;
+    }
+
+    a[href^="http://"]:after,
+    a[href^="https://"]:after {
+      height: 0.85em;
+      width: 0.85em;
+    }
+
+    p {
+      font-size: 12px !important;
+      line-height: 18px !important;
+      margin: 0;
+    }
 
     li {
       padding-bottom: 5px;
