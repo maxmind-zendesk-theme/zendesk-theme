@@ -217,6 +217,10 @@ body.page-type--data-privacy .nav-category[data-category-name="data-privacy-and-
       }
     }
   }
+
+  .nav-label {
+    color: var(--mm-color-display-text)
+  }
 }
 
 body.page-type--minfraud .nav-category-header.nav-item[data-name="minfraud-services"] {
@@ -353,10 +357,18 @@ body.page-type--geoip .nav-category-header.nav-item[data-name="geoip-and-geolite
   margin: 2px 0 3px;
 }
 
+.sidebar-link:hover {
+  background-color: rgba(255,255,255,.5);
+}
+
 .sidebar-link-active {
-  background: var(--mm-color-background);
+  background: var(--mm-color-sidebar);
   border-left: 4px solid var(--mm-color-active-blue)!important;
   color: var(--mm-color-display-text);
+
+  &:hover {
+    background-color: var(--mm-color-sidebar)!important;
+  }
 }
 
 .nav-has-divider-top::before,
