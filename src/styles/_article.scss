@@ -414,18 +414,10 @@
   width: 100%;
 
   .article__attachments {
-    background: linear-gradient(#fff,var(--mm-color-sidebar));
-    border-bottom: 1px solid #eee;
-    border-left: 1px solid #eee;
-    border-color: #f5f5f5 #eee #ddd #ddd;
-    border-radius: var(--mm-border-radius);
-    border-top: 1px solid #eee;
-    border-style: solid;
-    border-width: 1px 1px 1px 1px;
-    box-shadow: 0 1px 3px rgb(0 0 0 / 10%);
+    border-top: 1px dashed var(--mm-color-border);
     color: var(--mm-color-primary-text);
     margin: var(--mm-spacing) 0 calc(var(--mm-spacing) * 2) 0;
-    padding: 20px;
+    padding-top: var(--mm-spacing);
     position: relative;
 
     .article__attachments-header {
