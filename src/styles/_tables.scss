@@ -69,10 +69,6 @@
     padding: 16px;
     vertical-align: top;
 
-    a {
-      padding-bottom: 0px;
-    }
-
     a[href^="http://"]:after,
     a[href^="https://"]:after {
       height: 0.85em;
