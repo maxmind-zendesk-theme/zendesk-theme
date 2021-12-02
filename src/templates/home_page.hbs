@@ -63,7 +63,7 @@
               </a>
             {{/is}}
             <a href='{{url}}' class="blocks__item-link">
-              <span class="blocks__item-link-text">See all articles</span>
+              <span class="blocks__item-link-text">See all guides</span>
               <include src="svg/icon-arrow-right.svg"></include>
             </a>
           </div>
@@ -135,7 +135,7 @@
             </div>
             <div class="blocks__item-links">
               <a href='{{url}}' class="blocks__item-link">
-                <span class="blocks__item-link-text">See all articles</span>
+                <span class="blocks__item-link-text">See all guides</span>
                 <include src="svg/icon-arrow-right.svg"></include>
               </a>
             </div>
@@ -164,6 +164,9 @@
                 </svg>
               {{/if}}
             </h3>
+            <p class="category__card-description">
+              {{excerpt body characters=100}}
+            </p>
             <div class="category__card-arrow">
               <include src="svg/icon-arrow-right.svg"></include>
             </div>
