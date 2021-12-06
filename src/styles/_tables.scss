@@ -18,6 +18,11 @@
   width: 100%;
   z-index: 2;
 
+  ul li,
+  ol li {
+    line-height: 21px;
+  }
+
   thead {
     background-color: var(--mm-color-background);
     border-bottom: 1px solid var(--mm-color-border);
@@ -44,6 +49,16 @@
     position: sticky;
     text-align: left;
     white-space: nowrap;
+
+    a {
+      padding-bottom: 0px;
+    }
+
+    a[href^="http://"]:after,
+    a[href^="https://"]:after {
+      height: 0.85em;
+      width: 0.85em;
+    }
   }
 
   td {
@@ -53,6 +68,18 @@
     line-height: 18px !important;
     padding: 16px;
     vertical-align: top;
+
+    a[href^="http://"]:after,
+    a[href^="https://"]:after {
+      height: 0.85em;
+      width: 0.85em;
+    }
+
+    p {
+      font-size: 12px !important;
+      line-height: 18px !important;
+      margin: 0;
+    }
 
     li {
       padding-bottom: 5px;

@@ -150,7 +150,6 @@ $page-header-height: 80px;
   &:active,
   &:hover,
   &:focus {
-    background-color: transparent;
     color: var(--mm-color-display-text);
     text-decoration: none;
   }
@@ -166,6 +165,7 @@ $page-header-height: 80px;
   margin: 0;
   max-width: 340px;
   padding: 10px;
+  position: relative;
 }
 
 .nav-category-header.nav-item {
@@ -181,11 +181,69 @@ $page-header-height: 80px;
   margin-bottom: 0;
 }
 
+.page-type--minfraud .nav-category[data-category-name="minfraud-services"],
+.page-type--geoip .nav-category[data-category-name="geoip-and-geolite"],
+.page-type--account .nav-category[data-category-name="account-and-purchasing"],
+.page-type--data-privacy .nav-category[data-category-name="data-privacy-and-licenses"] {
+  background: #fff;
+  border-top: 1px solid transparent;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 10%);
+  padding-bottom: 12px;
+
+  .nav-icon:before {
+    background: #00a7e5;
+    border-radius: 6px;
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    transform: translateZ(-1px);
+    width: 100%;
+  }
+
+  li:last-of-type.nav-has-divider-bottom::after {
+    content: none;
+  }
+
+  .nav-icon {
+    background: linear-gradient(rgba(255,255,255,0.3),#0077c2);
+    box-shadow: inset 0 0 0 3px rgb(255 255 255 / 35%);
+
+    svg {
+      filter: drop-shadow(1px 2px 5px #0077c2);
+
+      path {
+       fill: #fff;
+      }
+    }
+  }
+
+  .nav-label {
+    color: var(--mm-color-display-text)
+  }
+}
+
+.page-type--minfraud .nav-category-header.nav-item[data-name="minfraud-services"] {
+  .nav-icon {
+    background: linear-gradient(rgba(255,0,136,0.5),#0077c2);
+  }
+}
+
+.page-type--geoip .nav-category-header.nav-item[data-name="geoip-and-geolite"] {
+  .nav-icon {
+    background: linear-gradient(rgba(0,255,102,0.5),#0077c2);
+  }
+}
+
 .nav-icon {
+  align-self: center;
+  border-radius: 6px;
   display: grid;
   height: 40px;
   position: relative;
+  transform-style: preserve-3d;
   width: 40px;
+  z-index: 1;
 
   svg {
     align-self: center;
@@ -292,6 +350,24 @@ $page-header-height: 80px;
 
   .nav-dropdown {
     grid-area: caret;
+  }
+}
+
+.sidebar-item {
+  margin: 2px 0 3px;
+}
+
+.sidebar-link:hover {
+  background-color: rgba(255,255,255,.5);
+}
+
+.sidebar-link-active {
+  background: var(--mm-color-sidebar);
+  border-left: 4px solid var(--mm-color-active-blue)!important;
+  color: var(--mm-color-display-text);
+
+  &:hover {
+    background-color: var(--mm-color-sidebar)!important;
   }
 }
 
@@ -501,8 +577,6 @@ $page-header-height: 80px;
 
   .nav-item {
     align-items: center;
-    border: 1px solid transparent;
-    border-radius: 6px;
     display: inline-block;
     margin-left: 66px;
     max-width: calc(100% - 66px);
