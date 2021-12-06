@@ -12,13 +12,13 @@ window.addEventListener('DOMContentLoaded', () => {
   const $accountSeeAll = document.querySelector('[data-category-name="account-and-purchasing"] > .sub-nav-items > .sidebar-item:nth-child(1) > a');
   const $dataPrivacySeeAll = document.querySelector('[data-category-name="data-privacy-and-licenses"] > .sub-nav-items > .sidebar-item:nth-child(1) > a');
 
-  function addSidebarLinkActive () {
+  const addSidebarLinkActive = () => {
     $sidebarLinks.forEach($sidebarLink => {
       if ($sectionTitle.innerText === $sidebarLink.innerText) {
         $sidebarLink.classList.add('sidebar-link-active');
       }
     });
-  }
+  };
 
   if ($sectionTitle) {
     if ($articleTitle) {
