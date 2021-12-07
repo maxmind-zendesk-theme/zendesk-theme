@@ -12,7 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const storageKey = 'mm-toggle-categories';
 
-  if (window.location.href === 'https://maxmind.zendesk.com/hc/en-us') {
+  if (
+    window.location.href === 'https://support.maxmind.com/hc/en-us' ||
+    window.location.href === 'https://maxmind.zendesk.com/hc/en-us'
+  ) {
     document.body.classList.add('page__home');
   }
 
