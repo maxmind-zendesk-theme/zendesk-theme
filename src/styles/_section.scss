@@ -111,7 +111,7 @@
 
   .section__articles {
     grid-area: articles;
-    max-width: 880px;
+    max-width: var(--mm-max-width);
     padding: 0 var(--mm-spacing);
     width: 100%;
   }
@@ -124,7 +124,7 @@
       'header .'
       'articles .';
     grid-template-columns: calc(100vw - 640px) var(--mm-layout-toc-width);
-    max-width: 880px;
+    max-width: var(--mm-max-width);
     width: 100%;
   }
 }
@@ -132,7 +132,7 @@
 .section__header {
   grid-area: header;
   margin: auto;
-  max-width: 880px;
+  max-width: var(--mm-max-width);
   width: 100%;
   z-index: 5;
 
@@ -157,7 +157,7 @@
 
 .section__articles {
   grid-area: articles;
-  max-width: 880px;
+  max-width: var(--mm-max-width);
   padding-top: 0;
   width: 100%;
 }

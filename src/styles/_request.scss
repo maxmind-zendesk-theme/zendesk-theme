@@ -76,7 +76,7 @@
 
   .new__request__header,
   .request__page__header {
-    max-width: 880px;
+    max-width: var(--mm-max-width);
     padding: 0 var(--mm-spacing) 0;
     width: 100%;
   }
@@ -84,7 +84,7 @@
   .new__request__form,
   .request__container,
   .contact__container {
-    max-width: 880px;
+    max-width: var(--mm-max-width);
     padding: 0 var(--mm-spacing) 0;
     width: 100%;
   }
@@ -94,7 +94,7 @@
 .request__page__header {
   grid-area: header;
   margin: 0;
-  max-width: 880px;
+  max-width: var(--mm-max-width);
   width: 100%;
   z-index: 5;
 

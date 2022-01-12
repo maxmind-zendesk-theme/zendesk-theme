@@ -82,7 +82,7 @@
 
   .overview__description {
     justify-self: center;
-    max-width: 880px;
+    max-width: var(--mm-max-width);
     text-align: center;
     width: 100%;
   }

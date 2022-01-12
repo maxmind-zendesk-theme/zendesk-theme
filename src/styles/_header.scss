@@ -682,7 +682,7 @@ $page-header-height: 80px;
     align-self: center;
     display: flex;
     justify-self: center;
-    max-width: 880px;
+    max-width: var(--mm-max-width);
     width: calc(100% - var(--mm-layout-sidebar-width) - var(--mm-spacing) * 2);
     width: 100%;
   }
