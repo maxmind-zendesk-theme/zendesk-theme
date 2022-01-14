@@ -1,0 +1,24 @@
+name: Build
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: zendesk/checkout@v2
+      - run: "npm install && npm run build && npm run package"
+      - uses: zendesk/setup-ruby@v1
+        with:
+          ruby-version: '2.6'
+      - run: gem install faraday -v 0.16.0
+      - run: gem install faraday_middleware -v 0.13.1
+      - run: ruby ./.github/workflows/theme_upload.rb
+        env:
+          zendesk_email: ${{ secrets.EMAIL }}
+          zendesk_token: ${{ secrets.TOKEN }}
+          brand_id: ${{ secrets.BRAND_ID }}
+          subdomain: ${{ secrets.SUBDOMAIN }}

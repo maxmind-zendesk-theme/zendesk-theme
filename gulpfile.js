@@ -110,7 +110,6 @@ gulp.task('copy-files', () => {
   return gulp.src([
     'src/{assets,settings,translations}/**/*',
     'src/manifest.json',
-    '.zat',
   ])
     .pipe(gulp.dest('dist'));
 });
