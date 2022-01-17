@@ -35,7 +35,7 @@
     grid-area: aside;
     justify-self: center;
     margin: 0;
-    max-width: 880px;
+    max-width: var(--mm-max-width);
     padding: var(--mm-spacing);
     position: relative;
     width: 100%;
@@ -105,7 +105,7 @@
 
   .article__header {
     grid-area: header;
-    max-width: 880px;
+    max-width: var(--mm-max-width);
     padding: 0 var(--mm-spacing) 0;
     width: 100%;
   }
@@ -118,7 +118,7 @@
 
   .article__content {
     grid-area: article;
-    max-width: 880px;
+    max-width: var(--mm-max-width);
     padding: 0 var(--mm-spacing);
     width: 100%;
   }
@@ -215,7 +215,7 @@
 .article__header {
   grid-area: header;
   margin: 0;
-  max-width: 880px;
+  max-width: var(--mm-max-width);
   width: 100%;
   z-index: 5;
 
@@ -409,7 +409,7 @@
 
 .article__content {
   grid-area: article;
-  max-width: 880px;
+  max-width: var(--mm-max-width);
   padding-top: 0;
   width: 100%;
 
@@ -464,7 +464,7 @@
   display: grid;
   grid-area: footer;
   justify-content: center;
-  max-width: 880px;
+  max-width: var(--mm-max-width);
   padding: var(--mm-spacing);
   width: 100%;
 }
