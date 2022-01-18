@@ -7,7 +7,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const $partialServiceDisruptionIcons = document.querySelectorAll('.partial-service-disruption');
   const $serviceDisruptionIcons = document.querySelectorAll('.service-disruption');
   const $securityEventIcons = document.querySelectorAll('.security-event');
-  const $showStatusIcon = document.querySelector('.show-status-icon');
+  const $allSystemStatusIcons = document.querySelectorAll('.system-status');
 
   // https://kb.status.io/developers/status-codes/
   const status = {
@@ -17,7 +17,7 @@ window.addEventListener('DOMContentLoaded', () => {
     },
     OPERATIONAL: {
       icons: $operationalIcons,
-      message: 'testing',
+      message: '',
     },
     PARTIAL_SERVICE_DISRUPTION: {
       icons: $partialServiceDisruptionIcons,
@@ -34,11 +34,13 @@ window.addEventListener('DOMContentLoaded', () => {
   };
 
   const setSystemStatus = ($icons, message) => {
-    if ($showStatusIcon) {
-      console.log('icon found');
-    } else {
-      console.log('no icon found');
-    }
+    $allSystemStatusIcons.forEach($systemStatusIcon => {
+      if ($systemStatusIcon) {
+        $systemStatusIcon.classList.remove('show-status-icon');
+        $systemStatusIcon.classList.add('status-icon');
+      }
+    });
+
     // This should probably be cleaned up, but the operational icon appears on the
     // page only once, whereas the other icons show twice. All are hidden on page load
     // using display: none;.
@@ -46,7 +48,10 @@ window.addEventListener('DOMContentLoaded', () => {
     if ($icons.length > 1) {
       $headerStatus.classList.add('show-header-system-status');
       $headerStatusMessage.innerText = message;
+    } else {
+      $headerStatus.classList.remove('show-header-system-status');
     }
+
     $icons.forEach((icon) => {
       icon.classList.add('show-status-icon');
       icon.classList.remove('status-icon');
@@ -61,11 +66,7 @@ window.addEventListener('DOMContentLoaded', () => {
         const systemStatusCode = json.result.status_overall.status_code;
         switch (systemStatusCode) {
           case 100:
-            // setSystemStatus(status.OPERATIONAL.icons, status.OPERATIONAL.message);
-            setSystemStatus(status.DEGRADED_PERFORMANCE.icons, status.DEGRADED_PERFORMANCE.message);
-            // setSystemStatus(status.PARTIAL_SERVICE_DISRUPTION.icons, status.PARTIAL_SERVICE_DISRUPTION.message);
-            // setSystemStatus(status.SERVICE_DISRUPTION.icons, status.SERVICE_DISRUPTION.message);
-            // setSystemStatus(status.SECURITY_EVENT.icons, status.SECURITY_EVENT.message);
+            setSystemStatus(status.OPERATIONAL.icons, status.OPERATIONAL.message);
             break;
           case 300:
             setSystemStatus(status.DEGRADED_PERFORMANCE.icons, status.DEGRADED_PERFORMANCE.message);
@@ -91,10 +92,7 @@ window.addEventListener('DOMContentLoaded', () => {
       });
   getSystemStatus();
 
-  // setInterval(() => {
-  //   setSystemStatus(status.SERVICE_DISRUPTION.icons, status.SERVICE_DISRUPTION.message);
-  // }, 5 * 1000);
-
-  // For testing purposes, automatically change the status after 5 seconds to see new status
-  setTimeout(() => { setSystemStatus(status.SECURITY_EVENT.icons, status.SECURITY_EVENT.message); }, 5000);
+  setInterval(() => {
+    getSystemStatus();
+  }, 30 * 1000);
 });
