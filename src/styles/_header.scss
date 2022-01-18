@@ -3,6 +3,33 @@
 /***** Header *****/
 $page-header-height: 80px;
 
+.header-system-status {
+  background-color: #2e3a47;
+  display: none;
+}
+
+.show-header-system-status {
+  display: block !important;
+  padding: 10px;
+}
+
+.header-system-status-content {
+  align-items: center;
+    color: #c0d2e4;
+    display: grid;
+    font-size: 14px;
+    grid-gap: 10px;
+    gap: 10px;
+    grid-auto-flow: column;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+
+    a {
+      color: #fff;
+    }
+}
+
 .header {
   @include mixins.pattern-border;
   background: var(--mm-color-background);

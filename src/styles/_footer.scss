@@ -223,6 +223,25 @@
   grid-column-gap: var(--mm-spacing);
 }
 
+.footer__status {
+  position: relative;
+}
+
+.footer__status-icon {
+  left: -10px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-100%, -50%);
+}
+
+.status-icon {
+  display: none;
+}
+
+.show-status-icon {
+  display: block !important;
+}
+
 .footer__termsLink {
   color: var(--mm-color-background);
   text-decoration: none;
