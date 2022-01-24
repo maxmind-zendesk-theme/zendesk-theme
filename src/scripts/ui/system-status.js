@@ -7,7 +7,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const $partialServiceDisruptionIcons = document.querySelectorAll('.partial-service-disruption');
   const $serviceDisruptionIcons = document.querySelectorAll('.service-disruption');
   const $securityEventIcons = document.querySelectorAll('.security-event');
-  const $allSystemStatusIcons = document.querySelectorAll('.system-status');
+  const $allSystemStatusIcons = document.querySelectorAll('.status-icon');
 
   // https://kb.status.io/developers/status-codes/
   const status = {
@@ -37,7 +37,6 @@ window.addEventListener('DOMContentLoaded', () => {
     $allSystemStatusIcons.forEach($systemStatusIcon => {
       if ($systemStatusIcon) {
         $systemStatusIcon.classList.remove('show-status-icon');
-        $systemStatusIcon.classList.add('status-icon');
       }
     });
 
@@ -54,7 +53,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
     $icons.forEach((icon) => {
       icon.classList.add('show-status-icon');
-      icon.classList.remove('status-icon');
     });
   };
 
