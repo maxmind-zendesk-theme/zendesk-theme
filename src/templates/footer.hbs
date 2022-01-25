@@ -29,7 +29,16 @@
         <a class="footer__link" href="{{page_path 'help_center'}}">Knowledge Base</a>
         <a class="footer__link" href="/hc/en-us/categories/1260801482329-minFraud-Web-Services">minFraud</a>
         <a class="footer__link" href="/hc/en-us/categories/1260801446650-GeoIP2-and-GeoLite2">GeoIP</a>
-        <a class="footer__link" href="https://status.maxmind.com/">System Status</a>
+        <a class="footer__link footer__status" href="https://status.maxmind.com/">
+          <span class="footer__status-icon">
+            <include src="svg/icon-status-operational.svg"></include>
+            <include src="svg/icon-status-degraded-performance.svg"></include>
+            <include src="svg/icon-status-service-disruption.svg"></include>
+            <include src="svg/icon-status-security-event.svg"></include>
+            <include src="svg/icon-status-partial-service-disruption.svg"></include>
+          </span>
+          <span class="footer__link">System Status</span>
+        </a>
         <a class="footer__link" href="/hc/en-us/articles/4408252036123-GeoIP-Corrections">GeoIP Data Correction Request</a>
         <a class="footer__link" href="https://www.maxmind.com/en/privacy-policy#additional-disclosures-for-california-residents">Do Not Sell My Personal Information</a>
         <a class="footer__link" href="https://www.maxmind.com/en/privacy-policy#california-notice-of-collection">Notice of Collection</a>
