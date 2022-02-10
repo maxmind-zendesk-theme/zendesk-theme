@@ -5,7 +5,6 @@ window.addEventListener('DOMContentLoaded', () => {
   const $articleTitle = document.querySelector('.article__title');
 
   const $sidebarLinks = document.querySelectorAll('.sidebar-link');
-  const $correctGeoipLink = document.querySelector('.correct-geoip-link');
 
   const $geoipSeeAll = document.querySelector('[data-category-name="geoip-and-geolite"] > .sub-nav-items > .sidebar-item:nth-child(1) > a');
   const $minfraudSeeAll = document.querySelector('[data-category-name="minfraud-services"] > .sub-nav-items > .sidebar-item:nth-child(1) > a');
@@ -22,12 +21,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   if ($sectionTitle) {
     if ($articleTitle) {
-      // If the article is Correct GeoIP2 Data, then make that sidebar link active. For any other article, make the section link title active
-      if ($articleTitle.innerText === 'Correct GeoIP2 Data') {
-        $correctGeoipLink.classList.add('sidebar-link-active');
-      } else {
-        addSidebarLinkActive();
-      }
+      addSidebarLinkActive();
     } else {
       addSidebarLinkActive();
     }
