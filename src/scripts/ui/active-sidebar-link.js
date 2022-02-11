@@ -2,7 +2,6 @@ window.addEventListener('DOMContentLoaded', () => {
   // nth-child(1) is a link to the MaxMind homepage, which is a hidden element in the breadcrumbs. nth-child(3) is the section name that sets the active sidebar link class
   const $sectionTitle = document.querySelector('.breadcrumbs > li:nth-child(3) > a');
   const $heroTitle = document.querySelector('.hero__title');
-  const $articleTitle = document.querySelector('.article__title');
 
   const $sidebarLinks = document.querySelectorAll('.sidebar-link');
 
@@ -20,11 +19,7 @@ window.addEventListener('DOMContentLoaded', () => {
   };
 
   if ($sectionTitle) {
-    if ($articleTitle) {
-      addSidebarLinkActive();
-    } else {
-      addSidebarLinkActive();
-    }
+    addSidebarLinkActive();
   } else if ($heroTitle) {
     if ($heroTitle.innerText === 'GeoIP2 and GeoLite2') {
       $geoipSeeAll.classList.add('sidebar-link-active');
