@@ -5,6 +5,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const $operationalIcons = document.querySelectorAll('.operational');
   const $degradedPerformanceIcons = document.querySelectorAll('.degraded-performance');
   const $partialServiceDisruptionIcons = document.querySelectorAll('.partial-service-disruption');
+  const $plannedMaintenanceIcons = document.querySelectorAll('.planned-maintenance');
   const $serviceDisruptionIcons = document.querySelectorAll('.service-disruption');
   const $securityEventIcons = document.querySelectorAll('.security-event');
   const $allSystemStatusIcons = document.querySelectorAll('.status-icon');
@@ -22,6 +23,10 @@ window.addEventListener('DOMContentLoaded', () => {
     PARTIAL_SERVICE_DISRUPTION: {
       icons: $partialServiceDisruptionIcons,
       message: 'Partial Service Disruption - Some of our web services are temporarily unavailable.',
+    },
+    PLANNED_MAINTENANCE: {
+      icons: $plannedMaintenanceIcons,
+      message: 'Planned Maintenance - We are currently undergoing some scheduled maintenance.',
     },
     SECURITY_EVENT: {
       icons: $securityEventIcons,
@@ -65,6 +70,9 @@ window.addEventListener('DOMContentLoaded', () => {
         switch (systemStatusCode) {
           case 100:
             setSystemStatus(status.OPERATIONAL.icons, status.OPERATIONAL.message);
+            break;
+          case 200:
+            setSystemStatus(status.PLANNED_MAINTENANCE.icons, status.PLANNED_MAINTENANCE.message);
             break;
           case 300:
             setSystemStatus(status.DEGRADED_PERFORMANCE.icons, status.DEGRADED_PERFORMANCE.message);
