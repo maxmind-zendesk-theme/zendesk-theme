@@ -1,0 +1,11 @@
+name: Build
+on:
+  pull_request:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: zendesk/checkout@v2
+      - run: "npm install && npm run build && npm run package"
