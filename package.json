@@ -4,7 +4,7 @@
     "@babel/preset-env": "^7.16.11",
     "autoprefixer": "^10.4.4",
     "del": "^6.0.0",
-    "eslint": "^8.11.0",
+    "eslint": "^8.12.0",
     "eslint-config-standard": "^17.0.0-1",
     "eslint-plugin-compat": "^4.0.2",
     "eslint-plugin-import": "^2.25.4",
