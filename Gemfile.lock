@@ -20,7 +20,7 @@ GEM
       concurrent-ruby (~> 1.0)
     image_size (2.0.2)
     ipaddress_2 (0.13.0)
-    json (2.6.1)
+    json (2.6.2)
     listen (2.10.1)
       celluloid (~> 0.16.0)
       rb-fsevent (>= 0.9.3)
@@ -31,7 +31,7 @@ GEM
     marcel (1.0.2)
     mini_portile2 (2.8.0)
     multipart-post (2.1.1)
-    nokogiri (1.13.4)
+    nokogiri (1.13.6)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     racc (1.6.0)
@@ -67,7 +67,7 @@ GEM
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    zendesk_apps_support (4.31.1)
+    zendesk_apps_support (4.32.0)
       erubis
       i18n
       image_size (~> 2.0.2)
@@ -79,7 +79,7 @@ GEM
       rb-inotify (= 0.9.10)
       sass
       sassc
-    zendesk_apps_tools (3.8.9)
+    zendesk_apps_tools (3.8.10)
       execjs (~> 2.7.0)
       faraday (~> 0.17.5)
       faye-websocket (>= 0.10.7, < 0.12.0)
@@ -90,7 +90,7 @@ GEM
       sinatra-cross_origin (~> 0.3.1)
       thin (~> 1.8.0)
       thor (~> 0.19.4)
-      zendesk_apps_support (~> 4.31.1)
+      zendesk_apps_support (~> 4.32.0)
 
 PLATFORMS
   ruby
