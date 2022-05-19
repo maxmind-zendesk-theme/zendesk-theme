@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "@babel/core": "^7.17.10",
+    "@babel/core": "^7.18.0",
     "@babel/preset-env": "^7.17.10",
     "autoprefixer": "^10.4.7",
     "del": "^6.0.0",
