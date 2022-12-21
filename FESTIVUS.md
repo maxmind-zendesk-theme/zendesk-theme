@@ -6,6 +6,8 @@ hear about it!
 
 ## The Airing of Grievances
 
+* Zendesk doesn't provide a staging environment for QA nor UAT.
+
 * Zendesk's templating language isn't Handlebars – it's [Curlybars](https://developer.zendesk.com/documentation/help_center/help-center-templates/introduction/)!
 
   * Curlybars has limited control structures. There is no support for `switch`
