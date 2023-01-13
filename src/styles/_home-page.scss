@@ -2,10 +2,6 @@
 
 /***** Homepage *****/
 
-.page__home .header-search {
-  display: none;
-}
-
 .page__home {
   zd-autocomplete-multibrand zd-autocomplete-title-multibrand {
     font-size: 18px;
@@ -14,6 +10,14 @@
   zd-autocomplete-multibrand zd-autocomplete-breadcrumbs-multibrand {
     font-size: 14px;
   }
+}
+
+.page__home .header-search {
+  display: none;
+}
+
+.page__home main {
+  width: 100%;
 }
 
 .toggle-container {
@@ -293,46 +297,43 @@
   }
 }
 
-@media only screen and (min-width: 320px) {
-  .promoted__cards,
-  .blocks__cards {
-    grid-template-columns: 1fr;
-  }
+.promoted__cards,
+.blocks__cards {
+  grid-template-columns: 1fr;
+}
 
-  .blocks__item {
-    grid-template-areas:
-      'header'
-      'content'
-      'links';
-  }
+.blocks__item {
+  grid-template-areas:
+    'header'
+    'content'
+    'links';
+}
 
-  .blocks__item-header {
-    padding: calc(var(--mm-spacing) / 2);
-  }
+.blocks__item-header {
+  padding: calc(var(--mm-spacing) / 2);
+}
 
-  .blocks__item-content {
-    padding: calc(var(--mm-spacing) / 2);
-  }
+.blocks__item-content {
+  padding: calc(var(--mm-spacing) / 2);
+}
 
-  .blocks-item-description {
-    font-size: 14px;
-  }
+.blocks-item-description {
+  font-size: 14px;
+}
 
-  .blocks__item-links {
-    gap: calc(var(--mm-spacing) / 2);
-    // grid-auto-flow: column;
-    grid-gap: calc(var(--mm-spacing) / 2);
-    grid-template-columns: repeat(1, max-content);
-    justify-content: center;
-    padding: calc(var(--mm-spacing) / 2);
-    width: 100%;
-  }
+.blocks__item-links {
+  gap: calc(var(--mm-spacing) / 2);
+  grid-gap: calc(var(--mm-spacing) / 2);
+  grid-template-columns: repeat(1, max-content);
+  justify-content: center;
+  padding: calc(var(--mm-spacing) / 2);
+  width: 100%;
+}
 
-  .blocks__item-link {
-    gap: 10px;
-    grid-auto-flow: column;
-    grid-template-columns: max-content auto;
-  }
+.blocks__item-link {
+  gap: 10px;
+  grid-auto-flow: column;
+  grid-template-columns: max-content auto;
 }
 
 @media only screen and (min-width: 500px) {
@@ -375,10 +376,6 @@
 @media only screen and (min-width: 992px) {
   .page__home .header-sidebar {
     display: none !important;
-  }
-
-  .page__home main {
-    margin-left: -350px;
   }
 
   .promoted__cards {
