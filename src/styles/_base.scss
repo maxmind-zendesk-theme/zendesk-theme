@@ -6,6 +6,7 @@
 body {
   background: var(--mm-color-background);
   color: $text-color;
+  display: grid;
   font-family: var(--mm-font-stack-default);
   font-size: $font-size-base;
   -webkit-font-smoothing: antialiased;
@@ -124,30 +125,11 @@ ul {
 }
 
 .main-wrapper {
-  display: grid;
-  flex: 1 1 auto;
-  grid-template-rows: 100%;
+  display: flex;
   min-height: calc(100vh - var(--page-header-height) - 400px);
-  overflow: hidden;
-
-  main {
-    grid-area: article;
-  }
-}
-
-@media only screen and (min-width: 992px) {
-  .main-wrapper {
-    grid-template-areas: 'sidebar article';
-    grid-template-columns: var(--mm-layout-sidebar-width) calc(100vw - var(--mm-layout-sidebar-width));
-  }
 }
 
 @media only screen and (max-width: 992px) {
-  .main-wrapper {
-    grid-template-areas: 'article sidebar';
-    grid-template-columns: 100vw var(--mm-layout-sidebar-width);
-  }
-
   .main-wrapper.blur-background {
     &::after {
       backdrop-filter: blur(3px);

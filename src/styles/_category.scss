@@ -1,28 +1,26 @@
 @use './mixins';
 
 /***** Category pages *****/
-@media only screen and (min-width: 320px) {
-  .hero__lockup {
-    grid-template-areas:
-      'icon'
-      'title'
-      'subtitle';
-  }
+.hero__lockup {
+  grid-template-areas:
+    'icon'
+    'title'
+    'subtitle';
+}
 
-  .hero__icon {
-    justify-self: center;
-    margin-bottom: 25px;
-  }
+.hero__icon {
+  justify-self: center;
+  margin-bottom: 25px;
+}
 
-  .hero__title {
-    font-size: 30px;
-    text-align: center;
-  }
+.hero__title {
+  font-size: 30px;
+  text-align: center;
+}
 
-  .hero__subtitle {
-    font-size: 18px;
-    text-align: center;
-  }
+.hero__subtitle {
+  font-size: 18px;
+  text-align: center;
 }
 
 @media only screen and (min-width: 576px) {

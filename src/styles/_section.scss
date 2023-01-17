@@ -35,21 +35,19 @@
   }
 }
 
-@media only screen and (min-width: 320px) {
-  .section__page {
-    display: grid;
-    grid-template-areas:
-      'header header'
-      'articles articles';
-    grid-template-columns: 50% 50%;
-    grid-template-rows: min-content min-content;
-    height: 100%;
-    padding: var(--mm-spacing);
-  }
+.section__page {
+  display: grid;
+  grid-template-areas:
+    'header header'
+    'articles articles';
+  grid-template-columns: 50% 50%;
+  grid-template-rows: min-content min-content;
+  height: 100%;
+  padding: var(--mm-spacing);
+}
 
-  .section__title {
-    font-size: 28px;
-  }
+.section__title {
+  font-size: 28px;
 }
 
 @media only screen and (min-width: 520px) {

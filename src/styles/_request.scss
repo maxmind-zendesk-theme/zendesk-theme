@@ -1,34 +1,32 @@
 @use './mixins';
 
 /***** Request *****/
-@media only screen and (min-width: 320px) {
-  .new__request,
-  .request__page {
-    height: 100%;
-    padding: var(--mm-spacing);
-  }
+.new__request,
+.request__page {
+  height: 100%;
+  padding: var(--mm-spacing);
+}
 
-  .new__request__title,
-  .request__title {
-    font-size: 28px;
-  }
+.new__request__title,
+.request__title {
+  font-size: 28px;
+}
 
-  .request__details {
-    grid-template-areas:
-      'id'
-      'requester'
-      'created'
-      'updated'
-      'status'
-      'followup'
-      'satisfaction';
-    grid-template-columns: 1fr;
-  }
+.request__details {
+  grid-template-areas:
+    'id'
+    'requester'
+    'created'
+    'updated'
+    'status'
+    'followup'
+    'satisfaction';
+  grid-template-columns: 1fr;
+}
 
-  #new_satisfaction_rating {
-    display: grid;
-    margin: auto;
-  }
+#new_satisfaction_rating {
+  display: grid;
+  margin: auto;
 }
 
 @media only screen and (min-width: 620px) {
