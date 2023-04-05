@@ -16,7 +16,7 @@
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
-    "gulp-dart-sass": "^1.0.2",
+    "gulp-dart-sass": "^1.1.0",
     "gulp-inject-string": "^1.1.2",
     "gulp-postcss": "^9.0.1",
     "gulp-posthtml": "^3.0.5",
