@@ -16,7 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.href === 'https://support.maxmind.com/hc/en-us' ||
     window.location.href === 'https://support.maxmind.com/hc/en-us/' ||
     window.location.href === 'https://maxmind.zendesk.com/hc/en-us' ||
-    window.location.href === 'https://maxmind.zendesk.com/hc/en-us/'
+    window.location.href === 'https://maxmind.zendesk.com/hc/en-us/' ||
+    window.location.href.startsWith('https://support.maxmind.com/hc/en-us?utm_source')
   ) {
     document.body.classList.add('page__home');
   }
