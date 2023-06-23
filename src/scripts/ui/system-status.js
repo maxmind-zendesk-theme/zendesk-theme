@@ -3,60 +3,58 @@ window.addEventListener('DOMContentLoaded', () => {
   const $headerStatusMessage = document.querySelector('.header__status-message');
 
   const $operationalIcons = document.querySelectorAll('.operational');
-  const $degradedPerformanceIcons = document.querySelectorAll('.degraded-performance');
-  const $partialServiceDisruptionIcons = document.querySelectorAll('.partial-service-disruption');
-  const $plannedMaintenanceIcons = document.querySelectorAll('.planned-maintenance');
-  const $serviceDisruptionIcons = document.querySelectorAll('.service-disruption');
-  const $securityEventIcons = document.querySelectorAll('.security-event');
+  const $warningIcons = document.querySelectorAll('.warning');
   const $allSystemStatusIcons = document.querySelectorAll('.status-icon');
 
   // https://kb.status.io/developers/status-codes/
   const status = {
-    DEGRADED_PERFORMANCE: {
-      icons: $degradedPerformanceIcons,
-      message: 'Degraded Performance - We are currently experiencing degraded performance in some of our web services.',
-    },
-    OPERATIONAL: {
+    100: {
       icons: $operationalIcons,
       message: '',
+      title: 'Operational',
     },
-    PARTIAL_SERVICE_DISRUPTION: {
-      icons: $partialServiceDisruptionIcons,
-      message: 'Partial Service Disruption - Some of our web services are temporarily unavailable.',
-    },
-    PLANNED_MAINTENANCE: {
-      icons: $plannedMaintenanceIcons,
+    200: {
+      icons: $warningIcons,
       message: 'Planned Maintenance - We are currently undergoing some scheduled maintenance.',
+      title: 'Planned Maintenance',
     },
-    SECURITY_EVENT: {
-      icons: $securityEventIcons,
-      message: 'Security Event - We are currently mitigating issues relating to some of our web services.',
+    300: {
+      icons: $warningIcons,
+      message: 'Degraded Performance - We are currently experiencing degraded performance in some of our web services.',
+      title: 'Degraded Performance',
     },
-    SERVICE_DISRUPTION: {
-      icons: $serviceDisruptionIcons,
+    400: {
+      icons: $warningIcons,
+      message: 'Partial Service Disruption - Some of our web services are temporarily unavailable.',
+      title: 'Partial Service Disruption',
+    },
+    500: {
+      icons: $warningIcons,
       message: 'Service Disruption - Our web services are temporarily unavailable.',
+      title: 'Service Disruption',
+    },
+    600: {
+      icons: $warningIcons,
+      message: 'Security Event - We are currently mitigating issues relating to some of our web services.',
+      title: 'Security Event',
     },
   };
 
-  const setSystemStatus = ($icons, message) => {
+  const setSystemStatus = (status) => {
     $allSystemStatusIcons.forEach($systemStatusIcon => {
       if ($systemStatusIcon) {
         $systemStatusIcon.classList.remove('show-status-icon');
       }
     });
 
-    // This should probably be cleaned up, but the operational icon appears on the
-    // page only once, whereas the other icons show twice. All are hidden on page load
-    // using display: none;.
-
-    if ($icons.length > 1) {
+    if (status.icons.length > 1) {
       $headerStatus.classList.add('show-header-system-status');
-      $headerStatusMessage.innerText = message;
+      $headerStatusMessage.innerText = `${status.title}: ${status.message}`;
     } else {
       $headerStatus.classList.remove('show-header-system-status');
     }
 
-    $icons.forEach((icon) => {
+    status.icons.forEach((icon) => {
       icon.classList.add('show-status-icon');
     });
   };
@@ -64,37 +62,33 @@ window.addEventListener('DOMContentLoaded', () => {
   const getSystemStatus = () =>
     // eslint-disable-next-line compat/compat
     fetch('https://status.maxmind.com/1.0/status/53fcfbb2ac0c957972000235')
-      .then((res) => res.json())
-      .then((json) => {
-        const systemStatusCode = json.result.status_overall.status_code;
-        switch (systemStatusCode) {
-          case 100:
-            setSystemStatus(status.OPERATIONAL.icons, status.OPERATIONAL.message);
-            break;
-          case 200:
-            setSystemStatus(status.PLANNED_MAINTENANCE.icons, status.PLANNED_MAINTENANCE.message);
-            break;
-          case 300:
-            setSystemStatus(status.DEGRADED_PERFORMANCE.icons, status.DEGRADED_PERFORMANCE.message);
-            break;
-          case 400:
-            setSystemStatus(status.PARTIAL_SERVICE_DISRUPTION.icons, status.PARTIAL_SERVICE_DISRUPTION.message);
-            break;
-          case 500:
-            setSystemStatus(status.SERVICE_DISRUPTION.icons, status.SERVICE_DISRUPTION.message);
-            break;
-          case 600:
-            setSystemStatus(status.SECURITY_EVENT.icons, status.SECURITY_EVENT.message);
-            break;
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
         }
+        throw new Error('status document could not be fetched');
       })
-      .catch(() => {
-        /**
-         * No-op
-         *
-         * If something goes wrong, we intentionally want to swallow the error
-         * and prevent the UI from knowing
-         */
+      .then((json) => {
+        const statusCode = json.result.status_overall.status_code;
+        if (json.result.incidents.length !== 0) {
+          setSystemStatus({
+            icons: $warningIcons,
+            message: json.result.incidents[0].name,
+            title: status[Number(statusCode)].title,
+          });
+          return;
+        } else if (json.result.maintenance.active.length !== 0) {
+          setSystemStatus({
+            icons: $warningIcons,
+            message: json.result.maintenance.active[0].name,
+            title: status[Number(statusCode)].title,
+          });
+          return;
+        }
+        setSystemStatus(status[Number(statusCode)]);
+      })
+      .catch((e) => {
+        console.error(e);
       });
   getSystemStatus();
 
