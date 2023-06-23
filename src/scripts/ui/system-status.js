@@ -74,14 +74,14 @@ window.addEventListener('DOMContentLoaded', () => {
           setSystemStatus({
             icons: $warningIcons,
             message: json.result.incidents[0].name,
-            title: status[Number(statusCode)].title,
+            title: status.statusCode.title,
           });
           return;
         } else if (json.result.maintenance.active.length !== 0) {
           setSystemStatus({
             icons: $warningIcons,
             message: json.result.maintenance.active[0].name,
-            title: status[Number(statusCode)].title,
+            title: status.statusCode.title,
           });
           return;
         }
