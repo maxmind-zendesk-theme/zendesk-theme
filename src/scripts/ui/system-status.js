@@ -74,18 +74,21 @@ window.addEventListener('DOMContentLoaded', () => {
           setSystemStatus({
             icons: $warningIcons,
             message: json.result.incidents[0].name,
-            title: status.statusCode.title,
+            // eslint-disable-next-line
+            title: status[statusCode].title,
           });
           return;
         } else if (json.result.maintenance.active.length !== 0) {
           setSystemStatus({
             icons: $warningIcons,
             message: json.result.maintenance.active[0].name,
-            title: status.statusCode.title,
+            // eslint-disable-next-line
+            title: status[statusCode].title,
           });
           return;
         }
-        setSystemStatus(status[Number(statusCode)]);
+        // eslint-disable-next-line
+        setSystemStatus(status[statusCode]);
       })
       .catch((e) => {
         console.error(e);
