@@ -7,7 +7,6 @@
   padding: var(--mm-spacing);
 }
 
-.new__request__title,
 .request__title {
   font-size: 28px;
 }
@@ -51,7 +50,6 @@
     padding: var(--mm-spacing);
   }
 
-  .new__request__title,
   .request__title {
     font-size: 42px;
   }
@@ -63,32 +61,20 @@
     padding: var(--mm-spacing) 0;
   }
 
-  .new__request {
-    display: grid;
-    grid-template-areas:
-      'header'
-      'form'
-      'contact';
-    justify-items: center;
-  }
-
-  .new__request__header,
   .request__page__header {
     max-width: var(--mm-max-width);
     padding: 0 var(--mm-spacing) 0;
     width: 100%;
   }
 
-  .new__request__form,
-  .request__container,
-  .contact__container {
+  .new__request-text,
+  .request__container {
     max-width: var(--mm-max-width);
     padding: 0 var(--mm-spacing) 0;
     width: 100%;
   }
 }
 
-.new__request__header,
 .request__page__header {
   grid-area: header;
   margin: 0;
@@ -96,7 +82,6 @@
   width: 100%;
   z-index: 5;
 
-  .new__request__title,
   .request__title {
     color: #00374c;
     font-family: var(--mm-font-stack-display);
@@ -107,37 +92,6 @@
     padding: 0 0 var(--mm-spacing);
     position: relative;
     scroll-margin-top: calc(var(--page-header-height) + var(--mm-spacing));
-  }
-}
-
-.contact__container {
-  grid-area: contact;
-
-  .contact__section {
-    background-color: #f0f8ff;
-    border-radius: var(--mm-border-radius);
-    border-top: 1px solid #cfdee8;
-    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
-    margin: var(--mm-spacing) 0;
-    padding: calc(var(--mm-spacing) / 2) var(--mm-spacing);
-
-    .contact__section-header {
-      color: #00374c;
-      font-family: var(--mm-font-stack-display);
-      font-size: 20px;
-      font-weight: 500;
-    }
-
-    a {
-      border-bottom: 2px dotted var(--mm-color-display-text);
-      color: var(--mm-color-display-text);
-      font-weight: 500;
-    }
-
-    a:hover {
-      border-bottom: 2px solid var(--mm-color-display-text);
-      text-decoration: none;
-    }
   }
 }
 
@@ -193,27 +147,6 @@
   }
 }
 
-.new__request__form {
-  font-family: montserrat,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Ubuntu,sans-serif;
-  grid-area: form;
-
-  .searchbox {
-    padding-top: 10px;
-
-    a {
-      color: var(--mm-color-display-text);
-    }
-  }
-
-  label {
-    font-family: var(--mm-font-stack-display);
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1.2em;
-    position: relative;
-  }
-}
-
 .request__details {
   @include mixins.pattern-border;
   background-color: var(--mm-color-sidebar);
@@ -264,64 +197,6 @@
       border-bottom: 2px solid var(--mm-color-display-text);
       text-decoration: none;
     }
-  }
-}
-
-#upload-dropzone > span > a {
-  color: var(--mm-color-display-text);
-}
-
-#request_anonymous_requester_email,
-#request_subject,
-#hc-wysiwyg,
-.nesty-input,
-#upload-dropzone {
-  border: 1px solid rgb(121, 135, 146);
-  border-radius: 2px;
-  box-shadow: rgb(87 102 114 / 50%) 0 1px 5px 0 inset;
-  color: var(--mm-color-primary-text);
-  width: 100%;
-}
-
-#request_anonymous_requester_email:focus,
-#request_subject:focus,
-.nesty-input:focus,
-[data-hc-focus='true'],
-input[type='submit']:focus {
-  outline-color: var(--mm-color-logo-blue-light);
-  outline-style: solid;
-  outline-width: 2px;
-}
-
-#upload-dropzone {
-  padding: var(--mm-spacing);
-}
-
-#new_request > footer {
-  display: grid;
-  justify-content: center;
-  padding: calc(var(--mm-spacing) / 2);
-
-  input[type=submit] {
-    background-color: var(--mm-color-background-code);
-    border: 1px solid var(--mm-color-background-code);
-    border-radius: 4px;
-    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
-    color: var(--mm-color-background);
-    cursor: pointer;
-    display: inline-block;
-    font-size: 16px;
-    line-height: 2.34;
-    margin: 0;
-    position: relative;
-    text-align: center;
-    top: 0;
-    width: 80px;
-  }
-
-  input[type=submit]:hover {
-    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
-    top: -2px;
   }
 }
 
