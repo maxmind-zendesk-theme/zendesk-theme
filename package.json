@@ -30,7 +30,7 @@
     "posthtml-expressions": "^1.11.1",
     "posthtml-include": "^1.7.4",
     "sass": "^1.63.6",
-    "stylelint": "^14.16.1",
+    "stylelint": "^15.10.1",
     "stylelint-config-recommended": "^9.0.0",
     "stylelint-config-sass-guidelines": "^9.0.0",
     "stylelint-no-unsupported-browser-features": "^7.0.0",
