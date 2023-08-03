@@ -3,12 +3,14 @@ window.addEventListener('DOMContentLoaded', () => {
   const $articleVoteUp = document.querySelector('.article-vote-up');
   const $articleVoteDown = document.querySelector('.article-vote-down');
 
-  const hideVoteBtns = () => {
-    $articleVoteQuestion.innerText = 'Thanks for your feedback!';
-    $articleVoteUp.style.display = 'none';
-    $articleVoteDown.style.display = 'none';
-  };
+  if ($articleVoteQuestion) {
+    const hideVoteBtns = () => {
+      $articleVoteQuestion.innerText = 'Thanks for your feedback!';
+      $articleVoteUp.style.display = 'none';
+      $articleVoteDown.style.display = 'none';
+    };
 
-  $articleVoteUp.addEventListener('click', hideVoteBtns);
-  $articleVoteDown.addEventListener('click', hideVoteBtns);
+    $articleVoteUp.addEventListener('click', hideVoteBtns);
+    $articleVoteDown.addEventListener('click', hideVoteBtns);
+  }
 });
