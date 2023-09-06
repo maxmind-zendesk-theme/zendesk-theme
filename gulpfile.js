@@ -1,7 +1,7 @@
 const autoprefixer = require('autoprefixer');
 // eslint-disable-next-line security/detect-child-process
 const spawn = require('child_process').spawn;
-const del = require('del');
+const fs = require('fs');
 const gulp = require('gulp');
 const babel = require('gulp-babel');
 const concat = require('gulp-concat');
@@ -18,12 +18,23 @@ const exp = require('posthtml-expressions');
 const include = require('posthtml-include');
 
 gulp.task('clean', async () => {
-  return del([
-    'dist/**/*',
-  ]);
+  const dir = 'dist';
+  fs.statSync(dir, { throwIfNoEntry: false }, (err, stats) => {
+    if (err) {
+      if (err.code && err.code !== 'ENOENT') {
+        throw err;
+      }
+    } else if (stats.isDirectory()) {
+      fs.rmSync(dir, { force: true, recursive: true }, (err) => {
+        if (err) {
+          throw err;
+        }
+      });
+    }
+  });
 });
 
-gulp.task('styles', function () {
+gulp.task('styles', function() {
   return gulp.src('./src/**/*.scss')
     .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
     .pipe(postcss([

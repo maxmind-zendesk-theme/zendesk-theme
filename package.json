@@ -3,7 +3,6 @@
     "@babel/core": "^7.22.15",
     "@babel/preset-env": "^7.22.15",
     "autoprefixer": "^10.4.15",
-    "del": "^6.1.1",
     "eslint": "^8.48.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-compat": "^4.2.0",
