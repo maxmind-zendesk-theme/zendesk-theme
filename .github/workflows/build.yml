@@ -9,8 +9,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
       - uses: zendesk/checkout@v2
       - run: "npm install && npm run build && npm run package"
+
       - uses: zendesk/setup-ruby@v1
         with:
           ruby-version: '2.6'
