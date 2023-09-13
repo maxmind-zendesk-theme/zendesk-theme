@@ -13,7 +13,7 @@ jobs:
         with:
           node-version: '18'
       - uses: zendesk/checkout@v4
-      - run: "npm install && npm run build && npm run package"
+      - run: "npm ci && npm run build && npm run package"
 
       - uses: zendesk/setup-ruby@v1
         with:
