@@ -1,15 +1,14 @@
-name: Build
+name: Build - Test
 on:
   pull_request:
   push:
 
 jobs:
-  build:
+  build-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
-
-      - uses: zendesk/checkout@v2
-      - run: "npm install && npm run build && npm run package"
+      - uses: zendesk/checkout@v4
+      - run: "npm ci && npm run build && npm run package"
