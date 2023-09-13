@@ -8,7 +8,7 @@ This project requires both Ruby and NodeJS packages for local development and
 building.
 
 * Ruby >= 2.7
-* Node >= 14
+* Node >= 18
 
 If your local machine does not have the correct version of Ruby installed, look
 into installing [Ruby version manager](https://rvm.io/).

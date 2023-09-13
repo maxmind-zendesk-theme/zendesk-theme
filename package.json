@@ -36,7 +36,7 @@
     "stylelint-order": "^6.0.3"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=18"
   },
   "name": "maxmind-support-center-theme",
   "repository": "git@github.com:maxmind-zendesk-theme/zendesk-theme.git",
@@ -48,8 +48,7 @@
     "lint:json": "eslint . --ext json",
     "lint:scripts": "eslint . --ext js",
     "lint:styles": "stylelint 'src/styles/**/*.scss'",
-    "package": "gulp package",
-    "preinstall": "npx npm-force-resolutions"
+    "package": "gulp package"
   },
   "version": "1.0.0"
 }
