@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "@babel/core": "^7.23.0",
+    "@babel/core": "^7.23.2",
     "@babel/preset-env": "^7.22.20",
     "autoprefixer": "^10.4.16",
     "eslint": "^8.51.0",
