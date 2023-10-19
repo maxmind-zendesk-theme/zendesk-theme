@@ -36,7 +36,8 @@
     "stylelint-order": "^6.0.3"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=18",
+    "npm": ">=9"
   },
   "name": "maxmind-support-center-theme",
   "repository": "git@github.com:maxmind-zendesk-theme/zendesk-theme.git",
