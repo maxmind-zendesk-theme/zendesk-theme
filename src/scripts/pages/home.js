@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
   const $publicCategoriesSection = document.getElementById('category-public');
   const $privateCategoriesSection = document.getElementById('category-private');
@@ -23,15 +22,19 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function showPublicCategories () {
-    $publicCategoriesSection.classList.add('active');
-    $privateCategoriesSection.classList.remove('active');
-    $toggleBtn.innerText = privateBtn;
+    if ($publicCategoriesSection || $privateCategoriesSection) {
+      $publicCategoriesSection.classList.add('active');
+      $privateCategoriesSection.classList.remove('active');
+      $toggleBtn.innerText = privateBtn;
+    }
   }
 
   function showPrivateCategories () {
-    $publicCategoriesSection.classList.remove('active');
-    $privateCategoriesSection.classList.add('active');
-    $toggleBtn.innerText = publicBtn;
+    if ($publicCategoriesSection || $privateCategoriesSection) {
+      $publicCategoriesSection.classList.remove('active');
+      $privateCategoriesSection.classList.add('active');
+      $toggleBtn.innerText = publicBtn;
+    }
   }
 
   function showVisibleCategory () {
@@ -47,12 +50,13 @@ document.addEventListener('DOMContentLoaded', () => {
   function toggleCategories () {
     const storageValue = sessionStorage.getItem(storageKey);
 
-    if (storageValue === showingPrivate) {
-      sessionStorage.setItem(storageKey, showingPublic);
-    } else if (storageValue === showingPublic) {
-      sessionStorage.setItem(storageKey, showingPrivate);
+    if (storageValue) {
+      if (storageValue === showingPrivate) {
+        sessionStorage.setItem(storageKey, showingPublic);
+      } else if (storageValue === showingPublic) {
+        sessionStorage.setItem(storageKey, showingPrivate);
+      }
     }
-
     showVisibleCategory();
   }
 
