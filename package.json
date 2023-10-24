@@ -36,7 +36,7 @@
     "stylelint-order": "^6.0.3"
   },
   "engines": {
-    "node": ">=18",
+    "node": ">=20",
     "npm": ">=9"
   },
   "name": "maxmind-support-center-theme",
