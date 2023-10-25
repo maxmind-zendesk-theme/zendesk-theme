@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
   const $publicCategoriesSection = document.getElementById('category-public');
   const $privateCategoriesSection = document.getElementById('category-private');
@@ -23,15 +22,19 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function showPublicCategories () {
-    $publicCategoriesSection.classList.add('active');
-    $privateCategoriesSection.classList.remove('active');
-    $toggleBtn.innerText = privateBtn;
+    if ($publicCategoriesSection && $privateCategoriesSection && $toggleBtn) {
+      $publicCategoriesSection.classList.add('active');
+      $privateCategoriesSection.classList.remove('active');
+      $toggleBtn.innerText = privateBtn;
+    }
   }
 
   function showPrivateCategories () {
-    $publicCategoriesSection.classList.remove('active');
-    $privateCategoriesSection.classList.add('active');
-    $toggleBtn.innerText = publicBtn;
+    if ($publicCategoriesSection && $privateCategoriesSection && $toggleBtn) {
+      $publicCategoriesSection.classList.remove('active');
+      $privateCategoriesSection.classList.add('active');
+      $toggleBtn.innerText = publicBtn;
+    }
   }
 
   function showVisibleCategory () {
@@ -62,5 +65,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   showVisibleCategory();
 
-  $toggleBtn.addEventListener('click', toggleCategories);
+  $toggleBtn?.addEventListener('click', toggleCategories);
 });
