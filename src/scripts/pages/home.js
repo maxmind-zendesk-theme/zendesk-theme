@@ -65,5 +65,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   showVisibleCategory();
 
-  $toggleBtn.addEventListener('click', toggleCategories);
+  $toggleBtn?.addEventListener('click', toggleCategories);
 });
