@@ -11,4 +11,8 @@ jobs:
         with:
           node-version: '20'
       - uses: zendesk/checkout@v4
+
+      - name: Check that package-lock.json is valid JSON
+        run: jq empty package-lock.json
+
       - run: "npm ci && npm run build && npm run package"
