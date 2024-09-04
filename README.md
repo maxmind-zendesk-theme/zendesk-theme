@@ -1,6 +1,6 @@
-# MaxMind ZenDesk Theme
+# MaxMind Zendesk Theme
 
-The MaxMind ZenDesk theme is a fork of [the Copenhagen theme](https://github.com/zendesk/copenhagen_theme) (the default Zendesk Guide theme).
+The MaxMind Zendesk theme is a fork of [the Copenhagen theme](https://github.com/zendesk/copenhagen_theme) (the default Zendesk Guide theme).
 
 ## Developing
 ### Requirements
@@ -20,8 +20,8 @@ npm install
 
 ### Developing
 
-ZenDesk provides [ZCLI](https://developer.zendesk.com/documentation/apps/getting-started/using-zcli)
-to help with local ZenDesk theme and app development. You need a ZenDesk account and ZenDesk API key
+Zendesk provides [ZCLI](https://developer.zendesk.com/documentation/apps/getting-started/using-zcli)
+to help with local Zendesk theme and app development. You need a Zendesk account and Zendesk API key
 to use ZCLI.
 
 1. Follow the [ZCLI docs](https://developer.zendesk.com/documentation/apps/getting-started/using-zcli/)
