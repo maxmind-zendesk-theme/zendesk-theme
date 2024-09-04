@@ -4,7 +4,43 @@
     hbspt.forms.create({
       region: "na1",
       portalId: "21266834",
-      formId: "c2c3b089-9dcb-4b55-a5ac-1ef682bab490"
+      // TODO: Add back in correct form
+      formId: "8081a0f9-0be0-4b92-a7a7-0438a2b6a649",
+    });
+
+    window.addEventListener('message', (event) => {
+      if (event.data.type === 'hsFormCallback' && event.data.eventName === 'onFormReady') {
+        const iframe = document.getElementById('hs-form-iframe-0').contentWindow;
+
+        if (iframe) {
+          const email = iframe.document.querySelector('[name="email"]');
+
+          if (email) {
+            const checkEmailConfirmation = () => {
+              const confirmEmail = iframe.document.querySelector('[name="confirm_email_checkbox"]');
+              const firstSpan = confirmEmail.nextElementSibling;
+              const hsFormRequired = firstSpan.children[0];
+              const emailClassName = 'js-confirm-email';
+
+              const strong = document.createElement('strong');
+              strong.className = emailClassName;
+              strong.textContent = email.value;
+              strong.style.marginLeft = '5px';
+
+              const jsElement = iframe.document.querySelector(`.${emailClassName}`);
+
+              if (jsElement) {
+                jsElement.remove();
+                hsFormRequired.after(strong);
+              } else {
+                hsFormRequired.after(strong);
+              }
+            }
+
+            email.addEventListener('input', checkEmailConfirmation);
+          }
+        }
+      }
     });
   </script>
 </div>
