@@ -1,17 +1,13 @@
-# MaxMind ZenDesk Theme
+# MaxMind Zendesk Theme
 
-The MaxMind ZenDesk theme is a fork of [the Copenhagen theme](https://github.com/zendesk/copenhagen_theme) (the default Zendesk Guide theme).
+The MaxMind Zendesk theme is a fork of [the Copenhagen theme](https://github.com/zendesk/copenhagen_theme) (the default Zendesk Guide theme).
 
 ## Developing
 ### Requirements
 This project requires both Ruby and NodeJS packages for local development and
 building.
 
-* Ruby >= 2.7
-* Node >= 18
-
-If your local machine does not have the correct version of Ruby installed, look
-into installing [Ruby version manager](https://rvm.io/).
+* Node >= 20
 
 If your machine does not have the correct version of NodeJS installed, look into
 installing [Node version manager](https://github.com/nvm-sh/nvm).
@@ -19,18 +15,19 @@ installing [Node version manager](https://github.com/nvm-sh/nvm).
 ### Installation
 
 ```shell
-bundle install
 npm install
 ```
 
 ### Developing
 
-Before developing, make sure that `.zat.example` has been edited with your
-appropriate credentials, and renamed `.zat`.
+Zendesk provides [ZCLI](https://developer.zendesk.com/documentation/apps/getting-started/using-zcli)
+to help with local Zendesk theme and app development. You need a Zendesk account and Zendesk API key
+to use ZCLI.
 
-```shell
-npm run develop
-```
+1. Follow the [ZCLI docs](https://developer.zendesk.com/documentation/apps/getting-started/using-zcli/)
+to install and set up ZCLI on your local machine.  This repo was tested with the "Profile" method of
+authentication.
+2. Run `npm run develop`
 
 ### VSCode Recommendations
 
