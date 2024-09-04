@@ -137,9 +137,8 @@ gulp.task('build', gulp.series('clean', 'update-build'));
 let previewTask;
 
 gulp.task('preview:start', (cb) => {
-  previewTask = spawn('zat', [
-    'theme',
-    'preview',
+  previewTask = spawn('zcli', [
+    'themes:preview',
   ], {
     cwd: path.resolve('./dist'),
   });
