@@ -26,6 +26,9 @@
             }
           }
 
+          if (email.value !== '') {
+            checkEmailConfirmation();
+          }
           email.addEventListener('input', checkEmailConfirmation);
         }
       }
