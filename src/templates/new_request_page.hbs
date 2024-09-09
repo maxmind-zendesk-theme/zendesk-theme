@@ -8,17 +8,24 @@
       formId: "8081a0f9-0be0-4b92-a7a7-0438a2b6a649",
       onFormReady: function(form) {
         const email = form.querySelector('[name="email"]');
-        if (email) {
-          const checkEmailConfirmation = () => {
-            const confirmEmail = form.querySelector('[name="confirm_email_checkbox"]');
+        const confirmEmail = form.querySelector('[name="confirm_email_checkbox"]');
+        const confirmEmailWrapper = confirmEmail.closest('.input');
 
-            // The confirm checkbox doesn't render until the 2nd keypress
-            if (!confirmEmail) {
-              return;
+        if (email && confirmEmail && confirmEmailWrapper) {
+          const toggleConfirmEmail = () => {
+            if (email.value.trim() === "") {
+              confirmEmail.checked = false;
+              confirmEmailWrapper.style.display = 'none';
+            } else {
+              confirmEmailWrapper.style.display = 'block';
             }
+          }
 
+          const checkEmailConfirmation = () => {
             const strongClassName = 'js-confirm-email';
             const injectedStrong = form.querySelector(`.${strongClassName}`);
+
+            toggleConfirmEmail();
 
             if (injectedStrong) {
               injectedStrong.textContent = email.value;
@@ -28,11 +35,15 @@
               strong.textContent = email.value;
               strong.style.marginLeft = '5px';
 
-              confirmEmail.nextElementSibling.children[0].after(strong);
+              confirmEmail.nextElementSibling.after(strong);
             }
           }
 
+          toggleConfirmEmail();
+
           email.addEventListener('input', checkEmailConfirmation);
+        } else {
+          console.error('Email or confirm email checkbox not found');
         }
       }
     });
