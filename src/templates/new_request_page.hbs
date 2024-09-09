@@ -6,39 +6,33 @@
       portalId: "21266834",
       // TODO: Add back in correct form
       formId: "8081a0f9-0be0-4b92-a7a7-0438a2b6a649",
-    });
+      onFormReady: function(form) {
+        const email = form.querySelector('[name="email"]');
+        if (email) {
+          const checkEmailConfirmation = () => {
+            const confirmEmail = form.querySelector('[name="confirm_email_checkbox"]');
 
-    window.addEventListener('message', (event) => {
-      if (event.data.type === 'hsFormCallback' && event.data.eventName === 'onFormReady') {
-        const iframe = document.getElementById('hs-form-iframe-0').contentWindow;
+            // The confirm checkbox doesn't render until the 2nd keypress
+            if (!confirmEmail) {
+              return;
+            }
 
-        if (iframe) {
-          const email = iframe.document.querySelector('[name="email"]');
+            const strongClassName = 'js-confirm-email';
+            const injectedStrong = form.querySelector(`.${strongClassName}`);
 
-          if (email) {
-            const checkEmailConfirmation = () => {
-              const confirmEmail = iframe.document.querySelector('[name="confirm_email_checkbox"]');
-              const firstSpan = confirmEmail.nextElementSibling;
-              const hsFormRequired = firstSpan.children[0];
-              const emailClassName = 'js-confirm-email';
-
+            if (injectedStrong) {
+              injectedStrong.textContent = email.value;
+            } else {
               const strong = document.createElement('strong');
-              strong.className = emailClassName;
+              strong.className = strongClassName;
               strong.textContent = email.value;
               strong.style.marginLeft = '5px';
 
-              const jsElement = iframe.document.querySelector(`.${emailClassName}`);
-
-              if (jsElement) {
-                jsElement.remove();
-                hsFormRequired.after(strong);
-              } else {
-                hsFormRequired.after(strong);
-              }
+              confirmEmail.nextElementSibling.children[0].after(strong);
             }
-
-            email.addEventListener('input', checkEmailConfirmation);
           }
+
+          email.addEventListener('input', checkEmailConfirmation);
         }
       }
     });
