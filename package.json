@@ -29,10 +29,10 @@
     "posthtml-expressions": "^1.11.4",
     "posthtml-include": "^2.0.1",
     "sass": "^1.83.4",
-    "stylelint": "^14.16.1",
-    "stylelint-config-recommended": "^9.0.0",
-    "stylelint-config-sass-guidelines": "^9.0.0",
-    "stylelint-no-unsupported-browser-features": "^7.0.0",
+    "stylelint": "^16.13.2",
+    "stylelint-config-recommended": "^15.0.0",
+    "stylelint-config-sass-guidelines": "^12.1.0",
+    "stylelint-no-unsupported-browser-features": "^8.0.2",
     "stylelint-order": "^6.0.4"
   },
   "engines": {
