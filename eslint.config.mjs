@@ -2,6 +2,8 @@ import globals from "globals";
 import js from '@eslint/js';
 import security from 'eslint-plugin-security';
 import compat from 'eslint-plugin-compat';
+import sortKeys from 'eslint-plugin-sort-keys-fix';
+import importPlugin from 'eslint-plugin-import';
 import json from "@eslint/json";
 
 export default [
@@ -11,6 +13,7 @@ export default [
   {
     files: ['**/*.js'],
     ...js.configs.recommended,
+    ...importPlugin.flatConfigs.recommended,
     languageOptions: {
       ecmaVersion: 2021,
       sourceType: 'module',
@@ -22,9 +25,11 @@ export default [
     },
     plugins: {
       security,
+      'sort-keys-fix': sortKeys,
     },
     rules: {
       ...security.configs.recommended.rules,
+      "sort-keys-fix/sort-keys-fix": "warn",
     },
   },
   {
