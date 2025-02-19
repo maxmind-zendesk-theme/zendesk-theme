@@ -7,8 +7,6 @@
     "eslint": "^9.20.1",
     "eslint-plugin-compat": "^6.0.2",
     "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-json": "^4.0.1",
-    "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-security": "^3.0.1",
     "eslint-plugin-sort-keys-fix": "^1.1.2",
     "globals": "^15.15.0",
