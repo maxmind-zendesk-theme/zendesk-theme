@@ -1,5 +1,4 @@
 const autoprefixer = require('autoprefixer');
-// eslint-disable-next-line security/detect-child-process
 const spawn = require('child_process').spawn;
 const fs = require('fs');
 const gulp = require('gulp');
@@ -162,7 +161,6 @@ gulp.task('preview:stop', (cb) => {
 });
 
 gulp.task('watch', () => {
-  // eslint-disable-next-line security/detect-non-literal-fs-filename
   gulp.watch(
     [
       'src/**/*',
